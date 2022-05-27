@@ -140,28 +140,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Ente.cpp" />
-    <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="GerenciadorEventos.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
     <ClCompile Include="Jogo.cpp" />
-    <ClCompile Include="ListaPersonagens.cpp" />
+    <ClCompile Include="ListaEntidades.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Origem.cpp" />
-    <ClCompile Include="Personagem.cpp" />
-    <ClCompile Include="Projetil.cpp" />
+    <ClCompile Include="Entidade.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Elemento.h" />
     <ClInclude Include="Ente.h" />
-    <ClInclude Include="Entidade.h" />
     <ClInclude Include="GerenciadorEventos.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="Lista.h" />
-    <ClInclude Include="ListaPersonagens.h" />
+    <ClInclude Include="ListaEntidades.h" />
     <ClInclude Include="Obstaculo.h" />
-    <ClInclude Include="Personagem.h" />
-    <ClInclude Include="Projetil.h" />
+    <ClInclude Include="Entidade.h" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

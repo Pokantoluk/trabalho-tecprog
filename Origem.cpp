@@ -1,9 +1,11 @@
 #include "Jogo.h"
+#include "Lista.h"
+#include <iostream>
+using namespace Game;
 
 int main()
 {
-
-	Game::Jogo jogo;
+	Jogo jogo;
 
 	/* colinha para algumas coisas:
 	sf::RenderWindow window(sf::VideoMode(800, 800), "nome", sf::Style::Default);

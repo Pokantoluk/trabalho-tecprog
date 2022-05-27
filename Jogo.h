@@ -1,6 +1,9 @@
 #pragma once
-#include "ListaPersonagens.h"
+#include "Lista.h"
+#include "Entidade.h"
+#include "ListaEntidades.h"
 #include "GerenciadorGrafico.h"
+#include "GerenciadorEventos.h"
 
 
 namespace Game 
@@ -8,8 +11,9 @@ namespace Game
 	class Jogo
 	{
 	private:
-		ListaPersonagens jogadores;
-		GerenciadorGrafico gerenciador_grafico;
+		ListaEntidades entities;
+		GerenciadorGrafico gg;
+		GerenciadorEventos ge;
 		sf::Clock relogio;
 	public:
 		Jogo();

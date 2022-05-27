@@ -2560,7 +2560,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 1471,
+									"left": 1447,
 									"top": 1081,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -2581,7 +2581,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 1471,
+									"left": 1447,
 									"top": 1096,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -2602,7 +2602,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 1472,
+									"left": 1448,
 									"top": 1051,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -2623,7 +2623,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 1487,
+									"left": 1463,
 									"top": 954,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -2644,7 +2644,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 1500,
+									"left": 1476,
 									"top": 957,
 									"height": 13,
 									"alpha": 0.7853981633974483,
@@ -2664,7 +2664,7 @@
 										"$ref": "AAAAAAGA9mYsjIQe1sI="
 									},
 									"font": "Arial;13;0",
-									"left": 1456,
+									"left": 1432,
 									"top": 950,
 									"width": 7.22998046875,
 									"height": 13,
@@ -2780,7 +2780,7 @@
 							"tail": {
 								"$ref": "AAAAAAGA8/zRj/y26x8="
 							},
-							"points": "1472:935;1472:1072;988:1072",
+							"points": "1448:935;1448:1072;988:1072",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGA9mYskoQiuQY="
@@ -3961,7 +3961,7 @@
 											"font": "Arial;13;1",
 											"left": 1421,
 											"top": 1185,
-											"width": 220.14794921875,
+											"width": 244.3515625,
 											"height": 13,
 											"text": "Vector2D"
 										},
@@ -3999,7 +3999,7 @@
 									"font": "Arial;13;0",
 									"left": 1416,
 									"top": 1178,
-									"width": 230.14794921875,
+									"width": 254.3515625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGA9xX0Gf64J9U="
@@ -4037,7 +4037,7 @@
 											"font": "Arial;13;0",
 											"left": 1421,
 											"top": 1208,
-											"width": 220.14794921875,
+											"width": 244.3515625,
 											"height": 13,
 											"text": "+x: T",
 											"horizontalAlignment": 0
@@ -4055,7 +4055,7 @@
 											"font": "Arial;13;0",
 											"left": 1421,
 											"top": 1223,
-											"width": 220.14794921875,
+											"width": 244.3515625,
 											"height": 13,
 											"text": "+y: T",
 											"horizontalAlignment": 0
@@ -4065,7 +4065,7 @@
 									"font": "Arial;13;0",
 									"left": 1416,
 									"top": 1203,
-									"width": 230.14794921875,
+									"width": 254.3515625,
 									"height": 38
 								},
 								{
@@ -4091,7 +4091,7 @@
 											"font": "Arial;13;0",
 											"left": 1421,
 											"top": 1246,
-											"width": 220.14794921875,
+											"width": 244.3515625,
 											"height": 13,
 											"text": "«create»+Vector2D(x: T, y: T)",
 											"horizontalAlignment": 0
@@ -4109,7 +4109,7 @@
 											"font": "Arial;13;0",
 											"left": 1421,
 											"top": 1261,
-											"width": 220.14794921875,
+											"width": 244.3515625,
 											"height": 13,
 											"text": "«destroy»+Vector2D()",
 											"horizontalAlignment": 0
@@ -4127,7 +4127,7 @@
 											"font": "Arial;13;0",
 											"left": 1421,
 											"top": 1276,
-											"width": 220.14794921875,
+											"width": 244.3515625,
 											"height": 13,
 											"text": "+Operator +(v: Vetor2D): Vector2D",
 											"horizontalAlignment": 0
@@ -4145,7 +4145,7 @@
 											"font": "Arial;13;0",
 											"left": 1421,
 											"top": 1291,
-											"width": 220.14794921875,
+											"width": 244.3515625,
 											"height": 13,
 											"text": "+Operator -(v: Vetor2D): Vector2D",
 											"horizontalAlignment": 0
@@ -4163,7 +4163,7 @@
 											"font": "Arial;13;0",
 											"left": 1421,
 											"top": 1306,
-											"width": 220.14794921875,
+											"width": 244.3515625,
 											"height": 13,
 											"text": "+Operator *(i: int): Vector2D",
 											"horizontalAlignment": 0
@@ -4181,7 +4181,7 @@
 											"font": "Arial;13;0",
 											"left": 1421,
 											"top": 1321,
-											"width": 220.14794921875,
+											"width": 244.3515625,
 											"height": 13,
 											"text": "+Operator *(f: float): Vector2D",
 											"horizontalAlignment": 0
@@ -4199,7 +4199,7 @@
 											"font": "Arial;13;0",
 											"left": 1421,
 											"top": 1336,
-											"width": 220.14794921875,
+											"width": 244.3515625,
 											"height": 13,
 											"text": "+Operator *(d: double): Vector2D",
 											"horizontalAlignment": 0
@@ -4217,7 +4217,7 @@
 											"font": "Arial;13;0",
 											"left": 1421,
 											"top": 1351,
-											"width": 220.14794921875,
+											"width": 244.3515625,
 											"height": 13,
 											"text": "+Operator *(v: Vetor2D): T",
 											"horizontalAlignment": 0
@@ -4235,7 +4235,7 @@
 											"font": "Arial;13;0",
 											"left": 1421,
 											"top": 1366,
-											"width": 220.14794921875,
+											"width": 244.3515625,
 											"height": 13,
 											"text": "+versor(): Vector2D",
 											"horizontalAlignment": 0
@@ -4253,9 +4253,9 @@
 											"font": "Arial;13;0",
 											"left": 1421,
 											"top": 1381,
-											"width": 220.14794921875,
+											"width": 244.3515625,
 											"height": 13,
-											"text": "+ProjOrtogonal(): Vector2D",
+											"text": "+ProjOrtogonal(v: Vector2D): Vector2D",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4271,7 +4271,7 @@
 											"font": "Arial;13;0",
 											"left": 1421,
 											"top": 1396,
-											"width": 220.14794921875,
+											"width": 244.3515625,
 											"height": 13,
 											"text": "+modulo(): T",
 											"horizontalAlignment": 0
@@ -4281,7 +4281,7 @@
 									"font": "Arial;13;0",
 									"left": 1416,
 									"top": 1241,
-									"width": 230.14794921875,
+									"width": 254.3515625,
 									"height": 173
 								},
 								{
@@ -4322,7 +4322,7 @@
 											},
 											"fillColor": "#ffff00",
 											"font": "Arial;13;0",
-											"left": 1579.33349609375,
+											"left": 1603.537109375,
 											"top": 1165,
 											"width": 70.814453125,
 											"height": 13,
@@ -4332,7 +4332,7 @@
 									],
 									"fillColor": "#ffff00",
 									"font": "Arial;13;0",
-									"left": 1574.33349609375,
+									"left": 1598.537109375,
 									"top": 1160,
 									"width": 80.814453125,
 									"height": 23
@@ -4346,7 +4346,7 @@
 							"containerChangeable": true,
 							"left": 1416,
 							"top": 1160,
-							"width": 240.14794921875,
+							"width": 264.3515625,
 							"height": 264,
 							"nameCompartment": {
 								"$ref": "AAAAAAGA9xX0Gf63sT0="
@@ -4745,11 +4745,11 @@
 							},
 							"fillColor": "#ffff00",
 							"font": "Arial;13;0",
-							"left": 1672,
-							"top": 1256,
-							"width": 169,
-							"height": 129,
-							"text": "Typedef Vector2D<int> Vector2i"
+							"left": 1736,
+							"top": 1280,
+							"width": 273,
+							"height": 49,
+							"text": "typedef Vector2D<float> Vector2f;\n\ttypedef Vector2D<unsigned int> Vector2u;"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -4764,7 +4764,7 @@
 							"tail": {
 								"$ref": "AAAAAAGA900lGTqrQ4E="
 							},
-							"points": "1672:1376;1655:1376"
+							"points": "1736:1304;1679:1304"
 						},
 						{
 							"_type": "UMLAssociationView",
@@ -6869,6 +6869,17 @@
 												"$ref": "AAAAAAGA9xX0GP60pjM="
 											},
 											"direction": "return"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAGA/G0HzkX1SLo=",
+											"_parent": {
+												"$ref": "AAAAAAGA9xizwAqmit8="
+											},
+											"name": "v",
+											"type": {
+												"$ref": "AAAAAAGA9xX0GP60pjM="
+											}
 										}
 									]
 								},

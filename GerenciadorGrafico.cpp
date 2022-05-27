@@ -34,11 +34,11 @@ namespace Game
 		janela->clear(sf::Color(r, g, b));
 	}
 
-	void Game::GerenciadorGrafico::desenhar(const std::string caminho, const sf::Vector2f pos)
+	void Game::GerenciadorGrafico::desenhar(const std::string caminho, const Vector2F pos)
 	{
 		if (!texturas.count(caminho))
 		{
-			std::cerr << "textura em" << caminho << "não carregada" << std::endl;
+			std::cerr << "textura em " << caminho << " nao carregada" << std::endl;
 			exit(1);
 		}
 		else

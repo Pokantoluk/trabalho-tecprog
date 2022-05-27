@@ -16,6 +16,8 @@ namespace Game
 		Vector2D<T> operator * (int i);
 		Vector2D<T> operator * (float f);
 		Vector2D<T> operator * (double d);
+		void operator += (Vector2D<T> v);
+
 		T operator * (Vector2D v);
 		T modulo();
 		Vector2D<T> versor();
@@ -66,6 +68,14 @@ namespace Game
 	{
 		return Vector2D<T>(x + d, y + d);
 	}
+
+	template<typename T>
+	inline void Vector2D<T>::operator+=(Vector2D<T> v)
+	{
+		x += v.x;
+		y += v.y;
+	}
+
 
 	template<typename T>
 	inline T Vector2D<T>::operator*(Vector2D v)

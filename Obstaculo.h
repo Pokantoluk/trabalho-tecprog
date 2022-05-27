@@ -1,7 +1,13 @@
 #pragma once
 #include "Entidade.h"
-class Obstaculo :
-    public Entidade
+
+namespace Game
 {
-};
+    class Obstaculo :
+        public Entidade
+    {
+
+    };
+
+}
 
