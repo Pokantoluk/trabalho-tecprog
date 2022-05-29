@@ -1,6 +1,7 @@
 #pragma once
 #include "Lista.h"
-#include "Entidade.h"
+#include "Jogador.h"
+#include "Inimigo.h"
 #include "ListaEntidades.h"
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEventos.h"
@@ -19,6 +20,7 @@ namespace Game
 		Jogo();
 		~Jogo();
 		void executar();
+
 	};
 }
 

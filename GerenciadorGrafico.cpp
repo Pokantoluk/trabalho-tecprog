@@ -3,7 +3,7 @@
 namespace Game
 {
 	Game::GerenciadorGrafico::GerenciadorGrafico() :
-		janela(new sf::RenderWindow(sf::VideoMode(800, 600), "Jogo", sf::Style::Default)),
+		janela(new sf::RenderWindow(sf::VideoMode(800, 800), "Jogo", sf::Style::Default)),
 		camera(sf::Vector2f(400, 400), sf::Vector2f(800, 800))
 	{
 		janela->setView(camera);
@@ -72,7 +72,7 @@ namespace Game
 		}
 	}
 
-	void Game::GerenciadorGrafico::centralizar(const sf::Vector2f centro)
+	void Game::GerenciadorGrafico::centralizar(Vector2F centro)
 	{
 		camera.setCenter(sf::Vector2f(centro.x, centro.y));
 	}

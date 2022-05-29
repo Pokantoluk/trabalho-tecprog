@@ -22,7 +22,7 @@ namespace Game
 		void limpar(int r = 0, int g = 0, int b = 0);
 		void desenhar(const std::string caminho, const Vector2F pos);
 		bool carregar_textura(const std::string caminho);
-		void centralizar(const sf::Vector2f centro);
+		void centralizar(Vector2F centro);
 		sf::RenderWindow* get_janela() const { return janela; }
 	};
 
