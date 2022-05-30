@@ -17,20 +17,16 @@ namespace Game
 	{
 	}
 
-	void Entidade::inicializar(GerenciadorGrafico& g, GerenciadorColisoes& gc)
+	void Entidade::inicializar(GerenciadorGrafico& gg, GerenciadorColisoes& gc)
 	{
-		g.carregar_textura(caminho);
 	}
 
 	void Entidade::atualizar(float t)
 	{
-
-		position += v * t;
 	}
 
 	void Entidade::desenhar(GerenciadorGrafico &g)
 	{
-		g.desenhar(caminho, position);
 	}
 
 	const Vector2F Entidade::get_dimentions() const

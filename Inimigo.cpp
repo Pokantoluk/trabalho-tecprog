@@ -14,11 +14,13 @@ namespace Game
 	void Inimigo::inicializar(GerenciadorGrafico& gg, GerenciadorColisoes& gc)
 	{
 		gg.carregar_textura(caminho);
+		dimension = gg.get_tamanho(caminho);
 		gc.add_colidivel(this);
 	}
 
 	void Inimigo::atualizar(float t)
 	{
+		position += v * t;
 	}
 
 	void Inimigo::desenhar(GerenciadorGrafico& gg)
@@ -30,7 +32,11 @@ namespace Game
 	{
 		if (id_outro == IDsEntidades::Jogador)
 		{
-			std::cout << "uwu";
+			std::cout << "uwu"<<std::endl;
+		}
+		if (id_outro == IDsEntidades::Inimigo)
+		{
+			std::cout << "uwu" << std::endl;
 		}
 	}
 

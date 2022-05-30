@@ -12,18 +12,19 @@ namespace Game
 	{
 	}
 
-	void Jogador::inicializar(GerenciadorGrafico& gg, GerenciadorEventos& ge, GerenciadorColisoes& gc)
+	void Jogador::inicializar(GerenciadorGrafico& gg, GerenciadorColisoes& gc)
 	{
 		gg.carregar_textura(caminho);
+		dimension = gg.get_tamanho(caminho);
 		gc.add_colidivel(this);
-		
-		//id = ge.add_ouvinte_teclado([this](const sf::Event& e) {tratar_eventos(e); });
 	}
 
 	void Jogador::atualizar(float t)
 	{
 		//gravidade();
 		tratar_eventos();
+		//std::cout << v.x <<v.y<< std::endl;
+		//std::cout << position.x<<std::endl;
 		position += v*t;
 	}
 
@@ -37,18 +38,18 @@ namespace Game
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
-			v.x += 0.0001f;
+			v.x += 1.f;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
-			v.x -= 0.0001f;
+			v.x -= 1.f;
 		}
 		else
 		{
 			v.x = 0;
 		}
-		if (v.x > 0.1f) { v.x = 0.1f; }
-		if (v.x < -0.1f) { v.x = -0.1f; }
+		if (v.x > 500.f) { v.x = 500.f; }
+		if (v.x < -500.f) { v.x = -500.f; }
 	}
 
 	void Jogador::colidir(IDsEntidades::IDsEntidades id_outro, Vector2F pos_outro, Vector2F dimension_outro)

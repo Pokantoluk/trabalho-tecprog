@@ -54,19 +54,19 @@ namespace Game
 	template<typename T>
 	inline Vector2D<T> Vector2D<T>::operator*(int i)
 	{
-		return Vector2D<T>(x + i, y + i);
+		return Vector2D<T>(x * i, y * i);
 	}
 
 	template<typename T>
 	inline Vector2D<T> Vector2D<T>::operator*(float f)
 	{
-		return Vector2D<T>(x + f, y + f);
+		return Vector2D<T>(x * f, y * f);
 	}
 
 	template<typename T>
 	inline Vector2D<T> Vector2D<T>::operator*(double d)
 	{
-		return Vector2D<T>(x + d, y + d);
+		return Vector2D<T>(x * d, y * d);
 	}
 
 	template<typename T>

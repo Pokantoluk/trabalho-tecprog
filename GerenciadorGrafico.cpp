@@ -32,7 +32,7 @@ namespace Game
 	{
 		if (!texturas.count(caminho))
 		{
-			std::cerr << "textura em " << caminho << " nao carregada" << std::endl;
+			std::cerr << "textura em " << caminho << " nao carregada no desenhar" << std::endl;
 			exit(1);
 		}
 		else
@@ -60,7 +60,6 @@ namespace Game
 				std::cerr << "imagem não localizada em " << caminho << std::endl;
 				exit(1);
 			}
-			//texturas.insert(std::pair<const std::string, sf::Texture*>(caminho, text));
 			texturas.emplace(caminho, text);
 			return true;
 		}
@@ -68,6 +67,7 @@ namespace Game
 
 	void Game::GerenciadorGrafico::centralizar(Vector2F centro)
 	{
+		std::cout << centro.x<<std::endl;
 		camera.setCenter(sf::Vector2f(centro.x, centro.y));
 	}
 	const Vector2F GerenciadorGrafico::get_tamanho(const std::string& caminho)

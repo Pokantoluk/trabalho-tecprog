@@ -20,7 +20,7 @@ namespace Game
 	public:
 		Entidade(IDsEntidades::IDsEntidades id, Vector2F pos = Vector2F(0.0f, 0.0f), Vector2F vel = Vector2F(0.0f, 0.0f), const char* caminho_textura = nullptr);
 		virtual ~Entidade();
-		virtual void inicializar(GerenciadorGrafico& g, GerenciadorColisoes& gc);
+		virtual void inicializar(GerenciadorGrafico& gg, GerenciadorColisoes& gc);
 		virtual void atualizar(float t);
 		virtual void desenhar(GerenciadorGrafico &g);
 		const Vector2F get_dimentions() const;
