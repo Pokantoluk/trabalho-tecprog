@@ -24,7 +24,7 @@ namespace Game
 	{
 		//gravidade();
 		tratar_eventos();
-		position += v * t;
+		position += v*t;
 	}
 
 	void Jogador::desenhar(GerenciadorGrafico& gg)
@@ -57,7 +57,7 @@ namespace Game
 
 	void Jogador::gravidade()
 	{
-		v.y += 0.005f;
+		v.y += 0.0002f;
 		if (v.y > 0.2f) { v.y = 0.2f; }
 	}
 

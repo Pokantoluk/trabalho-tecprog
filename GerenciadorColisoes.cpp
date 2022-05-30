@@ -12,7 +12,6 @@ namespace Game
 
 		Vector2F distancia = pos1 - pos2;
 
-
 		return (fabs(distancia.x <(dim1.x + dim2.x)/2.0) && ((fabs(distancia.y < (dim1.y + dim2.y) / 2.0))));
 	}
 	GerenciadorColisoes::GerenciadorColisoes()
@@ -46,6 +45,7 @@ namespace Game
 				colidivel* p2 = *j;
 				if (colidiu(p1, p2))
 				{
+					
 					p1->colidir(p2->get_id(), p2->get_pos(), p2->get_dimentions());
 					p2->colidir(p1->get_id(), p1->get_pos(), p1->get_dimentions());
 				}
