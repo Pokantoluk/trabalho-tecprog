@@ -24,6 +24,7 @@ namespace Game
 		bool carregar_textura(const std::string caminho);
 		void centralizar(Vector2F centro);
 		sf::RenderWindow* get_janela() const { return janela; }
+		const Vector2F get_tamanho(const std::string& caminho);
 	};
 
 }

@@ -5,6 +5,7 @@
 #include "ListaEntidades.h"
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEventos.h"
+#include "GerenciadorColisoes.h"
 
 
 namespace Game 
@@ -15,6 +16,7 @@ namespace Game
 		ListaEntidades entities;
 		GerenciadorGrafico gg;
 		GerenciadorEventos ge;
+		GerenciadorColisoes gc;
 		sf::Clock relogio;
 	public:
 		Jogo();

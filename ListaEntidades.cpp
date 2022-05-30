@@ -17,12 +17,12 @@ namespace Game
 		lista.inserir(info);
 	}
 
-	void ListaEntidades::inicializar_entidades(GerenciadorGrafico& gg, GerenciadorEventos& gf)
+	void ListaEntidades::inicializar_entidades(GerenciadorGrafico& gg, GerenciadorEventos& gf, GerenciadorColisoes& gc)
 	{
 		Entidade* p = lista.voltar_inicio();
 		while (p)
 		{
-			p->inicializar(gg);
+			p->inicializar(gg, gc);
 			p = lista.proximo();
 		}
 	}

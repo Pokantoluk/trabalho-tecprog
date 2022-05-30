@@ -12,12 +12,6 @@ namespace Game
 	Game::GerenciadorGrafico::~GerenciadorGrafico()
 	{
 		delete janela;
-		/*
-		for (auto i = texturas.begin(); i!= texturas.end(); i++)
-		{
-			delete i->second;
-		}
-		*/
 		for (auto i : texturas)
 		{
 			delete i.second;
@@ -75,5 +69,15 @@ namespace Game
 	void Game::GerenciadorGrafico::centralizar(Vector2F centro)
 	{
 		camera.setCenter(sf::Vector2f(centro.x, centro.y));
+	}
+	const Vector2F GerenciadorGrafico::get_tamanho(const std::string& caminho)
+	{
+		if (!texturas.count(caminho))
+		{
+			std::cerr << "textura em " << caminho << " nao carregada" << std::endl;
+			exit(1);
+		}
+		sf::Vector2u tamanho = (texturas[caminho]->getSize());
+		return Vector2F(tamanho.x, tamanho.y);
 	}
 }

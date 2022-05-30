@@ -5,11 +5,11 @@
 namespace Game
 {
 
-	Entidade::Entidade(Vector2F pos, Vector2F vel, const char* caminho_textura) :
+	Entidade::Entidade(IDsEntidades::IDsEntidades id, Vector2F pos, Vector2F vel, const char* caminho_textura) :
 		position(pos),
 		v(vel),
 		caminho(caminho_textura),
-		vivo(vivo)
+		id(id)
 	{
 	}
 
@@ -17,13 +17,14 @@ namespace Game
 	{
 	}
 
-	void Entidade::inicializar(GerenciadorGrafico& g)
+	void Entidade::inicializar(GerenciadorGrafico& g, GerenciadorColisoes& gc)
 	{
 		g.carregar_textura(caminho);
 	}
 
 	void Entidade::atualizar(float t)
 	{
+
 		position += v * t;
 	}
 
@@ -31,10 +32,15 @@ namespace Game
 	{
 		g.desenhar(caminho, position);
 	}
-	void Entidade::gravidade()
+
+	const Vector2F Entidade::get_dimentions() const
 	{
-			if (vivo){ v.y += 0.005f; }
-			else{ v.y = 0; }
-			if (v.y > 0.2f) { v.y = 0.2f; }
+		return dimension;
 	}
+
+	const IDsEntidades::IDsEntidades Entidade::get_id() const
+	{
+		return id;
+	}
+	
 }
