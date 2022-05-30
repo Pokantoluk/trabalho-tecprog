@@ -5,18 +5,18 @@ namespace Game
 {
 	Jogo::Jogo()
 	{
-		entities.inserir(new Jogador(Vector2F(50.0f, 50.0f), Vector2F(0.0f, 0.0f), "assets/mario.png"));
-		entities.inserir(new Inimigo(Vector2F(300.0f, 50.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
-		entities.inserir(new Inimigo(Vector2F(600.0f, 500.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
-		entities.inserir(new Inimigo(Vector2F(600.0f, 50.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
-		entities.inicializar_entidades(gg, ge, gc);
+		entidades.inserir(new Jogador(Vector2F(50.0f, 50.0f), Vector2F(0.0f, 0.0f), "assets/mario.png"));
+		entidades.inserir(new Inimigo(Vector2F(300.0f, 50.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
+		entidades.inserir(new Inimigo(Vector2F(600.0f, 500.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
+		entidades.inserir(new Inimigo(Vector2F(600.0f, 50.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
+		entidades.inicializar_entidades(gg, ge, gc);
 		ge.set_janela(gg.get_janela());
 		executar();
 	}
 
 	Jogo::~Jogo()
 	{
-		entities.destruir();
+		entidades.destruir();
 	}
 
 	void Jogo::executar()
@@ -28,9 +28,9 @@ namespace Game
 			relogio.restart();
 			ge.tratar_eventos();
 			gg.limpar();
-			entities.update(t.asSeconds());
-			gc.verificar_colisoes();
-			entities.draw(gg);
+			entidades.atualizar(t.asSeconds());
+			gc.verificar_colisoes();//retirar o Entidade
+			entidades.percorrer_desenhar(gg);
 			gg.get_janela()->display();
 		}
 	}

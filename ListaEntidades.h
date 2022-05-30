@@ -18,8 +18,8 @@ namespace Game
 		void inserir(Entidade* info);
 
 		void inicializar_entidades(GerenciadorGrafico& gg, GerenciadorEventos& ge, GerenciadorColisoes& gc);
-		void update(float t);
-		void draw(GerenciadorGrafico& g);
+		void atualizar(float t);
+		void percorrer_desenhar(GerenciadorGrafico& g);
 		void destruir();
 		
 

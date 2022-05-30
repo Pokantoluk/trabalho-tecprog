@@ -5,18 +5,18 @@
 
 namespace Game
 {
-	class colidivel;
+	class Entidade;
 	class GerenciadorColisoes
 	{
 	private:
-		std::set<colidivel*> colisions;
-		bool colidiu(colidivel* p1, colidivel* p2);
+		std::set<Entidade*> colisions;
+		bool colidiu(Entidade* p1, Entidade* p2);
 	public:
 		GerenciadorColisoes();
 		~GerenciadorColisoes();
 
-		void add_colidivel(colidivel* p);
-		void rm_colidivel(colidivel* p);
+		void add_Entidade(Entidade* p);
+		void rm_Entidade(Entidade* p);
 		void rm_todos();
 		void verificar_colisoes();
 

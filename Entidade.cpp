@@ -6,7 +6,7 @@ namespace Game
 {
 
 	Entidade::Entidade(IDsEntidades::IDsEntidades id, Vector2F pos, Vector2F vel, const char* caminho_textura) :
-		position(pos),
+		posicao(pos),
 		v(vel),
 		caminho(caminho_textura),
 		id(id)
@@ -29,9 +29,9 @@ namespace Game
 	{
 	}
 
-	const Vector2F Entidade::get_dimentions() const
+	const Vector2F Entidade::get_dim() const
 	{
-		return dimension;
+		return dimensao;
 	}
 
 	const IDsEntidades::IDsEntidades Entidade::get_id() const

@@ -27,7 +27,7 @@ namespace Game
 		}
 	}
 
-	void ListaEntidades::update(float t)
+	void ListaEntidades::atualizar(float t)
 	{
 		Entidade* p = lista.voltar_inicio();
 		while (p)
@@ -37,7 +37,7 @@ namespace Game
 		}
 	}
 
-	void ListaEntidades::draw(GerenciadorGrafico& gg)
+	void ListaEntidades::percorrer_desenhar(GerenciadorGrafico& gg)
 	{
 		Entidade* p = lista.voltar_inicio();
 		while (p)

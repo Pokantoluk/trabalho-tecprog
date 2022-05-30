@@ -13,7 +13,7 @@ namespace Game
 	class Jogo
 	{
 	private:
-		ListaEntidades entities;
+		ListaEntidades entidades;
 		GerenciadorGrafico gg;
 		GerenciadorEventos ge;
 		GerenciadorColisoes gc;

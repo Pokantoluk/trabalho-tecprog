@@ -3,7 +3,7 @@
 namespace Game
 {
 	Inimigo::Inimigo(Vector2F pos, Vector2F vel, const char* caminho_textura) :
-		colidivel(IDsEntidades::Inimigo,pos, vel, caminho_textura)
+		Entidade(IDsEntidades::Inimigo,pos, vel, caminho_textura)
 	{
 	}
 
@@ -14,29 +14,29 @@ namespace Game
 	void Inimigo::inicializar(GerenciadorGrafico& gg, GerenciadorColisoes& gc)
 	{
 		gg.carregar_textura(caminho);
-		dimension = gg.get_tamanho(caminho);
-		gc.add_colidivel(this);
+		dimensao = gg.get_tamanho(caminho);
+		gc.add_Entidade(this);
 	}
 
 	void Inimigo::atualizar(float t)
 	{
-		position += v * t;
+		posicao += v * t;
 	}
 
 	void Inimigo::desenhar(GerenciadorGrafico& gg)
 	{
-		gg.desenhar(caminho, position);
+		gg.desenhar(caminho, posicao);
 	}
 
 	void Inimigo::colidir(IDsEntidades::IDsEntidades id_outro, Vector2F pos_outro, Vector2F dimension_outro)
 	{
 		if (id_outro == IDsEntidades::Jogador)
 		{
-			std::cout << "uwu"<<std::endl;
+			std::cout << "encostou"<<std::endl;
 		}
 		if (id_outro == IDsEntidades::Inimigo)
 		{
-			std::cout << "uwu" << std::endl;
+			std::cout << "" << std::endl;
 		}
 	}
 

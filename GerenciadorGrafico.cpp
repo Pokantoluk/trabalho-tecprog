@@ -67,7 +67,7 @@ namespace Game
 
 	void Game::GerenciadorGrafico::centralizar(Vector2F centro)
 	{
-		std::cout << centro.x<<std::endl;
+		//std::cout << centro.x<<std::endl;
 		camera.setCenter(sf::Vector2f(centro.x, centro.y));
 	}
 	const Vector2F GerenciadorGrafico::get_tamanho(const std::string& caminho)

@@ -1,10 +1,10 @@
 #pragma once
-#include "colidivel.h"
+#include "Entidade.h"
 
 namespace Game
 {
 	class Inimigo :
-		public colidivel
+		public Entidade
 	{
 	private:
 

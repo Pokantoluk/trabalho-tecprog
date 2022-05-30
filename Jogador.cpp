@@ -4,7 +4,7 @@
 namespace Game
 {
 	Jogador::Jogador(Vector2F pos, Vector2F vel, const char* caminho_textura) :
-		colidivel(IDsEntidades::Jogador, pos, vel, caminho_textura)
+		Entidade(IDsEntidades::Jogador, pos, vel, caminho_textura)
 	{
 	}
 
@@ -15,8 +15,8 @@ namespace Game
 	void Jogador::inicializar(GerenciadorGrafico& gg, GerenciadorColisoes& gc)
 	{
 		gg.carregar_textura(caminho);
-		dimension = gg.get_tamanho(caminho);
-		gc.add_colidivel(this);
+		dimensao = gg.get_tamanho(caminho);
+		gc.add_Entidade(this);
 	}
 
 	void Jogador::atualizar(float t)
@@ -24,14 +24,14 @@ namespace Game
 		//gravidade();
 		tratar_eventos();
 		//std::cout << v.x <<v.y<< std::endl;
-		//std::cout << position.x<<std::endl;
-		position += v*t;
+		//std::cout << posicao.x<<std::endl;
+		posicao += v*t;
 	}
 
 	void Jogador::desenhar(GerenciadorGrafico& gg)
 	{
-		gg.centralizar(position);
-		gg.desenhar(caminho, position);
+		gg.centralizar(posicao);
+		gg.desenhar(caminho, posicao);
 	}
 
 	void Jogador::tratar_eventos(/*const sf::Event& e*/)
