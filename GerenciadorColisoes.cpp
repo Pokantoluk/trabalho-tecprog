@@ -21,24 +21,24 @@ namespace Game
 
 	void GerenciadorColisoes::add_Entidade(Entidade* p)
 	{
-		colisions.insert(p);
+		colisoes.insert(p);
 	}
 	void GerenciadorColisoes::rm_Entidade(Entidade* p)
 	{
-		colisions.erase(p);
+		colisoes.erase(p);
 	}
 	void GerenciadorColisoes::rm_todos()
 	{
-		colisions.clear();
+		colisoes.clear();
 	}
 	void GerenciadorColisoes::verificar_colisoes()
 	{
-		//std::cout<<colisions.size()<<std::endl;
-		for (auto primeiro = colisions.begin(); primeiro != colisions.end(); primeiro++)
+		//std::cout<<colisoes.size()<<std::endl;
+		for (auto primeiro = colisoes.begin(); primeiro != colisoes.end(); primeiro++)
 		{
 			auto segundo = primeiro;
 			segundo++;
-			while (segundo != colisions.end())
+			while (segundo != colisoes.end())
 			{
 				Entidade* p1 = *primeiro;
 				Entidade* p2 = *segundo;

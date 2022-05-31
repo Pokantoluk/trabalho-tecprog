@@ -4,9 +4,13 @@ namespace Game
 {
 	Game::GerenciadorGrafico::GerenciadorGrafico() :
 		janela(new sf::RenderWindow(sf::VideoMode(800, 800), "Jogo", sf::Style::Default)),
-		camera(sf::Vector2f(400, 400), sf::Vector2f(800, 800))
+		camera(sf::Vector2f(400, 400), sf::Vector2f(800, 800)),
+		piso()
 	{
 		janela->setView(camera);
+		piso.setFillColor(sf::Color::Green);
+		piso.setSize(sf::Vector2f(800.0f, 50.0f));
+		piso.setPosition(0.0f, 750.0f);
 	}
 
 	Game::GerenciadorGrafico::~GerenciadorGrafico()
@@ -20,6 +24,7 @@ namespace Game
 
 	void Game::GerenciadorGrafico::mostrar() const
 	{
+		//janela->draw(piso);
 		janela->display();
 	}
 

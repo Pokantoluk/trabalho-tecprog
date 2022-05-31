@@ -21,10 +21,9 @@ namespace Game
 
 	void Jogador::atualizar(float t)
 	{
-		//gravidade();
+		
+		gravidade();
 		tratar_eventos();
-		//std::cout << v.x <<v.y<< std::endl;
-		//std::cout << posicao.x<<std::endl;
 		posicao += v*t;
 	}
 
@@ -34,7 +33,7 @@ namespace Game
 		gg.desenhar(caminho, posicao);
 	}
 
-	void Jogador::tratar_eventos(/*const sf::Event& e*/)
+	void Jogador::tratar_eventos()
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
@@ -54,12 +53,17 @@ namespace Game
 
 	void Jogador::colidir(IDsEntidades::IDsEntidades id_outro, Vector2F pos_outro, Vector2F dimension_outro)
 	{
+		if (id_outro == IDsEntidades::obstaculo)
+		{
+			v.y = 0;
+			v.y -= 2.f;
+		}
 	}
 
 	void Jogador::gravidade()
 	{
-		v.y += 0.0002f;
-		if (v.y > 0.2f) { v.y = 0.2f; }
+			v.y += 2.f;
+			if (v.y > 1000.f) { v.y = 1000.f; }
 	}
 
 }

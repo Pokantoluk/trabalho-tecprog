@@ -9,7 +9,8 @@ namespace Game
 		posicao(pos),
 		v(vel),
 		caminho(caminho_textura),
-		id(id)
+		id(id),
+		encostou(false)
 	{
 	}
 
@@ -19,24 +20,18 @@ namespace Game
 
 	void Entidade::inicializar(GerenciadorGrafico& gg, GerenciadorColisoes& gc)
 	{
+		gg.carregar_textura(caminho);
+		dimensao = gg.get_tamanho(caminho);
+		gc.add_Entidade(this);
 	}
 
 	void Entidade::atualizar(float t)
 	{
 	}
 
-	void Entidade::desenhar(GerenciadorGrafico &g)
+	void Entidade::desenhar(GerenciadorGrafico &gg)
 	{
-	}
-
-	const Vector2F Entidade::get_dim() const
-	{
-		return dimensao;
-	}
-
-	const IDsEntidades::IDsEntidades Entidade::get_id() const
-	{
-		return id;
+		gg.desenhar(caminho, posicao);
 	}
 	
 }

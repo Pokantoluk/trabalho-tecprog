@@ -9,7 +9,7 @@ namespace Game
 	class GerenciadorColisoes
 	{
 	private:
-		std::set<Entidade*> colisions;
+		std::set<Entidade*> colisoes;
 		bool colidiu(Entidade* p1, Entidade* p2);
 	public:
 		GerenciadorColisoes();
