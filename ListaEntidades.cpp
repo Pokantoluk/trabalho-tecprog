@@ -1,8 +1,10 @@
 #include "ListaEntidades.h"
+#include "Entidade.h"
 
 namespace Game
 {
-	ListaEntidades::ListaEntidades()
+	ListaEntidades::ListaEntidades():
+		tam(0)
 	{
 
 	}
@@ -15,7 +17,15 @@ namespace Game
 	void ListaEntidades::inserir(Entidade* info)
 	{
 		lista.inserir(info);
+		tam++;
 	}
+
+	Entidade* ListaEntidades::operator[](int i)
+	{
+		return lista[i];
+	}
+
+
 
 	void ListaEntidades::inicializar_entidades(GerenciadorGrafico& gg, GerenciadorEventos& gf, GerenciadorColisoes& gc)
 	{

@@ -22,7 +22,6 @@ namespace Game
 	{
 		gg.carregar_textura(caminho);
 		dimensao = gg.get_tamanho(caminho);
-		gc.add_Entidade(this);
 	}
 
 	void Entidade::atualizar(float t)

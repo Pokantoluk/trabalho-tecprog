@@ -16,13 +16,10 @@ namespace Game
 	{
 		gg.carregar_textura(caminho);
 		dimensao = gg.get_tamanho(caminho);
-		gc.add_Entidade(this);
 	}
 
 	void Jogador::atualizar(float t)
 	{
-		
-		gravidade();
 		tratar_eventos();
 		posicao += v*t;
 	}
@@ -51,19 +48,13 @@ namespace Game
 		if (v.x < -500.f) { v.x = -500.f; }
 	}
 
-	void Jogador::colidir(IDsEntidades::IDsEntidades id_outro, Vector2F pos_outro, Vector2F dimension_outro)
+	void Jogador::colidir(Entidade* ente, Vector2F intersse)
 	{
-		if (id_outro == IDsEntidades::obstaculo)
+		if (ente->get_id() == IDsEntidades::obstaculo)
 		{
-			v.y = 0;
+			v.y = 0.f;
 			v.y -= 2.f;
 		}
-	}
-
-	void Jogador::gravidade()
-	{
-			v.y += 2.f;
-			if (v.y > 1000.f) { v.y = 1000.f; }
 	}
 
 }

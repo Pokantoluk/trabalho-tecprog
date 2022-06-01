@@ -3,20 +3,22 @@
 
 namespace Game 
 {
-	Jogo::Jogo()
+	Jogo::Jogo():
+		gc(&entidades_moveis, &entidades_estaticas)
 	{
-		entidades.inserir(new Jogador(Vector2F(50.0f, 50.0f), Vector2F(0.0f, 0.0f), "assets/mario.png"));
-		entidades.inserir(new Entidades::Inimigo(Vector2F(300.0f, 50.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
-		//entidades.inserir(new Entidades::Obstaculos::Obstaculo(Vector2F(300.0f,720.0f), "assets/piso.png"));
-		//entidades.inserir(new Inimigo(Vector2F(600.0f, 50.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
-		entidades.inicializar_entidades(gg, ge, gc);
+		entidades_moveis.inserir(new Jogador(Vector2F(50.0f, 50.0f), Vector2F(0.0f, 0.0f), "assets/mario.png"));
+		entidades_moveis.inserir(new Entidades::Inimigo(Vector2F(300.0f, 50.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
+		entidades_estaticas.inserir(new Entidades::Obstaculos::Obstaculo(Vector2F(0.0f,720.0f), "assets/piso.png"));
+		//entidades_moveis.inserir(new Inimigo(Vector2F(600.0f, 50.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
+		entidades_moveis.inicializar_entidades(gg, ge, gc);
+		entidades_estaticas.inicializar_entidades(gg, ge, gc);
 		ge.set_janela(gg.get_janela());
 		executar();
 	}
 
 	Jogo::~Jogo()
 	{
-		entidades.destruir();
+		entidades_moveis.destruir();
 	}
 
 	void Jogo::executar()
@@ -28,9 +30,11 @@ namespace Game
 			relogio.restart();
 			ge.tratar_eventos();
 			gg.limpar();
-			entidades.atualizar(t.asSeconds());
+			entidades_moveis.atualizar(t.asSeconds());
+			entidades_estaticas.atualizar(t.asSeconds());
 			gc.verificar_colisoes();
-			entidades.percorrer_desenhar(gg);
+			entidades_moveis.percorrer_desenhar(gg);
+			entidades_estaticas.percorrer_desenhar(gg);
 			gg.mostrar();
 		}
 	}

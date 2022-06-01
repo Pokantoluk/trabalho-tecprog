@@ -1,68 +1,71 @@
 #pragma once
+#include <iostream>
 
 namespace Game
 {
-	template<typename T>
+	template<typename TL>
 	class Lista
 	{
 	private:
-		class ElementoLista
+		template<typename TE>
+		class Elemento
 		{
 		private:
-			T* data;
-			ElementoLista* prev;
-			ElementoLista* next;
+			TE* data;
+			Elemento<TE>* ante;
+			Elemento<TE>* prox;
 
 		public:
-			ElementoLista(T* data = nullptr, ElementoLista* prev = nullptr, ElementoLista* next = nullptr):
-				data(data),
-				prev(prev),
-				next(next)
+			Elemento():
+				data(nullptr),
+				ante(nullptr),
+				prox(nullptr)
 			{
 			}
-			~ElementoLista(){}
+			~Elemento(){}
 
 			/*gets*/
-			ElementoLista* get_prev() { return prev; }
-			ElementoLista* get_next() { return next; }
-			T* get_data() { return data; }
+			Elemento<TE>* get_ante() { return ante; }
+			Elemento<TE>* get_prox() { return prox; }
+			TE* get_data() { return data; }
 
 			/*sets*/
-			void set_prev(ElementoLista* prev) { this->prev = prev; }
-			void set_next(ElementoLista* next) { this->next = next; }
-			void set_data(T* data) { this->data = data; }
+			void set_ante(Elemento<TE>* ante) { this->ante = ante; }
+			void set_prox(Elemento<TE>* prox) { this->prox = prox; }
+			void set_data(TE* data) { this->data = data; }
 		};
-		ElementoLista* inicio;
-		ElementoLista* fim;
-		ElementoLista* atual;
+
+		Elemento<TL>* inicio;
+		Elemento<TL>* fim;
+		Elemento<TL>* atual;
 	public:
 		Lista();
 		~Lista();
-		void inserir(T* info);
+
+		void inserir(TL* info);
 		void esvaziar();
-		T* voltar_inicio();
-		T* proximo();
-
-
-
+		TL* voltar_inicio();
+		TL* proximo();
+		TL* operator[](int x);
 	};
 
-	template<typename T>
-	inline Lista<T>::Lista()
+	template<typename TL>
+	inline Lista<TL>::Lista()
 	{
 	}
 
-	template<typename T>
-	inline Lista<T>::~Lista()
+	template<typename TL>
+	inline Lista<TL>::~Lista()
 	{
 	}
 
-	template<typename T>
-	inline void Lista<T>::inserir(T* info)
+	template<typename TL>
+	inline void Lista<TL>::inserir(TL* info)
 	{
 		if (info)
 		{
-			ElementoLista* novo = new ElementoLista(info);//cria um elementolista com data = info;
+			Elemento<TL>* novo = new Elemento<TL>();
+			novo->set_data(info);
 			if (!inicio)
 			{
 				inicio = novo;
@@ -70,20 +73,20 @@ namespace Game
 			}
 			else
 			{
-				fim->set_next(novo);
-				novo->set_prev(fim);
+				fim->set_prox(novo);
+				novo->set_ante(fim);
 				fim = novo;
 			}
 		}
 	}
-	template<typename T>
-	inline void Lista<T>::esvaziar()
+	template<typename TL>
+	inline void Lista<TL>::esvaziar()
 	{
-		ElementoLista* aux = inicio;
+		Elemento<TL>* aux = inicio;
 		atual = inicio;
 		while (atual)
 		{
-			aux = atual->get_next();
+			aux = atual->get_prox();
 			delete atual;
 			atual = aux;
 		}
@@ -91,21 +94,36 @@ namespace Game
 		fim = nullptr;
 		atual = nullptr;
 	}
-	template<typename T>
-	inline T* Lista<T>::voltar_inicio()
+	template<typename TL>
+	inline TL* Lista<TL>::voltar_inicio()
 	{
 		atual = inicio;
 		if (atual) { return atual->get_data(); }
 		else { return nullptr; }
 	}
-	template<typename T>
-	inline T* Lista<T>::proximo()
+	template<typename TL>
+	inline TL* Lista<TL>::proximo()
 	{
-		atual = atual->get_next();
+		atual = atual->get_prox();
 		if (atual) { return atual->get_data(); }
 		else { return nullptr; }
 	}
 
+	template<typename TL>
+	TL* Lista<TL>::operator[](int index)
+	{
+		Elemento<TL>* aux = inicio;
+		for (int i = 0; i < index; i++)
+		{
+			aux = aux->get_prox();
+		}
+		if (aux == nullptr)
+		{
+			std::cout << "Erro no operator[] aux == nullptr." << std::endl;
+			exit(1);
+		}
+		return aux->get_data();
+	}
 }
 
 

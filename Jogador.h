@@ -15,8 +15,7 @@ namespace Game
 		void atualizar(float t);
 		void desenhar(GerenciadorGrafico& gg);
 		void tratar_eventos();
-		void colidir(IDsEntidades::IDsEntidades id_outro, Vector2F pos_outro, Vector2F dimension_outro);
-		void gravidade();
+		void colidir(Entidade* ente, Vector2F intersse);
 	};
 
 }

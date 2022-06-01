@@ -1,25 +1,28 @@
 #pragma once
 #include <set>
+#include <vector>
+#include <list>
 #include <math.h>
-
+#include "ListaEntidades.h"
 
 namespace Game
 {
+	class Inimigo;
 	class Entidade;
+	class Obstaculo;
+	class Jogador;
 	class GerenciadorColisoes
 	{
 	private:
-		std::set<Entidade*> colisoes;
-		bool colidiu(Entidade* p1, Entidade* p2);
+
+
+		ListaEntidades* moveis;
+		ListaEntidades* estaticos;
 	public:
-		GerenciadorColisoes();
+		GerenciadorColisoes(ListaEntidades* m = nullptr, ListaEntidades* e = nullptr);
 		~GerenciadorColisoes();
 
-		void add_Entidade(Entidade* p);
-		void rm_Entidade(Entidade* p);
-		void rm_todos();
 		void verificar_colisoes();
-
 	};
 
 }

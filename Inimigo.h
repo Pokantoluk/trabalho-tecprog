@@ -16,7 +16,7 @@ namespace Game
 			void inicializar(GerenciadorGrafico& gg, GerenciadorColisoes& gc);
 			void atualizar(float t);
 			void desenhar(GerenciadorGrafico& gg);
-			void colidir(IDsEntidades::IDsEntidades id_outro, Vector2F pos_outro, Vector2F dimension_outro);
+			void colidir(Entidade* ente, Vector2F intersse);
 
 		};
 	}

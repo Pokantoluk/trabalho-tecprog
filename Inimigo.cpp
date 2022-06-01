@@ -17,7 +17,6 @@ namespace Game
 		{
 			gg.carregar_textura(caminho);
 			dimensao = gg.get_tamanho(caminho);
-			gc.add_Entidade(this);
 		}
 
 		void Inimigo::atualizar(float t)
@@ -30,13 +29,13 @@ namespace Game
 			gg.desenhar(caminho, posicao);
 		}
 
-		void Inimigo::colidir(IDsEntidades::IDsEntidades id_outro, Vector2F pos_outro, Vector2F dimension_outro)
+		void Inimigo::colidir(Entidade* ente, Vector2F intersse)
 		{
-			if (id_outro == IDsEntidades::Jogador)
+			if (ente->get_id() == IDsEntidades::Jogador)
 			{
 				std::cout << "encostou" << std::endl;
 			}
-			if (id_outro == IDsEntidades::Inimigo)
+			if (ente->get_id()== IDsEntidades::Inimigo)
 			{
 				std::cout << "" << std::endl;
 			}

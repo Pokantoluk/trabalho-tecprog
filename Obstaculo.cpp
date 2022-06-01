@@ -14,7 +14,7 @@ namespace Game
 			Obstaculo::~Obstaculo()
 			{
 			}
-			void Obstaculo::colidir(IDsEntidades::IDsEntidades id_outro, Vector2F pos_outro, Vector2F dimension_outro)
+			void Obstaculo::colidir(Entidade* ente, Vector2F intersse)
 			{
 			}
 
@@ -22,10 +22,10 @@ namespace Game
 			{
 				gg.carregar_textura(caminho);
 				dimensao = gg.get_tamanho(caminho);
-				gc.add_Entidade(this);
 			}
 			void Obstaculo::atualizar(float t)
 			{
+				//std::cout << posicao.x << std::endl;
 			}
 			void Obstaculo::desenhar(GerenciadorGrafico& gg)
 			{
