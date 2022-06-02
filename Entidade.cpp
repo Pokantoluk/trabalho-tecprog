@@ -9,8 +9,7 @@ namespace Game
 		posicao(pos),
 		v(vel),
 		caminho(caminho_textura),
-		id(id),
-		encostou(false)
+		id(id)
 	{
 	}
 

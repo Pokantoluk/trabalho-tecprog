@@ -14,7 +14,6 @@ namespace Game
 		sf::RenderWindow* janela;
 		sf::View camera;
 		std::map<const std::string, sf::Texture*> texturas;
-		sf::RectangleShape piso;
 
 	public:
 		GerenciadorGrafico();

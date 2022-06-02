@@ -5,6 +5,10 @@
 #include "IDsEntidades.h"
 #include "GerenciadorColisoes.h"
 
+#define GRAVIDADE 1500.f
+#define VEL_INIMIGO 100.f
+#define VEL_JOGADOR 300.f
+#define PULO 150.0f
 
 namespace Game 
 {
@@ -12,7 +16,6 @@ namespace Game
 		public Ente
 	{
 	protected:
-		bool encostou;
 		Vector2F posicao;
 		Vector2F v;
 		Vector2F dimensao;

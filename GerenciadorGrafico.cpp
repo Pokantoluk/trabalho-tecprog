@@ -4,13 +4,11 @@ namespace Game
 {
 	Game::GerenciadorGrafico::GerenciadorGrafico() :
 		janela(new sf::RenderWindow(sf::VideoMode(800, 800), "Jogo", sf::Style::Default)),
-		camera(sf::Vector2f(400, 400), sf::Vector2f(800, 800)),
-		piso()
+		camera()
 	{
+		camera.setSize(800.f, 800.f);
+		camera.setCenter(400.f, 400.f);
 		janela->setView(camera);
-		piso.setFillColor(sf::Color::Green);
-		piso.setSize(sf::Vector2f(800.0f, 50.0f));
-		piso.setPosition(0.0f, 750.0f);
 	}
 
 	Game::GerenciadorGrafico::~GerenciadorGrafico()
@@ -24,7 +22,6 @@ namespace Game
 
 	void Game::GerenciadorGrafico::mostrar() const
 	{
-		//janela->draw(piso);
 		janela->display();
 	}
 
@@ -49,7 +46,6 @@ namespace Game
 			sprite.setTexture(*text);
 
 			sprite.setPosition(pos.x, pos.y);
-
 			janela->draw(sprite);
 		}
 	}
@@ -72,9 +68,11 @@ namespace Game
 
 	void Game::GerenciadorGrafico::centralizar(Vector2F centro)
 	{
-		//std::cout << centro.x<<std::endl;
-		camera.setCenter(sf::Vector2f(centro.x, centro.y));
+		if (centro.x < 400.f) { centro.x = 400.f; }
+		camera.setCenter(centro.x, 400.f);
+		janela->setView(camera);
 	}
+	
 	const Vector2F GerenciadorGrafico::get_tamanho(const std::string& caminho)
 	{
 		if (!texturas.count(caminho))
@@ -85,4 +83,5 @@ namespace Game
 		sf::Vector2u tamanho = (texturas[caminho]->getSize());
 		return Vector2F(tamanho.x, tamanho.y);
 	}
+	
 }
