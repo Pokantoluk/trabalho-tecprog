@@ -3,11 +3,14 @@
 
 namespace Game
 {
+	namespace Entidades
+	{
 	Jogador::Jogador(Vector2F pos, Vector2F vel) :
-		Entidade(IDsEntidades::Jogador, pos, vel, "assets/mario.png"),
+		Personagem(IDsEntidades::Jogador, pos, vel, "assets/mario.png", 1),
 		andando(false),
 		olhando_esquerda(false),
 		pode_pular(false),
+		morto(false),
 		caminho_e("assets/mario_e.png")
 	{
 	}
@@ -84,7 +87,7 @@ namespace Game
 
 	void Jogador::colidir(Entidade* ente, Vector2F intersse)
 	{
-		if (ente->get_id() == IDsEntidades::obstaculo)
+		if (ente->get_id() == IDsEntidades::Inimigo)
 		{
 		}
 	}
@@ -116,5 +119,5 @@ namespace Game
 			pode_pular = false;
 		}
 	}
-
+	}
 }

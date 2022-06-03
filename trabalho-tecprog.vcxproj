@@ -152,6 +152,7 @@
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Origem.cpp" />
     <ClCompile Include="Entidade.cpp" />
+    <ClCompile Include="Personagem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Elemento.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Mapa.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Entidade.h" />
+    <ClInclude Include="Personagem.h" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

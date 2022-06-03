@@ -19,7 +19,7 @@ namespace Game
 			entidades_estaticas.destruir();
 		}
 
-		void Fase::inserir_jogador(Jogador* j)
+		void Fase::inserir_jogador(Entidades::Jogador* j)
 		{
 			entidades_moveis.inserir(j);
 		}

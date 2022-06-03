@@ -35,7 +35,6 @@ namespace Game
 				for (auto& it : teclado)
 				{
 					it.second(evento);
-					std::cout << "oo";
 				}
 			}
 			else

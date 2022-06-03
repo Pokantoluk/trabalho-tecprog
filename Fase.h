@@ -25,7 +25,7 @@ namespace Game
 		public:
 			Fase(GerenciadorEventos* ge);
 			~Fase();
-			void inserir_jogador(Jogador* j);
+			void inserir_jogador(Entidades::Jogador* j);
 			virtual void inicializar_entidades(GerenciadorGrafico& gg);
 			virtual void executar(float t, GerenciadorGrafico& gg);
 			void gerenciar_colisoes();

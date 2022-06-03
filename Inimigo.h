@@ -1,5 +1,5 @@
 #pragma once
-#include "Entidade.h"
+#include "Personagem.h"
 
 
 namespace Game
@@ -7,7 +7,7 @@ namespace Game
 	namespace Entidades
 	{
 		class Inimigo :
-			public Entidade
+			public Personagem
 		{
 		private:
 			bool no_chao;

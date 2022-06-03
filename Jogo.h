@@ -10,7 +10,7 @@ namespace Game
 	class Jogo
 	{
 	private:
-		Jogador* jogador;
+		Entidades::Jogador* jogador;
 		Fases::Fase fase;
 		GerenciadorGrafico gg;
 		GerenciadorEventos ge;
