@@ -16,8 +16,15 @@ namespace Game
 
 		void Inimigo::executar(float t, GerenciadorGrafico& gg)
 		{
-			atualizar(t);
-			imprimir(gg, caminho, posicao);
+			if (vidas >= 1)
+			{
+				atualizar(t);
+				imprimir(gg, caminho, posicao);
+			}
+			else
+			{
+
+			}
 		}
 
 		void Inimigo::inicializar(GerenciadorGrafico& gg)
@@ -40,7 +47,7 @@ namespace Game
 		{
 			if (ente->get_id() == IDsEntidades::Jogador)
 			{
-				//std::cout << "encostou" << std::endl;
+				
 			}
 			if (ente->get_id()== IDsEntidades::Inimigo)
 			{

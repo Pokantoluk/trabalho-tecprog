@@ -21,6 +21,9 @@ namespace Game
 			ListaEntidades entidades_moveis;
 			GerenciadorColisoes gc;
 			GerenciadorEventos* ge;
+			Entidades::Inimigo* e1;
+			Entidades::Inimigo* e2;
+			Entidades::Inimigo* e3;
 
 		public:
 			Fase(GerenciadorEventos* ge);
@@ -29,6 +32,9 @@ namespace Game
 			virtual void inicializar_entidades(GerenciadorGrafico& gg);
 			virtual void executar(float t, GerenciadorGrafico& gg);
 			void gerenciar_colisoes();
+
+			ListaEntidades* get_lista_estatica();
+			ListaEntidades* get_lista_movel();
 		};
 
 	}

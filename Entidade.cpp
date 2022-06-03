@@ -1,5 +1,5 @@
 #include "Entidade.h"
-#include <iostream>
+#include "Fase.h"
 
 
 namespace Game
@@ -27,9 +27,8 @@ namespace Game
 	{
 	}
 
-	void Entidade::desenhar(GerenciadorGrafico &gg) //desenha o caminho
+	void Entidade::set_lista(ListaEntidades& l)
 	{
-		gg.desenhar(caminho, posicao);
+		l.inserir(this);
 	}
-	
 }

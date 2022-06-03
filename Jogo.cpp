@@ -4,12 +4,11 @@
 namespace Game 
 {
 	Jogo::Jogo():
-		jogador(),
 		ge(),
 		gg(),
-		fase(&ge)
+		fase(&ge),
+		jogador(new Entidades::Jogador(Vector2F(50.0f, 650.0f)))
 	{
-		jogador = new Entidades::Jogador(Vector2F(50.0f, 650.0f));
 		fase.inserir_jogador(jogador);
 		fase.inicializar_entidades(gg);
 		executar();
@@ -17,7 +16,6 @@ namespace Game
 
 	Jogo::~Jogo()
 	{
-
 	}
 	void Jogo::executar()
 	{

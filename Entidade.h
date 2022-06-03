@@ -12,6 +12,7 @@
 
 namespace Game 
 {
+	class Fase;
 	class Entidade :
 		public Ente
 	{
@@ -28,7 +29,9 @@ namespace Game
 		virtual void colidir(Entidade* ente, Vector2F interssec) = 0;
 		virtual void inicializar(GerenciadorGrafico& gg);
 		virtual void atualizar(float t);
-		virtual void desenhar(GerenciadorGrafico &gg);
+
+
+		void set_lista(ListaEntidades& l);
 		const Vector2F get_dim() const { return dimensao; }
 		const Vector2F get_pos() const { return posicao; }
 		const IDsEntidades::IDsEntidades get_id() const { return id; }
