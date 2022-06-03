@@ -1,12 +1,8 @@
 #pragma once
-#include "Lista.h"
-#include "Jogador.h"
-#include "Inimigo.h"
-#include "Obstaculo.h"
-#include "ListaEntidades.h"
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEventos.h"
-#include "GerenciadorColisoes.h"
+#include "Fase.h"
+#include "Jogador.h"
 
 
 namespace Game 
@@ -14,11 +10,10 @@ namespace Game
 	class Jogo
 	{
 	private:
-		ListaEntidades entidades_estaticas;
-		ListaEntidades entidades_moveis;
+		Jogador* jogador;
+		Fases::Fase fase;
 		GerenciadorGrafico gg;
 		GerenciadorEventos ge;
-		GerenciadorColisoes gc;
 		sf::Clock relogio;
 	public:
 		Jogo();

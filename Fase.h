@@ -20,12 +20,14 @@ namespace Game
 			ListaEntidades entidades_estaticas;
 			ListaEntidades entidades_moveis;
 			GerenciadorColisoes gc;
-			sf::Clock relogio;
+			GerenciadorEventos* ge;
+
 		public:
-			Fase();
+			Fase(GerenciadorEventos* ge);
 			~Fase();
-			virtual void inicializar_entidades();
-			virtual void executar() = 0;
+			void inserir_jogador(Jogador* j);
+			virtual void inicializar_entidades(GerenciadorGrafico& gg);
+			virtual void executar(float t, GerenciadorGrafico& gg);
 			void gerenciar_colisoes();
 		};
 
