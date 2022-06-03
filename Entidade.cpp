@@ -27,7 +27,7 @@ namespace Game
 	{
 	}
 
-	void Entidade::desenhar(GerenciadorGrafico &gg)
+	void Entidade::desenhar(GerenciadorGrafico &gg) //desenha o caminho
 	{
 		gg.desenhar(caminho, posicao);
 	}
