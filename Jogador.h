@@ -17,6 +17,8 @@ namespace Game
 		bool pode_pular;
 		bool olhando_esquerda;
 		const char* caminho_e;
+		unsigned int vidas;
+		bool morto;
 	public:
 		Jogador(Vector2F pos = Vector2F(0.0f, 0.0f), Vector2F vel = Vector2F(0.0f, 0.0f));
 		~Jogador();

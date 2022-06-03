@@ -66,7 +66,7 @@ namespace Game
 		}
 	}
 
-	void Game::GerenciadorGrafico::centralizar(Vector2F centro)
+	void Game::GerenciadorGrafico::centralizar(Vector2F centro)//centraliza a camera no personagem
 	{
 		if (centro.x < 400.f) { centro.x = 400.f; }
 		camera.setCenter(centro.x, 400.f);

@@ -29,14 +29,17 @@ namespace Game
 		bordas();
 		if (andando) 
 		{
-			v.x = VEL_JOGADOR;
+			v.x = VEL_JOGADOR;//coloca a velocidade do jogador
 			if (olhando_esquerda) 
 			{
-				v.x *= -1;
+				v.x *= -1;//anda para o outro lado
 
 			}
 		}
-		else { v.x *= 0.5; }
+		else 
+		{ 
+			v.x *= 0.5; 
+		}
 		if (!pode_pular)
 		{
 			v.y += GRAVIDADE * t;
@@ -61,7 +64,7 @@ namespace Game
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
-			andar(false);
+			andar(false);//anda com falso para esquerda
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
@@ -84,7 +87,7 @@ namespace Game
 		}
 	}
 
-	void Jogador::pular()
+	void Jogador::pular() //para fazer o personagem pular
 	{
 		if (pode_pular)
 		{
@@ -98,7 +101,7 @@ namespace Game
 		olhando_esquerda = esquerda;
 	}
 
-	void Jogador::bordas()
+	void Jogador::bordas()//para não sair da tela
 	{
 		if (posicao.x < 0) { posicao.x = 0; }
 		if (posicao.y + dimensao.y >= 800)
