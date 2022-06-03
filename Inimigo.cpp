@@ -14,7 +14,13 @@ namespace Game
 		{
 		}
 
-		void Inimigo::inicializar(GerenciadorGrafico& gg, GerenciadorColisoes& gc)
+		void Inimigo::executar(float t, GerenciadorGrafico& gg)
+		{
+			atualizar(t);
+			imprimir(gg, caminho, posicao);
+		}
+
+		void Inimigo::inicializar(GerenciadorGrafico& gg)
 		{
 			v.x = -50.f;
 			gg.carregar_textura(caminho);
@@ -29,10 +35,6 @@ namespace Game
 			posicao += v * t;
 		}
 
-		void Inimigo::desenhar(GerenciadorGrafico& gg)
-		{
-			gg.desenhar(caminho, posicao);
-		}
 
 		void Inimigo::colidir(Entidade* ente, Vector2F intersse)
 		{

@@ -27,32 +27,22 @@ namespace Game
 
 
 
-	void ListaEntidades::inicializar_entidades(GerenciadorGrafico& gg, GerenciadorEventos& gf, GerenciadorColisoes& gc)
+	void ListaEntidades::inicializar_entidades(GerenciadorGrafico& gg)
 	{
 		Entidade* p = lista.voltar_inicio();
 		while (p)
 		{
-			p->inicializar(gg, gc);
+			p->inicializar(gg);
 			p = lista.proximo();
 		}
 	}
 
-	void ListaEntidades::atualizar(float t)
+	void ListaEntidades::percorrer_executar(float t, GerenciadorGrafico& gg)
 	{
 		Entidade* p = lista.voltar_inicio();
 		while (p)
 		{
-			p->atualizar(t);
-			p = lista.proximo();
-		}
-	}
-
-	void ListaEntidades::percorrer_desenhar(GerenciadorGrafico& gg)
-	{
-		Entidade* p = lista.voltar_inicio();
-		while (p)
-		{
-			p->desenhar(gg);
+			p->executar(t, gg);
 			p = lista.proximo();
 		}
 	}

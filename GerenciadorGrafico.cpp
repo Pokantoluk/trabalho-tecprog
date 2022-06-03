@@ -62,6 +62,7 @@ namespace Game
 				exit(1);
 			}
 			texturas.emplace(caminho, text);
+			
 			return true;
 		}
 	}

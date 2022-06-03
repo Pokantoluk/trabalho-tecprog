@@ -17,7 +17,7 @@ namespace Game
 	{
 	}
 
-	void Entidade::inicializar(GerenciadorGrafico& gg, GerenciadorColisoes& gc)
+	void Entidade::inicializar(GerenciadorGrafico& gg)
 	{
 		gg.carregar_textura(caminho);
 		dimensao = gg.get_tamanho(caminho);

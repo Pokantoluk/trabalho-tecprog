@@ -10,8 +10,8 @@ namespace Game
 		entidades_moveis.inserir(new Entidades::Inimigo(Vector2F(300.0f, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
 		entidades_moveis.inserir(new Entidades::Inimigo(Vector2F(600.0f, 650.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
 		entidades_moveis.inserir(new Entidades::Inimigo(Vector2F(1000.0f, 650.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
-		entidades_moveis.inicializar_entidades(gg, ge, gc);
-		entidades_estaticas.inicializar_entidades(gg, ge, gc);
+		entidades_moveis.inicializar_entidades(gg);
+		entidades_estaticas.inicializar_entidades(gg);
 		ge.set_janela(gg.get_janela());
 		executar();
 	}
@@ -30,11 +30,8 @@ namespace Game
 			relogio.restart();
 			ge.tratar_eventos();
 			gg.limpar();
-			entidades_moveis.atualizar(t.asSeconds());
-			entidades_estaticas.atualizar(t.asSeconds());
+			entidades_moveis.percorrer_executar(t.asSeconds(), gg);
 			gc.verificar_colisoes();
-			entidades_moveis.percorrer_desenhar(gg);
-			entidades_estaticas.percorrer_desenhar(gg);
 			gg.mostrar();
 		}
 	}

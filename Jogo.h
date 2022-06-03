@@ -24,7 +24,6 @@ namespace Game
 		Jogo();
 		~Jogo();
 		void executar();
-
 	};
 }
 

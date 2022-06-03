@@ -14,6 +14,11 @@ namespace Game
 			Obstaculo::~Obstaculo()
 			{
 			}
+			void Obstaculo::executar(float t, GerenciadorGrafico& gg)
+			{
+				atualizar(t);
+				imprimir(gg, caminho, posicao);
+			}
 			void Obstaculo::colidir(Entidade* ente, Vector2F intersse)
 			{
 			}
@@ -25,7 +30,6 @@ namespace Game
 			}
 			void Obstaculo::atualizar(float t)
 			{
-				//std::cout << posicao.x << std::endl;
 			}
 			void Obstaculo::desenhar(GerenciadorGrafico& gg)
 			{

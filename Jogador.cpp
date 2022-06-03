@@ -16,7 +16,21 @@ namespace Game
 	{
 	}
 
-	void Jogador::inicializar(GerenciadorGrafico& gg, GerenciadorColisoes& gc)
+	void Jogador::executar(float t, GerenciadorGrafico& gg)
+	{
+		atualizar(t);
+		gg.centralizar(posicao);
+		if (olhando_esquerda)
+		{
+			imprimir(gg, caminho_e, posicao);
+		}
+		else
+		{
+			imprimir(gg, caminho, posicao);
+		}
+	}
+
+	void Jogador::inicializar(GerenciadorGrafico& gg)
 	{
 		gg.carregar_textura(caminho_e);
 		gg.carregar_textura(caminho);
@@ -47,18 +61,6 @@ namespace Game
 		posicao += v * t;
 	}
 
-	void Jogador::desenhar(GerenciadorGrafico& gg)
-	{
-		gg.centralizar(posicao);
-		if (olhando_esquerda)
-		{
-			gg.desenhar(caminho_e, posicao);
-		}
-		else
-		{
-			gg.desenhar(caminho, posicao);
-		}
-	}
 
 	void Jogador::tratar_eventos()
 	{
