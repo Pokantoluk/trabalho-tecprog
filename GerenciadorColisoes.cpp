@@ -27,12 +27,12 @@ namespace Game
                 ent1 = (*estaticos)[i];
                 ent2 = (*moveis)[j];
 
-                distancia_centros.x = ent2->get_pos().x - ent1->get_pos().x;
-                distancia_centros.y = ent2->get_pos().y - ent1->get_pos().y;
+                distancia_centros.x = (ent2->get_pos().x + ent2->get_dim().x/2.0) - (ent1->get_pos().x + ent1->get_dim().x / 2.0);
+                distancia_centros.y = (ent2->get_pos().y + ent2->get_dim().y / 2.0) - (ent1->get_pos().y + ent1->get_dim().y / 2.0);
 
                 interssec.x = fabs(distancia_centros.x) - (ent1->get_dim().x / 2.0f + ent2->get_dim().x / 2.0f);
                 interssec.y = fabs(distancia_centros.y) - (ent1->get_dim().y / 2.0f + ent2->get_dim().y / 2.0f);
-
+                
                 if (interssec.x < 0.0f && interssec.y < 0.0f) 
                 {
                     ent2->colidir(ent1, interssec);
@@ -53,7 +53,6 @@ namespace Game
 
                 interssec.x = fabs(distancia_centros.x) - (ent1->get_dim().x / 2.0f + ent2->get_dim().x / 2.0f);
                 interssec.y = fabs(distancia_centros.y) - (ent1->get_dim().y / 2.0f + ent2->get_dim().y / 2.0f);
-
                 if (interssec.x < 0.0f && interssec.y < 0.0f) 
                 {
                     ent2->colidir(ent1, interssec);
