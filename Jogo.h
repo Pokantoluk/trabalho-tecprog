@@ -3,6 +3,7 @@
 #include "GerenciadorEventos.h"
 #include "Fase.h"
 #include "Jogador.h"
+#include "Menu.h"
 
 
 namespace Game 
@@ -10,6 +11,7 @@ namespace Game
 	class Jogo
 	{
 	private:
+		//Menu menu;
 		Entidades::Jogador* jogador;
 		Fases::Fase fase;
 		GerenciadorGrafico gg;

@@ -8,7 +8,9 @@ namespace Game
 		gg(),
 		fase(&ge),
 		jogador(new Entidades::Jogador(Vector2F(50.0f, 650.0f)))
+		//menu()
 	{
+		fase.carregar_fundo(gg);
 		fase.inserir_jogador(jogador);
 		fase.inicializar_entidades(gg);
 		executar();
@@ -26,6 +28,7 @@ namespace Game
 			relogio.restart();
 			gg.limpar();
 			ge.tratar_eventos();
+			//menu.executar(t.asSeconds(), gg);
 			fase.executar(t.asSeconds(), gg);
 			gg.mostrar();
 		}

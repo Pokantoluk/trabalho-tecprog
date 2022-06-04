@@ -1,5 +1,6 @@
 #include "GerenciadorColisoes.h"
 #include "Entidade.h"
+#include "ListaEntidades.h"
 
 namespace Game
 {

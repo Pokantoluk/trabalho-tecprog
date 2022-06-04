@@ -1,6 +1,7 @@
 #include "jogador.h"
 #include <iostream>
 
+using namespace std;
 namespace Game
 {
 	namespace Entidades
@@ -62,6 +63,10 @@ namespace Game
 			v.y += GRAVIDADE * t;
 		}
 		posicao += v * t;
+		if (!no_chao)
+			pode_pular = false;
+		else
+			pode_pular = true;
 	}
 
 
@@ -74,6 +79,14 @@ namespace Game
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
 			andar(true);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		{
+			//posicao.y -= 0.1;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		{
+			//posicao.y += 0.1;
 		}
 		else
 		{
@@ -90,6 +103,16 @@ namespace Game
 		if (ente->get_id() == IDsEntidades::Inimigo)
 		{
 		}
+		else if (ente->get_id() == IDsEntidades::obstaculo)
+		{
+			//cout << posicao.y + dimensao.y - 10<< " "<<ente->get_pos().y <<endl;
+			if (posicao.y + dimensao.y - 10 <= ente->get_pos().y)
+			{
+				v.y = 0;
+				posicao.y = ente->get_pos().y - dimensao.y;
+				pode_pular = true;
+			}
+		}
 	}
 
 	void Jogador::pular() //para fazer o personagem pular
@@ -98,6 +121,7 @@ namespace Game
 		{
 			v.y = -sqrtf(2.0f * GRAVIDADE * PULO);
 		}
+		no_chao = false;
 	}
 
 	void Jogador::andar(bool esquerda)
@@ -112,11 +136,12 @@ namespace Game
 		if (posicao.y + dimensao.y >= 800)
 		{
 			posicao.y = 800 - dimensao.y;
-			pode_pular = true;
+			//pode_pular = true;
+			no_chao = true;
 		}
 		else
 		{
-			pode_pular = false;
+			//pode_pular = false;
 		}
 	}
 	}

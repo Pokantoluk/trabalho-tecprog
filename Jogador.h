@@ -1,6 +1,7 @@
 #pragma once
 #include "Personagem.h"
 #include "GerenciadorEventos.h"
+#include "GerenciadorGrafico.h"
 
 namespace Game
 {
@@ -27,6 +28,7 @@ namespace Game
 			void pular();
 			void andar(bool esquerda);
 			void bordas();
+			void set_pode_pular(bool pode) { pode_pular = pode; }
 		};
 	}
 }

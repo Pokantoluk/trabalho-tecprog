@@ -21,9 +21,9 @@ namespace Game
 
         
     public:
-        Menu();
+        Menu(GerenciadorGrafico& gg);
         ~Menu();
-        void executar(float t);
+        void executar(float t, GerenciadorGrafico& gg);
     };
 
 }

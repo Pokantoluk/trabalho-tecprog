@@ -1,29 +1,44 @@
 #include "Fase.h"
+#include <Windows.h>
 
 namespace Game
 {
 	namespace Fases
 	{
 		Fase::Fase(GerenciadorEventos* ge):
+			fundo("assets/fundo_1.png"),
 			gc(&entidades_moveis, &entidades_estaticas),
 			ge(ge),
-			e1(new Entidades::Inimigo(Vector2F(300.0f, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png")),
-			e2(new Entidades::Inimigo(Vector2F(600.0f, 650.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png")),
-			e3(new Entidades::Inimigo(Vector2F(1000.0f, 650.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"))
+			o1(new Entidades::Obstaculos::Obstaculo(Vector2F(600.0f, 670.0f), "assets/rectangle6.png"))
 		{
-			//entidades_moveis.inserir(new Entidades::Inimigo(Vector2F(300.0f, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
-			//entidades_moveis.inserir(new Entidades::Inimigo(Vector2F(600.0f, 650.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
-			//entidades_moveis.inserir(new Entidades::Inimigo(Vector2F(1000.0f, 650.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png"));
-			e1->set_lista(entidades_moveis);
-			e2->set_lista(entidades_moveis);
-			e3->set_lista(entidades_moveis);
-			
+			o1->set_lista(entidades_estaticas);
+			randomizar_inimigos();;
 		}
 
 		Fase::~Fase()
 		{
 			entidades_moveis.destruir();
 			entidades_estaticas.destruir();
+		}
+
+		void Fase::carregar_fundo(GerenciadorGrafico& gg) const
+		{
+			gg.set_textura_fundo(fundo);
+		}
+
+		void Fase::randomizar_inimigos()
+		{
+			SYSTEMTIME st;
+			GetSystemTime(&st);
+			srand(st.wSecond);
+			int qtd = rand() % 10 + 1;
+			for (int i = 0; i < 1; i++)
+			{
+				float posX = static_cast<float>(rand() % 100 + 500);
+				Entidades::Inimigo* e = new Entidades::Inimigo(Vector2F(posX, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
+				e->set_lista(entidades_moveis);
+				e = nullptr;
+			}
 		}
 
 		void Fase::inserir_jogador(Entidades::Jogador* j)
@@ -41,22 +56,13 @@ namespace Game
 		void Fase::executar(float t, GerenciadorGrafico& gg)
 		{
 			entidades_moveis.percorrer_executar(t, gg);
+			entidades_estaticas.percorrer_executar(t, gg);
 			gerenciar_colisoes();
 		}
 
 		void Fase::gerenciar_colisoes()
 		{
 			gc.verificar_colisoes();
-		}
-
-		ListaEntidades* Fase::get_lista_estatica()
-		{
-			return &entidades_estaticas;
-		}
-
-		ListaEntidades* Fase::get_lista_movel()
-		{
-			return &entidades_moveis;
 		}
 
 	}

@@ -5,8 +5,7 @@ namespace Game
 	namespace Entidades
 	{
 		Inimigo::Inimigo(Vector2F pos, Vector2F vel, const char* caminho_textura) :
-			Personagem(IDsEntidades::Inimigo, pos, vel, caminho_textura, 1),
-			no_chao(false)
+			Personagem(IDsEntidades::Inimigo, pos, vel, caminho_textura, 1)
 		{
 		}
 
