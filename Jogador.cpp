@@ -12,6 +12,7 @@ namespace Game
 		olhando_esquerda(false),
 		pode_pular(false),
 		morto(false),
+		pontos(0),
 		caminho_e("assets/mario_e.png")
 	{
 	}

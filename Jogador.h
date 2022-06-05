@@ -12,6 +12,7 @@ namespace Game
 
 		{
 		private:
+			unsigned int pontos;
 			bool andando;
 			bool pode_pular;
 			bool olhando_esquerda;
@@ -29,6 +30,8 @@ namespace Game
 			void andar(bool esquerda);
 			void bordas();
 			void set_pode_pular(bool pode) { pode_pular = pode; }
+
+			const unsigned int get_pontuacao() const;
 		};
 	}
 }
