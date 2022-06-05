@@ -5,10 +5,9 @@ namespace Game
 {
 	namespace Fases
 	{
-		Fase::Fase(GerenciadorEventos* ge):
+		Fase::Fase():
 			fundo("assets/fundo_1.png"),
 			gc(&entidades_moveis, &entidades_estaticas),
-			ge(ge),
 			o1(new Entidades::Obstaculos::Obstaculo(Vector2F(600.0f, 670.0f), "assets/rectangle6.png"))
 		{
 			o1->set_lista(entidades_estaticas);
@@ -50,7 +49,6 @@ namespace Game
 		{
 			entidades_moveis.inicializar_entidades(gg);
 			entidades_estaticas.inicializar_entidades(gg);
-			ge->set_janela(gg.get_janela());
 		}
 
 		void Fase::executar(float t, GerenciadorGrafico& gg)

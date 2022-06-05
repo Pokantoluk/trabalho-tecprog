@@ -62,6 +62,11 @@ namespace Game
 		}
 	}
 
+	void GerenciadorGrafico::desenhar_menu(sf::Text t)
+	{
+		janela->draw(t);
+	}
+
 	bool Game::GerenciadorGrafico::carregar_textura(const std::string caminho)
 	{
 		if (texturas.count(caminho)) { return true; }

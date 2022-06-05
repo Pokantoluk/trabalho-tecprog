@@ -21,11 +21,10 @@ namespace Game
 			ListaEntidades entidades_estaticas;
 			ListaEntidades entidades_moveis;
 			GerenciadorColisoes gc;
-			GerenciadorEventos* ge;
 			const char* fundo;
 
 		public:
-			Fase(GerenciadorEventos* ge);
+			Fase();
 			~Fase();
 
 			void carregar_fundo(GerenciadorGrafico& gg) const;

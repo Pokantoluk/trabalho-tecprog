@@ -1,5 +1,5 @@
 #include "GerenciadorEventos.h"
-#include <iostream>
+#include "stdafx.h"
 
 namespace Game
 {

@@ -6,13 +6,14 @@ namespace Game
 	Jogo::Jogo():
 		ge(),
 		gg(),
-		fase(&ge),
+		fase(),
 		jogador(new Entidades::Jogador(Vector2F(50.0f, 650.0f)))
-		//menu()
 	{
-		fase.carregar_fundo(gg);
-		fase.inserir_jogador(jogador);
-		fase.inicializar_entidades(gg);
+		ge.set_janela(gg.get_janela());
+		menu.iniciar(gg);
+		//fase.carregar_fundo(gg);
+		//fase.inserir_jogador(jogador);
+		//fase.inicializar_entidades(gg);
 		executar();
 	}
 
@@ -28,8 +29,8 @@ namespace Game
 			relogio.restart();
 			gg.limpar();
 			ge.tratar_eventos();
-			//menu.executar(t.asSeconds(), gg);
-			fase.executar(t.asSeconds(), gg);
+			menu.executar(t.asSeconds(), gg);
+			//fase.executar(t.asSeconds(), gg);
 			gg.mostrar();
 		}
 	}

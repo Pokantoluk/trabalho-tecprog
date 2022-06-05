@@ -1,8 +1,5 @@
 #pragma once
-#include "SFML/Graphics.hpp"
-#include <map>
-#include <iostream>
-#include <string>
+#include "stdafx.h"
 #include "Vector2D.h"
 
 
@@ -27,6 +24,7 @@ namespace Game
 		void mostrar() const;
 		void limpar(int r = 0, int g = 0, int b = 0);
 		void desenhar(const std::string caminho, const Vector2F pos);
+		void desenhar_menu(sf::Text t);
 		bool carregar_textura(const std::string caminho);
 		void centralizar(Vector2F centro);
 

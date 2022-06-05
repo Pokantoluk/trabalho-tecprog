@@ -11,19 +11,24 @@ namespace Game
     {
     private:
         int pos;
-        bool pressionado;
         bool enter;
         const char* fundo;
         Vector2U pos_mouse;
         Vector2F coord_mouse;
+        sf::Font* fonte;
+
         std::vector<const char*> opcoes;
         std::vector<Vector2F> coords;
-
+        std::vector<sf::Text> textos;
+        std::vector<std::size_t> tamanho;
         
     public:
-        Menu(GerenciadorGrafico& gg);
+        Menu();
         ~Menu();
+        void set_valores();
+        void iniciar(GerenciadorGrafico& gg);
         void executar(float t, GerenciadorGrafico& gg);
+        void ler_teclado();
     };
 
 }

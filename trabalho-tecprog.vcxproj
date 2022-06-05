@@ -144,6 +144,7 @@
     <ClCompile Include="GerenciadorColisoes.cpp" />
     <ClCompile Include="GerenciadorEventos.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
+    <ClCompile Include="GerenciadorInputs.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="GerenciadorColisoes.h" />
     <ClInclude Include="GerenciadorEventos.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
+    <ClInclude Include="GerenciadorInputs.h" />
     <ClInclude Include="IDsEntidades.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Jogador.h" />
@@ -171,6 +173,7 @@
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Personagem.h" />
+    <ClInclude Include="stdafx.h" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

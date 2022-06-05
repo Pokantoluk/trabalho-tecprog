@@ -11,7 +11,7 @@ namespace Game
 	class Jogo
 	{
 	private:
-		//Menu menu;
+		Menu menu;
 		Entidades::Jogador* jogador;
 		Fases::Fase fase;
 		GerenciadorGrafico gg;
