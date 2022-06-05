@@ -1,9 +1,9 @@
 #include "Jogo.h"
 #include <iostream>
 
-namespace Game 
+namespace Game
 {
-	Jogo::Jogo():
+	Jogo::Jogo() :
 		ge(),
 		gg(),
 		fase(),
@@ -12,8 +12,8 @@ namespace Game
 		ge.set_janela(gg.get_janela());
 		menu.iniciar(gg);
 		//fase.carregar_fundo(gg);
-		//fase.inserir_jogador(jogador);
-		//fase.inicializar_entidades(gg);
+		fase.inserir_jogador(jogador);
+		fase.inicializar_entidades(gg);
 		executar();
 	}
 
@@ -29,8 +29,13 @@ namespace Game
 			relogio.restart();
 			gg.limpar();
 			ge.tratar_eventos();
-			menu.executar(t.asSeconds(), gg);
-			//fase.executar(t.asSeconds(), gg);
+			if (!menu.get_fase())
+				menu.executar(t.asSeconds(), gg);
+			else
+			{
+				//fase.carregar_fundo(gg);
+				fase.executar(t.asSeconds(), gg);
+			}
 			gg.mostrar();
 		}
 	}
