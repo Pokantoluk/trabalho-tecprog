@@ -1,5 +1,8 @@
 #include "Menu.h"
 #include "Jogador.h"
+#include "Fase.h"
+#include "Jogo.h"
+
 #define MENU_PRINCIPAL 1
 #define SELETOR 2
 #define PLACAR 3
@@ -17,8 +20,7 @@ namespace Game
 		enter(false),
 		fonte(new sf::Font()),
 		fase(0),
-		num_menu(MENU_PRINCIPAL),
-		ir(true)
+		num_menu(MENU_PRINCIPAL)
 	{
 		fonte->loadFromFile("assets/ethn.otf");
 	}
@@ -166,13 +168,23 @@ namespace Game
 
 	void Menu::menu_pausa()
 	{
+		GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
+
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
-			ir = true;
+			sf::sleep(sf::milliseconds(300));
+			Jogo::na_fase = false;
+			Fases::Fase::set_pausa(false);
 		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab))
+		{
+			sf::sleep(sf::milliseconds(300));
+
+		}
+
 	}
 
-	void Menu::executar(float t, GerenciadorGrafico& gg)
+	void Menu::executar(float t)
 	{
 		//printf("%u", num_menu);
 		if (num_menu == 1)
@@ -223,9 +235,5 @@ namespace Game
 		}
 	}
 
-	bool Menu::continuar()
-	{
-		return ir;
-	}
 
 }

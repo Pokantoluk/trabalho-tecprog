@@ -5,6 +5,8 @@ namespace Game
 {
 	namespace Fases
 	{
+		bool Fase::pausado{ false };
+
 		Fase::Fase():
 			fundo("assets/fundo_1.png"),
 			gc(&entidades_moveis, &entidades_estaticas),
@@ -20,9 +22,9 @@ namespace Game
 			entidades_estaticas.destruir();
 		}
 
-		void Fase::carregar_fundo(GerenciadorGrafico& gg) const
+		void Fase::carregar_fundo() const
 		{
-			gg.set_textura_fundo(fundo);
+			GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo);
 		}
 
 		void Fase::randomizar_inimigos()
@@ -45,16 +47,16 @@ namespace Game
 			entidades_moveis.inserir(j);
 		}
 
-		void Fase::inicializar_entidades(GerenciadorGrafico& gg)
+		void Fase::inicializar_entidades()
 		{
-			entidades_moveis.inicializar_entidades(gg);
-			entidades_estaticas.inicializar_entidades(gg);
+			entidades_moveis.inicializar_entidades();
+			entidades_estaticas.inicializar_entidades();
 		}
 
-		void Fase::executar(float t, GerenciadorGrafico& gg)
+		void Fase::executar(float t)
 		{
-			entidades_moveis.percorrer_executar(t, gg);
-			entidades_estaticas.percorrer_executar(t, gg);
+			entidades_moveis.percorrer_executar(t);
+			entidades_estaticas.percorrer_executar(t);
 			gerenciar_colisoes();
 		}
 
@@ -62,11 +64,5 @@ namespace Game
 		{
 			gc.verificar_colisoes();
 		}
-
-		bool Fase::get_pausa()
-		{
-			return true;
-		}
-
 	}
 }

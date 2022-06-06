@@ -1,4 +1,5 @@
 #include "jogador.h"
+#include "Fase.h"
 #include <iostream>
 
 using namespace std;
@@ -23,25 +24,25 @@ namespace Game
 		{
 		}
 
-		void Jogador::executar(float t, GerenciadorGrafico& gg)
+		void Jogador::executar(float t)
 		{
 			atualizar(t);
-			gg.centralizar(posicao);
+			GerenciadorGrafico::get_gerenciador()->centralizar(posicao);
 			if (olhando_esquerda)
 			{
-				imprimir(gg, caminho_e, posicao);
+				imprimir(caminho_e, posicao);
 			}
 			else
 			{
-				imprimir(gg, caminho, posicao);
+				imprimir(caminho, posicao);
 			}
 		}
 
-		void Jogador::inicializar(GerenciadorGrafico& gg)
+		void Jogador::inicializar()
 		{
-			gg.carregar_textura(caminho_e);
-			gg.carregar_textura(caminho);
-			dimensao = gg.get_tamanho(caminho);
+			GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho_e);
+			GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho);
+			dimensao = GerenciadorGrafico::get_gerenciador()->get_tamanho(caminho);
 		}
 
 		void Jogador::atualizar(float t)
@@ -59,7 +60,7 @@ namespace Game
 			}
 			else
 			{
-				v.x *= 0.5;
+				v.x *= 0.99;
 			}
 			if (!pode_pular)
 			{
@@ -77,7 +78,8 @@ namespace Game
 		{
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			{
-
+				Fases::Fase::set_pausa(true);
+				sf::sleep(sf::milliseconds(300));
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 			{

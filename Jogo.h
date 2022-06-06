@@ -11,7 +11,6 @@ namespace Game
 	class Jogo
 	{
 	private:
-		bool na_fase;
 		Menu menu;
 		Entidades::Jogador* jogador;
 		Fases::Fase fase;
@@ -20,8 +19,11 @@ namespace Game
 		sf::Clock relogio;
 
 	public:
+		static bool na_fase;
 		Jogo();
 		~Jogo();
+		void inicializar();
+		void reiniciar_fase();
 		void executar();
 	};
 }

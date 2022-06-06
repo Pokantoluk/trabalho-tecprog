@@ -14,7 +14,6 @@ namespace Game
         unsigned int fase;
         int pos;
         bool enter;
-        bool ir;
         const char* fundo;
         const char* fundo_placar;
         const char* fundo_pausa;
@@ -42,11 +41,9 @@ namespace Game
         void menu_saves();
         void menu_pausa();
 
-        void executar(float t, GerenciadorGrafico& gg);
+        void executar(float t);
         void ler_teclado();
         const unsigned int get_fase() const { return fase; }
-
-        bool continuar();
 
     };
 

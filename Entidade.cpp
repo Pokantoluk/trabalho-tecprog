@@ -17,10 +17,10 @@ namespace Game
 	{
 	}
 
-	void Entidade::inicializar(GerenciadorGrafico& gg)
+	void Entidade::inicializar()
 	{
-		gg.carregar_textura(caminho);
-		dimensao = gg.get_tamanho(caminho);
+		GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho);
+		dimensao = GerenciadorGrafico::get_gerenciador()->get_tamanho(caminho);
 	}
 
 	void Entidade::atualizar(float t)

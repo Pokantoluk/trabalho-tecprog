@@ -14,19 +14,19 @@ namespace Game
 			Obstaculo::~Obstaculo()
 			{
 			}
-			void Obstaculo::executar(float t, GerenciadorGrafico& gg)
+			void Obstaculo::executar(float t)
 			{
 				atualizar(t);
-				imprimir(gg, caminho, posicao);
+				imprimir(caminho, posicao);
 			}
 			void Obstaculo::colidir(Entidade* ente, Vector2F intersse)
 			{
 			}
 
-			void Obstaculo::inicializar(GerenciadorGrafico& gg, GerenciadorColisoes& gc)
+			void Obstaculo::inicializar()
 			{
-				gg.carregar_textura(caminho);
-				dimensao = gg.get_tamanho(caminho);
+				GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho);
+				dimensao = GerenciadorGrafico::get_gerenciador()->get_tamanho(caminho);
 			}
 			void Obstaculo::atualizar(float t)
 			{

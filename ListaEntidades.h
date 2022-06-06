@@ -20,8 +20,8 @@ namespace Game
 		void inserir(Entidade* info);
 		Entidade* operator[](int i);
 
-		void inicializar_entidades(GerenciadorGrafico& gg);
-		void percorrer_executar(float t, GerenciadorGrafico& gg);
+		void inicializar_entidades();
+		void percorrer_executar(float t);
 		void destruir();
 		unsigned int get_tam() { return tam; }
 
