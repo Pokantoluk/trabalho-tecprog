@@ -11,12 +11,14 @@ namespace Game
 	class Jogo
 	{
 	private:
+		bool na_fase;
 		Menu menu;
 		Entidades::Jogador* jogador;
 		Fases::Fase fase;
 		GerenciadorGrafico gg;
 		GerenciadorEventos ge;
 		sf::Clock relogio;
+
 	public:
 		Jogo();
 		~Jogo();

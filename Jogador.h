@@ -12,13 +12,15 @@ namespace Game
 
 		{
 		private:
-			unsigned int pontos;
+			static int pontos;
 			bool andando;
 			bool pode_pular;
 			bool olhando_esquerda;
 			const char* caminho_e;
 			bool morto;
 		public:
+			static unsigned int get_pontuacao();
+
 			Jogador(Vector2F pos = Vector2F(0.0f, 0.0f), Vector2F vel = Vector2F(0.0f, 0.0f));
 			~Jogador();
 			void executar(float t, GerenciadorGrafico& gg);
@@ -31,7 +33,6 @@ namespace Game
 			void bordas();
 			void set_pode_pular(bool pode) { pode_pular = pode; }
 
-			const unsigned int get_pontuacao() const;
 		};
 	}
 }

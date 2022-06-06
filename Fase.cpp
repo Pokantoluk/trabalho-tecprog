@@ -63,5 +63,10 @@ namespace Game
 			gc.verificar_colisoes();
 		}
 
+		bool Fase::get_pausa()
+		{
+			return true;
+		}
+
 	}
 }

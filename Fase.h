@@ -34,7 +34,7 @@ namespace Game
 			virtual void executar(float t, GerenciadorGrafico& gg);
 			void gerenciar_colisoes();
 
-
+			bool get_pausa();
 		};
 
 	}
