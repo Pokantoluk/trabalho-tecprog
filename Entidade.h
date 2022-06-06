@@ -25,9 +25,9 @@ namespace Game
 	public:
 		Entidade(IDsEntidades::IDsEntidades id, Vector2F pos = Vector2F(0.0f, 0.0f), Vector2F vel = Vector2F(0.0f, 0.0f), const char* caminho_textura = nullptr);
 		virtual ~Entidade();
-		virtual void executar(float t, GerenciadorGrafico& gg) = 0;
+		virtual void executar(float t) = 0;
 		virtual void colidir(Entidade* ente, Vector2F interssec) = 0;
-		virtual void inicializar(GerenciadorGrafico& gg);
+		virtual void inicializar();
 		virtual void atualizar(float t);
 
 

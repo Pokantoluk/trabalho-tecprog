@@ -1,9 +1,12 @@
 #include "Menu.h"
-#include <conio.h>
+#include "Jogador.h"
+#include "Fase.h"
+#include "Jogo.h"
+
 #define MENU_PRINCIPAL 1
 #define SELETOR 2
 #define PLACAR 3
-#define CONFIG 4
+#define SAVES 4
 #define FASE_1 5
 #define FASE_2 6
 
@@ -11,22 +14,23 @@ namespace Game
 {
 	Menu::Menu() :
 		fundo("assets/menu.png"),
-		ger(nullptr),
+		fundo_placar("assets/placar.png"),
+		fundo_pausa("assets/pausa.png"),
 		pos(1),
 		enter(false),
 		fonte(new sf::Font()),
 		fase(0),
 		num_menu(MENU_PRINCIPAL)
 	{
+		fonte->loadFromFile("assets/ethn.otf");
 	}
 	Menu::~Menu()
 	{
 		delete fonte;
 	}
 
-	void Menu::iniciar(GerenciadorGrafico& gg)
+	void Menu::iniciar()
 	{
-		ger = &gg;
 		set_valores(MENU_PRINCIPAL);
 	}
 	void Menu::set_valores(unsigned int qual_menu)
@@ -35,11 +39,15 @@ namespace Game
 		{
 		case MENU_PRINCIPAL:
 			valores_principal();
+			GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo);
 			break;
 		case SELETOR:
 			valores_seletor_fase();
+			GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo);
 			break;
 		case PLACAR:
+			valores_placar();
+			GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_placar);
 			break;
 		}
 		for (std::size_t i{}; i < textos.size(); i++)
@@ -51,13 +59,12 @@ namespace Game
 			textos[i].setPosition(coords[i].x, coords[i].y);
 		}
 		textos[pos].setOutlineThickness(8);
-		fonte->loadFromFile("assets/ethn.otf");
-		ger->set_textura_fundo(fundo);
+		
 	}
 	void Menu::valores_principal()
 	{
 		textos.resize(5);
-		opcoes = { "CocKnight", "Jogar", "Placar", "Config", "quit" };
+		opcoes = { "CocKnight", "Jogar", "Placar", "Saves", "quit" };
 		coords = { {345, 36} , {360, 215}, {363, 315}, {360, 410}, {375, 510} };
 		tamanho = { 18, 22, 18, 22, 22 };
 	}
@@ -68,6 +75,17 @@ namespace Game
 		coords = { {345, 36} , {360, 215}, {363, 315}, {360, 410}, {375, 510} };
 		tamanho = { 18, 22, 18, 18, 22 };
 	}
+	void Menu::valores_placar()
+	{
+		textos[2].setOutlineThickness(0);
+		textos.resize(5);
+		opcoes = { "CocKnight", "fulano", "ciclano", "beltrano", " baiano" };
+		coords = { {345, 36} , {250, 215}, {250, 315}, {250, 410}, {250, 510} };
+		tamanho = { 18, 22, 18, 18, 22 };
+	}
+	void Menu::valores_saves()
+	{
+	}
 
 	void Menu::menu_principal()
 	{
@@ -75,7 +93,7 @@ namespace Game
 		set_valores(MENU_PRINCIPAL);
 		for (auto t : textos)
 		{
-			ger->desenhar_menu(t);
+			GerenciadorGrafico::get_gerenciador()->desenhar_menu(t);
 		}
 		ler_teclado();
 		if (enter)
@@ -90,13 +108,13 @@ namespace Game
 				num_menu = PLACAR;
 				break;
 			case 3:
-				num_menu = CONFIG;
+				num_menu = SAVES;
 				break;
 			case 4:
 				exit(1);
 				break;
 			}
-			sf::sleep(sf::milliseconds(300));
+			sf::sleep(sf::milliseconds(200));
 		}
 	}
 
@@ -106,7 +124,7 @@ namespace Game
 		set_valores(SELETOR);
 		for (auto t : textos)
 		{
-			ger->desenhar_menu(t);
+			GerenciadorGrafico::get_gerenciador()->desenhar_menu(t);
 		}
 		ler_teclado();
 		if (enter)
@@ -127,31 +145,48 @@ namespace Game
 				exit(1); //quit game
 				break;
 			}
-			sf::sleep(sf::milliseconds(300));
+			sf::sleep(sf::milliseconds(200));
 		}
 	}
 
 	void Menu::menu_placar()
 	{
+		textos[pos].setOutlineThickness(0);//nao ta mudando
 		enter = false;
 		set_valores(PLACAR);
+		GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_placar);
 		for (auto t : textos)
 		{
-			ger->desenhar_menu(t);
+			GerenciadorGrafico::get_gerenciador()->desenhar_menu(t);// colocar os escores
+		}
+		ler_teclado();
+	}
+
+	void Menu::menu_saves()
+	{
+	}
+
+	void Menu::menu_pausa()
+	{
+		GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+		{
+			sf::sleep(sf::milliseconds(300));
+			Jogo::na_fase = false;
+			Fases::Fase::set_pausa(false);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab))
+		{
+			sf::sleep(sf::milliseconds(300));
+
 		}
 
-
-
 	}
 
-	void Menu::menu_config()
+	void Menu::executar(float t)
 	{
-	}
-
-
-	void Menu::executar(float t, GerenciadorGrafico& gg)
-	{
-		printf("%u", num_menu);
+		//printf("%u", num_menu);
 		if (num_menu == 1)
 			menu_principal();
 		else if (num_menu == 2)
@@ -159,7 +194,7 @@ namespace Game
 		else if (num_menu == 3)
 			menu_placar();
 		else if (num_menu == 4)
-			menu_config();
+			menu_saves();
 		else if (num_menu == 5)
 			fase = 1;
 		else if (num_menu == 6)
@@ -167,7 +202,13 @@ namespace Game
 	}
 	void Menu::ler_teclado()
 	{
-
+		if (num_menu == PLACAR)
+		{
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+			{
+				num_menu = MENU_PRINCIPAL;
+			}
+		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		{
 			if (pos < 4)
@@ -193,4 +234,6 @@ namespace Game
 			enter = true;
 		}
 	}
+
+
 }

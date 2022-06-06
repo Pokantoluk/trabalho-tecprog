@@ -17,9 +17,13 @@ namespace Game
 		GerenciadorGrafico gg;
 		GerenciadorEventos ge;
 		sf::Clock relogio;
+
 	public:
+		static bool na_fase;
 		Jogo();
 		~Jogo();
+		void inicializar();
+		void reiniciar_fase();
 		void executar();
 	};
 }
