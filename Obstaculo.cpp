@@ -31,9 +31,9 @@ namespace Game
 			void Obstaculo::atualizar(float t)
 			{
 			}
-			void Obstaculo::desenhar(GerenciadorGrafico& gg)
+			void Obstaculo::desenhar()
 			{
-				gg.desenhar(caminho, posicao);
+				GerenciadorGrafico::get_gerenciador()->desenhar(caminho, posicao);
 			}
 			
 		}
