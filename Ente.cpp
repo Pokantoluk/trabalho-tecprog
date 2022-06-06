@@ -8,9 +8,9 @@ Game::Ente::~Ente()
 {
 }
 
-void Game::Ente::imprimir(GerenciadorGrafico& gg, const char* caminho, Vector2F posicao)
+void Game::Ente::imprimir(const char* caminho, Vector2F posicao)
 {
-	gg.desenhar(caminho, posicao);
+	GerenciadorGrafico::get_gerenciador()->desenhar(caminho, posicao);
 }
 
 

@@ -5,6 +5,8 @@ namespace Game
 {
 	namespace Fases
 	{
+		bool Fase::pausado{ false };
+
 		Fase::Fase():
 			fundo("assets/fundo_1.png"),
 			gc(&entidades_moveis, &entidades_estaticas),
@@ -22,7 +24,7 @@ namespace Game
 			o12(new Entidades::Obstaculos::Obstaculo(Vector2F(1800.0f, 610.0f), "assets/rectangle6.png")),
 			o13(new Entidades::Obstaculos::Obstaculo(Vector2F(1850.0f, 630.0f), "assets/rectangle6.png")),
 			o14(new Entidades::Obstaculos::Obstaculo(Vector2F(1900.0f, 650.0f), "assets/rectangle6.png")),
-			fogo(new Entidades::Obstaculos::Obstaculo(Vector2F(2300.0f, 750.0f), "assets/fogo1.png")),// fazer a classe fogo com eles randomizados feat dando dano e feat animação
+			fogo(new Entidades::Obstaculos::Obstaculo(Vector2F(2300.0f, 750.0f), "assets/fogo1.png")),// fazer a classe fogo com eles randomizados feat dando dano e feat animaï¿½ï¿½o
 			pedra(new Entidades::Obstaculos::Obstaculo(Vector2F(1000.0f, 750.0f), "assets/rocks1_5.png")),
 			pedra2(new Entidades::Obstaculos::Obstaculo(Vector2F(1400.0f, 750.0f), "assets/rocks1_5.png")),
 			bandeira(new Entidades::Obstaculos::Obstaculo(Vector2F(2600.0f, 500.0f), "assets/bandeira_mario.png"))
@@ -62,9 +64,9 @@ namespace Game
 			music.setVolume(5);
 		}
 
-		void Fase::carregar_fundo(GerenciadorGrafico& gg) const
+		void Fase::carregar_fundo() const
 		{
-			gg.set_textura_fundo(fundo);
+			GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo);
 		}
 
 		void Fase::randomizar_inimigos()
@@ -87,17 +89,17 @@ namespace Game
 			entidades_moveis.inserir(j);
 		}
 
-		void Fase::inicializar_entidades(GerenciadorGrafico& gg)
+		void Fase::inicializar_entidades()
 		{
-			entidades_moveis.inicializar_entidades(gg);
-			entidades_estaticas.inicializar_entidades(gg);
+			entidades_moveis.inicializar_entidades();
+			entidades_estaticas.inicializar_entidades();
 			musica();
 		}
 
-		void Fase::executar(float t, GerenciadorGrafico& gg)
+		void Fase::executar(float t)
 		{
-			entidades_moveis.percorrer_executar(t, gg);
-			entidades_estaticas.percorrer_executar(t, gg);
+			entidades_moveis.percorrer_executar(t);
+			entidades_estaticas.percorrer_executar(t);
 			gerenciar_colisoes();
 		}
 
@@ -105,6 +107,5 @@ namespace Game
 		{
 			gc.verificar_colisoes();
 		}
-
 	}
 }

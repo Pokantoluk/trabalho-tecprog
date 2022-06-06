@@ -2,7 +2,7 @@
 
 namespace Game
 {
-	//GerenciadorGrafico* instancia = NULL;
+	GerenciadorGrafico* GerenciadorGrafico::instancia = NULL;
 
 	Game::GerenciadorGrafico::GerenciadorGrafico() :
 		janela(new sf::RenderWindow(sf::VideoMode(800, 800), "Jogo", sf::Style::Default)),
@@ -13,6 +13,7 @@ namespace Game
 		camera.setSize(800.f, 800.f);
 		camera.setCenter(400.f, 400.f);
 		janela->setView(camera);
+		instancia = this;
 	}
 
 	Game::GerenciadorGrafico::~GerenciadorGrafico()
@@ -108,13 +109,10 @@ namespace Game
 		sf::Vector2u tamanho = (texturas[caminho]->getSize());
 		return Vector2F(tamanho.x, tamanho.y);
 	}
-	/*
+	
 	GerenciadorGrafico* GerenciadorGrafico::get_gerenciador()
 	{
-		if (instancia == NULL) {
-			instancia = new GerenciadorGrafico();
-		}
 		return instancia;
 	}
-	*/
+	
 }
