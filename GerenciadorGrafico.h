@@ -14,10 +14,10 @@ namespace Game
 		sf::View camera;
 		std::map<const std::string, sf::Texture*> texturas;
 
-		//static GerenciadorGrafico* instancia;
+		static GerenciadorGrafico* instancia;
 
 	public:
-		//static GerenciadorGrafico* get_gerenciador();
+		static GerenciadorGrafico* get_gerenciador();
 
 		GerenciadorGrafico();
 		~GerenciadorGrafico();

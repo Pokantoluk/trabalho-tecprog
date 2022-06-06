@@ -12,8 +12,8 @@ namespace Game
 	public:
 		Ente();
 		~Ente();
-		virtual void executar(float t, GerenciadorGrafico& gg) = 0;
-		void imprimir(GerenciadorGrafico& gg, const char* caminho, Vector2F posicao);
+		virtual void executar(float t) = 0;
+		void imprimir(const char* caminho, Vector2F posicao);
 	};
 
 }

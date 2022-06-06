@@ -15,10 +15,9 @@ namespace Game
         int pos;
         bool enter;
         const char* fundo;
-        Vector2U pos_mouse;
-        Vector2F coord_mouse;
+        const char* fundo_placar;
+        const char* fundo_pausa;
         sf::Font* fonte;
-        GerenciadorGrafico* ger;
 
         std::vector<const char*> opcoes;
         std::vector<Vector2F> coords;
@@ -28,21 +27,24 @@ namespace Game
     public:
         Menu();
         ~Menu();
-        void iniciar(GerenciadorGrafico& gg);
+        void iniciar();
         void set_valores(unsigned int qual_menu);
 
         void valores_principal();
         void valores_seletor_fase();
-        void valores_config();
+        void valores_placar();
+        void valores_saves();
 
         void menu_principal();
         void menu_seletor();
         void menu_placar();
-        void menu_config();
+        void menu_saves();
+        void menu_pausa();
 
-        void executar(float t, GerenciadorGrafico& gg);
+        void executar(float t);
         void ler_teclado();
         const unsigned int get_fase() const { return fase; }
+
     };
 
 }

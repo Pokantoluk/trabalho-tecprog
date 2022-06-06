@@ -3,6 +3,8 @@
 
 namespace Game
 {
+	bool Jogo::na_fase{ false };
+
 	Jogo::Jogo() :
 		ge(),
 		gg(),
@@ -10,15 +12,22 @@ namespace Game
 		jogador(new Entidades::Jogador(Vector2F(50.0f, 650.0f)))
 	{
 		ge.set_janela(gg.get_janela());
-		menu.iniciar(gg);
-		//fase.carregar_fundo(gg);
-		fase.inserir_jogador(jogador);
-		fase.inicializar_entidades(gg);
+		inicializar();
 		executar();
 	}
 
 	Jogo::~Jogo()
 	{
+	}
+	void Jogo::inicializar()
+	{
+		menu.iniciar();
+		fase.inserir_jogador(jogador);
+		fase.inicializar_entidades();
+	}
+	void Jogo::reiniciar_fase()
+	{
+		
 	}
 	void Jogo::executar()
 	{
@@ -30,11 +39,22 @@ namespace Game
 			gg.limpar();
 			ge.tratar_eventos();
 			if (!menu.get_fase())
-				menu.executar(t.asSeconds(), gg);
+				menu.executar(t.asSeconds());
 			else
 			{
-				//fase.carregar_fundo(gg);
-				fase.executar(t.asSeconds(), gg);
+				if (!na_fase)
+				{
+					fase.carregar_fundo();
+					na_fase = true;
+				}
+				if (fase.get_pausa())
+				{
+					menu.menu_pausa();
+				}
+				else
+				{
+					fase.executar(t.asSeconds());
+				}
 			}
 			gg.mostrar();
 		}

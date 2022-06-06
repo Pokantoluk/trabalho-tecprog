@@ -13,12 +13,12 @@ namespace Game
 		{
 		}
 
-		void Inimigo::executar(float t, GerenciadorGrafico& gg)
+		void Inimigo::executar(float t)
 		{
 			if (vidas >= 1)
 			{
 				atualizar(t);
-				imprimir(gg, caminho, posicao);
+				imprimir(caminho, posicao);
 			}
 			else
 			{
@@ -26,11 +26,11 @@ namespace Game
 			}
 		}
 
-		void Inimigo::inicializar(GerenciadorGrafico& gg)
+		void Inimigo::inicializar()
 		{
 			v.x = -50.f;
-			gg.carregar_textura(caminho);
-			dimensao = gg.get_tamanho(caminho);
+			GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho);
+			dimensao = GerenciadorGrafico::get_gerenciador()->get_tamanho(caminho);
 		}
 
 		void Inimigo::atualizar(float t)
