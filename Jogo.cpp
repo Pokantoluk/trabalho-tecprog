@@ -8,26 +8,35 @@ namespace Game
 	Jogo::Jogo() :
 		ge(),
 		gg(),
-		fase(),
+		fase_1(),
+		fase_2(),
 		jogador(new Entidades::Jogador(Vector2F(50.0f, 650.0f)))
 	{
 		ge.set_janela(gg.get_janela());
-		inicializar();
+		menu.iniciar();
 		executar();
 	}
 
 	Jogo::~Jogo()
 	{
 	}
-	void Jogo::inicializar()
+	void Jogo::inicializar_fase_1()
 	{
-		menu.iniciar();
-		fase.inserir_jogador(jogador);
-		fase.inicializar_entidades();
+		fase_1.inserir_jogador(jogador);
+		fase_1.inicializar_entidades();
+	}
+	void Jogo::inicializar_fase_2()
+	{
+		fase_2.inserir_jogador(jogador);
+		fase_2.inicializar_entidades();
 	}
 	void Jogo::reiniciar_fase()
 	{
-		fase.reiniciar_entidades(Vector2F(50.0f, 650.0f));
+		fase_1.reiniciar_entidades(Vector2F(50.0f, 650.0f));
+	}
+	void Jogo::reiniciar_fase_2()
+	{
+		fase_2.reiniciar_entidades(Vector2F(50.0f, 650.0f));
 	}
 	void Jogo::executar()
 	{
@@ -38,16 +47,17 @@ namespace Game
 			relogio.restart();
 			gg.limpar();
 			ge.tratar_eventos();
-			if (!menu.get_fase())
+			if (menu.get_fase() == 0)
 				menu.executar(t.asSeconds());
-			else
+			else if (menu.get_fase() == 1)
 			{
 				if (!na_fase)
 				{
-					fase.carregar_fundo();
+					inicializar_fase_1();
+					fase_1.carregar_fundo();
 					na_fase = true;
 				}
-				if (fase.get_pausa())
+				if (fase_1.get_pausa())
 				{
 					menu.menu_pausa();
 				}
@@ -58,7 +68,29 @@ namespace Game
 						menu.menu_gameOver();
 					}
 					else
-						fase.executar(t.asSeconds());
+						fase_1.executar(t.asSeconds());
+				}
+			}
+			else if (menu.get_fase() == 2)
+			{
+				if (!na_fase)
+				{
+					inicializar_fase_2();
+					fase_2.carregar_fundo();
+					na_fase = true;
+				}
+				if (fase_2.get_pausa())
+				{
+					menu.menu_pausa();
+				}
+				else
+				{
+					if (jogador->get_morto())
+					{
+						menu.menu_gameOver();
+					}
+					else
+						fase_2.executar(t.asSeconds());
 				}
 			}
 			gg.mostrar();
