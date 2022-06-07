@@ -27,7 +27,7 @@ namespace Game
 	}
 	void Jogo::reiniciar_fase()
 	{
-		
+		fase.reiniciar_entidades(Vector2F(50.0f, 650.0f));
 	}
 	void Jogo::executar()
 	{
@@ -53,7 +53,12 @@ namespace Game
 				}
 				else
 				{
-					fase.executar(t.asSeconds());
+					if (jogador->get_morto())
+					{
+						menu.menu_gameOver();
+					}
+					else
+						fase.executar(t.asSeconds());
 				}
 			}
 			gg.mostrar();

@@ -21,4 +21,7 @@
 #include<SFML/Graphics.hpp>
 #include<SFML/Window.hpp>
 #include<SFML/Network.hpp>
+//outros
+#include <sstream>
+
 

@@ -62,6 +62,7 @@ namespace Game
 
 			static void set_pausa(bool pausa) { pausado = pausa; }
 			bool get_pausa() { return pausado; }
+			
 		};
 
 	}

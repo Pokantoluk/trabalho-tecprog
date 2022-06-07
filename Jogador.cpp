@@ -163,6 +163,13 @@ namespace Game
 				//pode_pular = false;
 			}
 		}
+		bool Jogador::get_morto()
+		{
+			if (vidas == 0)
+				return true;
+			else
+				return false;
+		}
 		unsigned int Jogador::get_pontuacao()
 		{
 			return pontos;
