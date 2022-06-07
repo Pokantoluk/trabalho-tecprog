@@ -48,6 +48,7 @@ namespace Game
 			bandeira->set_lista(entidades_estaticas);
 			fogo->set_lista(entidades_estaticas);
 			randomizar_inimigos();
+			musica();
 		}
 
 		Fase::~Fase()
@@ -61,7 +62,7 @@ namespace Game
 			if (!music.openFromFile("assets/SuperMarioBros.ogg"))
 				return;// error
 			music.play();
-			music.setVolume(5);
+			music.setVolume(4);
 		}
 
 		void Fase::carregar_fundo() const
@@ -93,7 +94,13 @@ namespace Game
 		{
 			entidades_moveis.inicializar_entidades();
 			entidades_estaticas.inicializar_entidades();
-			musica();
+		}
+
+		void Fase::reiniciar_entidades(Vector2F pos_jogador)
+		{
+			entidades_moveis.destruir();
+			entidades_estaticas.destruir();
+			inicializar_entidades();
 		}
 
 		void Fase::executar(float t)

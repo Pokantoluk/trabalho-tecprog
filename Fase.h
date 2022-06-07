@@ -55,6 +55,7 @@ namespace Game
 			void randomizar_inimigos();
 			void inserir_jogador(Entidades::Jogador* j);
 			virtual void inicializar_entidades();
+			virtual void reiniciar_entidades(Vector2F pos_jogador);
 			virtual void executar(float t);
 			void gerenciar_colisoes();
 			void musica(); 

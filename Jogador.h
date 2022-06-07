@@ -9,7 +9,6 @@ namespace Game
 	{
 		class Jogador :
 			public Personagem
-
 		{
 		private:
 			static int pontos;

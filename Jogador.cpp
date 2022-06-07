@@ -114,12 +114,22 @@ namespace Game
 			}
 			else if (ente->get_id() == IDsEntidades::obstaculo)
 			{
-				//cout << posicao.y + dimensao.y - 10<< " "<<ente->get_pos().y <<endl;
+				
 				if (posicao.y + dimensao.y - 10 <= ente->get_pos().y)
 				{
 					v.y = 0;
 					posicao.y = ente->get_pos().y - dimensao.y;
 					pode_pular = true;
+				}
+				else if (posicao.x < ente->get_pos().x)
+				{
+					v.x = 0;
+					posicao.x = ente->get_pos().x - dimensao.x;
+				}
+				else if (posicao.x > ente->get_pos().x)
+				{
+					v.x = 0;
+					posicao.x = ente->get_pos().x + ente->get_dim().x;
 				}
 			}
 		}
