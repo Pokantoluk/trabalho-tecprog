@@ -9,7 +9,6 @@ namespace Game
 	{
 		class Jogador :
 			public Personagem
-
 		{
 		private:
 			static int pontos;
@@ -34,6 +33,7 @@ namespace Game
 			void bordas();
 			void set_pode_pular(bool pode) { pode_pular = pode; }
 
+			bool get_morto();
 		};
 	}
 }

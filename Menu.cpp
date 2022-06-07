@@ -9,6 +9,7 @@
 #define SAVES 4
 #define FASE_1 5
 #define FASE_2 6
+using namespace std;
 
 namespace Game
 {
@@ -77,7 +78,6 @@ namespace Game
 	}
 	void Menu::valores_placar()
 	{
-		textos[2].setOutlineThickness(0);
 		textos.resize(5);
 		opcoes = { "CocKnight", "fulano", "ciclano", "beltrano", " baiano" };
 		coords = { {345, 36} , {250, 215}, {250, 315}, {250, 410}, {250, 510} };
@@ -151,7 +151,7 @@ namespace Game
 
 	void Menu::menu_placar()
 	{
-		textos[pos].setOutlineThickness(0);//nao ta mudando
+		textos[3].setOutlineThickness(0);//nao ta mudando
 		enter = false;
 		set_valores(PLACAR);
 		GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_placar);
@@ -184,6 +184,11 @@ namespace Game
 
 	}
 
+	void Menu::menu_gameOver()
+	{
+		GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
+	}
+
 	void Menu::executar(float t)
 	{
 		//printf("%u", num_menu);
@@ -209,30 +214,39 @@ namespace Game
 				num_menu = MENU_PRINCIPAL;
 			}
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		else 
 		{
-			if (pos < 4)
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 			{
-				++pos;
-				textos[pos].setOutlineThickness(8);
-				textos[pos - 1].setOutlineThickness(0);
-				sf::sleep(sf::milliseconds(300));
+				if (pos < 4)
+				{
+					++pos;
+					textos[pos].setOutlineThickness(8);
+					textos[pos - 1].setOutlineThickness(0);
+					sf::sleep(sf::milliseconds(300));
+				}
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+			{
+				if (pos > 1)
+				{
+					--pos;
+					textos[pos].setOutlineThickness(5);
+					textos[pos + 1].setOutlineThickness(0);
+					sf::sleep(sf::milliseconds(300));
+				}
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !enter)
+			{
+				enter = true;
 			}
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-		{
-			if (pos > 1)
-			{
-				--pos;
-				textos[pos].setOutlineThickness(5);
-				textos[pos + 1].setOutlineThickness(0);
-				sf::sleep(sf::milliseconds(300));
-			}
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !enter)
-		{
-			enter = true;
-		}
+	}
+
+	void Menu::tratar_pontos()
+	{
+		int ponto = Entidades::Jogador::get_pontuacao();
+
 	}
 
 
