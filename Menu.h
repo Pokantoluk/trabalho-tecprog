@@ -25,7 +25,7 @@ namespace Game
         std::vector<const char*> opcoes;
         std::vector<Vector2F> coords;
         std::vector<sf::Text> textos;
-        std::vector<std::size_t> tamanho;
+        std::vector<unsigned int> tamanho;
 
     public:
         Menu();

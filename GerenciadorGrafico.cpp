@@ -94,8 +94,9 @@ namespace Game
 
 	void GerenciadorGrafico::set_textura_fundo(const char* caminho)
 	{
+		
 		textura_fundo.loadFromFile(caminho);
-		fundo.setTexture(textura_fundo);
+		fundo.setTexture(textura_fundo, true);
 		fundo.setOrigin(0.f, 0.f);
 	}
 	

@@ -65,21 +65,21 @@ namespace Game
 	void Menu::valores_principal()
 	{
 		textos.resize(5);
-		opcoes = { "CocKnight", "Jogar", "Placar", "Saves", "quit" };
+		opcoes = { "Mario++", "Jogar", "Placar", "Saves", "quit" };
 		coords = { {345, 36} , {360, 215}, {363, 315}, {360, 410}, {375, 510} };
 		tamanho = { 18, 22, 18, 22, 22 };
 	}
 	void Menu::valores_seletor_fase()
 	{
 		textos.resize(5);
-		opcoes = { "CocKnight", "Fase 1", "Fase 2", "Voltar", "Quit" };
+		opcoes = { "Mario++", "Fase 1", "Fase 2", "Voltar", "Quit" };
 		coords = { {345, 36} , {360, 215}, {363, 315}, {360, 410}, {375, 510} };
 		tamanho = { 18, 22, 18, 18, 22 };
 	}
 	void Menu::valores_placar()
 	{
 		textos.resize(5);
-		opcoes = { "CocKnight", "fulano", "ciclano", "beltrano", " baiano" };
+		opcoes = { "Mario++", "fulano", "ciclano", "beltrano", " baiano" };
 		coords = { {345, 36} , {250, 215}, {250, 315}, {250, 410}, {250, 510} };
 		tamanho = { 18, 22, 18, 18, 22 };
 	}

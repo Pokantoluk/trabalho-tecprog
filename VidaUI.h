@@ -1,9 +1,7 @@
 #pragma once
 #include "ComponenteGrafico.h"
 #include "Vector2D.h"
-#include "GerenciadorGrafico.h"
 #include "Jogador.h"
-
 
 namespace Game
 {
