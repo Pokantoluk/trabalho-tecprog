@@ -10,7 +10,7 @@
 #define VEL_JOGADOR 300.f
 #define PULO 150.0f
 
-namespace Game 
+namespace Game
 {
 	class Fase;
 	class Entidade :
@@ -20,6 +20,7 @@ namespace Game
 		Vector2F posicao;
 		Vector2F v;
 		Vector2F dimensao;
+		bool gosma;
 		const char* caminho;
 		IDsEntidades::IDsEntidades id;
 	public:
@@ -29,8 +30,11 @@ namespace Game
 		virtual void colidir(Entidade* ente, Vector2F interssec) = 0;
 		virtual void inicializar();
 		virtual void atualizar(float t);
+		virtual void machucar(int dano) {};
 
-
+		void set_gosma(bool g) { gosma = g; }
+		void set_vel(Vector2F vel);
+		const Vector2F get_vel() const { return v; }
 		void set_lista(ListaEntidades& l);
 		const Vector2F get_dim() const { return dimensao; }
 		const Vector2F get_pos() const { return posicao; }

@@ -1,5 +1,6 @@
 #include "Fase_1.h"
 
+
 namespace Game
 {
 	namespace Fases
@@ -21,10 +22,10 @@ namespace Game
 			o12(new Entidades::Obstaculos::Obstaculo(Vector2F(1800.0f, 610.0f), "assets/rectangle6.png")),
 			o13(new Entidades::Obstaculos::Obstaculo(Vector2F(1850.0f, 630.0f), "assets/rectangle6.png")),
 			o14(new Entidades::Obstaculos::Obstaculo(Vector2F(1900.0f, 650.0f), "assets/rectangle6.png")),
-			fogo(new Entidades::Obstaculos::Obstaculo(Vector2F(2300.0f, 750.0f), "assets/fogo1.png")),// fazer a classe fogo com eles randomizados feat dando dano e feat animacao
+			fogo(new Entidades::Obstaculos::Fogo(Vector2F(2300.0f, 750.0f), "assets/fogo1.png")),
 			pedra(new Entidades::Obstaculos::Obstaculo(Vector2F(1000.0f, 750.0f), "assets/rocks1_5.png")),
 			pedra2(new Entidades::Obstaculos::Obstaculo(Vector2F(1400.0f, 750.0f), "assets/rocks1_5.png")),
-			bandeira(new Entidades::Obstaculos::Obstaculo(Vector2F(2600.0f, 500.0f), "assets/bandeira_mario.png"))
+			chefao(new Entidades::Obstaculos::Obstaculo(Vector2F(2600.0f, 800.0f), "assets/bomba(1).png"))
 		{
 			
 		}
@@ -52,7 +53,7 @@ namespace Game
 			o14->set_lista(entidades_estaticas);
 			pedra->set_lista(entidades_estaticas);
 			pedra2->set_lista(entidades_estaticas);
-			bandeira->set_lista(entidades_estaticas);
+			chefao->set_lista(entidades_estaticas);
 			fogo->set_lista(entidades_estaticas);
 			entidades_moveis.inicializar_entidades();
 			entidades_estaticas.inicializar_entidades();

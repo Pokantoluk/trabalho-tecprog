@@ -1,6 +1,8 @@
 #include "jogador.h"
 #include "Fase.h"
 #include <iostream>
+#include "VidaUI.h"
+
 
 using namespace std;
 namespace Game
@@ -15,13 +17,25 @@ namespace Game
 			olhando_esquerda(false),
 			pode_pular(false),
 			morto(false),
-			caminho_e("assets/mario_e.png")
-		{
+			caminho_e("assets/mario_e.png"),
+			componentes()
 
+		{
+			componentes.push_back(new VidaUI());
 		}
 
 		Jogador::~Jogador()
 		{
+			for (int i = 0; i < componentes.size(); i++)
+			{
+				if (componentes[i] != nullptr)
+				{
+					delete componentes[i];
+					componentes[i] = nullptr;
+				}
+			}
+			componentes.clear();
+
 		}
 
 		void Jogador::executar(float t)
@@ -36,6 +50,12 @@ namespace Game
 			{
 				imprimir(caminho, posicao);
 			}
+			for (int i = 0; i < componentes.size(); i++)
+			{
+				componentes[i]->atualizar(this);
+				componentes[i]->executar();
+			}
+
 		}
 
 		void Jogador::inicializar()

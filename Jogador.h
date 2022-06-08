@@ -2,6 +2,7 @@
 #include "Personagem.h"
 #include "GerenciadorEventos.h"
 #include "GerenciadorGrafico.h"
+#include "ComponenteGrafico.h"
 
 namespace Game
 {
@@ -17,6 +18,8 @@ namespace Game
 			bool olhando_esquerda;
 			const char* caminho_e;
 			bool morto;
+			std::vector<ComponenteGrafico*> componentes;
+
 		public:
 			static unsigned int get_pontuacao();
 

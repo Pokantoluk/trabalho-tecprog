@@ -1,0 +1,1 @@
+#include "ComponenteGrafico.h"

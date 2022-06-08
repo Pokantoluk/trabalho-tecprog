@@ -1,13 +1,13 @@
 #include "Obstaculo.h"
 
-namespace Game 
+namespace Game
 {
 	namespace Entidades
 	{
 		namespace Obstaculos
 		{
-			Obstaculo::Obstaculo(Vector2F pos, const char* caminho_textura):
-				Entidade(IDsEntidades::obstaculo,pos, Vector2F(0.0f, 0.0f), caminho_textura)
+			Obstaculo::Obstaculo(Vector2F pos, const char* caminho_textura) :
+				Entidade(IDsEntidades::obstaculo, pos, Vector2F(0.0f, 0.0f), caminho_textura)
 			{
 
 			}
@@ -35,7 +35,7 @@ namespace Game
 			{
 				GerenciadorGrafico::get_gerenciador()->desenhar(caminho, posicao);
 			}
-			
+
 		}
 	}
 }

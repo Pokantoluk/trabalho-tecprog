@@ -27,7 +27,6 @@ namespace Game
 		void desenhar_menu(sf::Text t);
 		bool carregar_textura(const std::string caminho);
 		void centralizar(Vector2F centro);
-
 		void set_textura_fundo(const char* caminho);
 		sf::RenderWindow* get_janela() const { return janela; }
 		const Vector2F get_tamanho(const std::string& caminho);

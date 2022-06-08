@@ -9,6 +9,7 @@
 #include "GerenciadorEventos.h"
 #include "GerenciadorColisoes.h"
 
+
 namespace Game
 {
 	namespace Fases

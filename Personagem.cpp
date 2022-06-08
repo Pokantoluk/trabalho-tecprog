@@ -10,5 +10,10 @@ namespace Game
 			no_chao(false)
 		{
 		}
+		void Personagem::machucar(int dano)
+		{
+			vidas -= dano;
+			vidas = vidas < 0 ? 0 : vidas;
+		}
 	}
 }

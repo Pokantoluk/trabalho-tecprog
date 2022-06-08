@@ -50,6 +50,7 @@ namespace Game
 		void Fase::inserir_jogador(Entidades::Jogador* j)
 		{
 			entidades_moveis.inserir(j);
+
 		}
 
 		void Fase::inicializar_entidades()
