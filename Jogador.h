@@ -37,6 +37,7 @@ namespace Game
 			void set_pode_pular(bool pode) { pode_pular = pode; }
 
 			bool get_morto();
+			const unsigned int get_vida() const { return vidas; }
 		};
 	}
 }
