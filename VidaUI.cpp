@@ -1,6 +1,5 @@
 #include "VidaUI.h"
 #define CHEIO "assets/vida.jpg"
-#define VAZIO "asstes/estrela.png"
 #include "Jogador.h"
 
 
@@ -27,8 +26,7 @@ namespace Game
 	{
 		if(jogador)
 		{ 
-			std::cout <<"test" << std::endl;
-			  for (int i = 0; i < jogador->get_vida(); i++)
+			  for (unsigned int i = 0; i < jogador->get_vida(); i++)
 			  {
 				 GerenciadorGrafico::get_gerenciador()->desenhar(CHEIO, Vector2F(poss[i].x + jogador->get_pos().x, poss[i].y));
 			  }

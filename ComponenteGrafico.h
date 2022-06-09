@@ -1,14 +1,10 @@
 #pragma once
 #include "GerenciadorGrafico.h"
-
+#include "Jogador.h"
 
 
 namespace Game
 {
-	namespace Entidades 
-	{
-		class Jogador;
-	}
 	class ComponenteGrafico
 	{
 	protected:

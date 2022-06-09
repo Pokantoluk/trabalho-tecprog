@@ -75,7 +75,7 @@
     <ClCompile Include="Gosma.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Gomba.cpp">
+    <ClCompile Include="Goomba.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Chefao.cpp">
@@ -158,7 +158,7 @@
     <ClInclude Include="Gosma.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Gomba.h">
+    <ClInclude Include="Goomba.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Chefao.h">
