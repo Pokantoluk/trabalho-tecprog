@@ -1,6 +1,10 @@
 #pragma once
 #include "Personagem.h"
 
+#include "GerenciadorEventos.h"
+#include "GerenciadorGrafico.h"
+
+
 namespace Game
 {
 	namespace Entidades
@@ -34,6 +38,7 @@ namespace Game
 
 			unsigned int get_vida() const {return vidas; }
 			bool get_morto();
+			const unsigned int get_vida() const { return vidas; }
 		};
 	}
 }

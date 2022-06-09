@@ -1,7 +1,5 @@
 #pragma once
-#include <set>
-#include <vector>
-#include <list>
+#include "stdafx.h"
 #include <math.h>
 #include "ListaEntidades.h"
 
@@ -14,7 +12,8 @@ namespace Game
 	class GerenciadorColisoes
 	{
 	private:
-
+		std::list<Obstaculo*> LOs;
+		std::vector<Inimigo*> LIs;
 
 		ListaEntidades* moveis;
 		ListaEntidades* estaticos;

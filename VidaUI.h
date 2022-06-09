@@ -3,6 +3,8 @@
 #include "Vector2D.h"
 #include "Jogador.h"
 
+#include "Jogador.h"
+
 
 namespace Game
 {

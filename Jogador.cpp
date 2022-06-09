@@ -173,7 +173,7 @@ namespace Game
 			olhando_esquerda = esquerda;
 		}
 
-		void Jogador::bordas()//para n„o sair da tela
+		void Jogador::bordas()//para n√£o sair da tela
 		{
 			if (posicao.x < 0) { posicao.x = 0; }
 			if (posicao.y + dimensao.y >= 800)
