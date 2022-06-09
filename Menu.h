@@ -42,14 +42,14 @@ namespace Game
         void valores_principal();
         void valores_seletor_fase();
         void valores_placar();
-        void valores_saves();
+        void valores_qtd_jogadores();
         void valores_gameover();
 
         /*metodos do menu*/
         void menu_principal();
         void menu_seletor();
         void menu_placar();
-        void menu_saves();
+        void menu_qtd_jogadores();
         void menu_pausa();
         void menu_gameOver();
 

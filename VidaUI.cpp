@@ -15,7 +15,7 @@ namespace Game
 		poss[3] = Vector2F(150.0f, 0.0f);
 		poss[4] = Vector2F(200.0f, 0.0f);
 
-		GerenciadorGrafico::get_gerenciador()->carregar_textura(VAZIO);
+		//GerenciadorGrafico::get_gerenciador()->carregar_textura(VAZIO);
 		GerenciadorGrafico::get_gerenciador()->carregar_textura(CHEIO);
 	}
 

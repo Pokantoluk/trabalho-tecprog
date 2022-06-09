@@ -91,7 +91,7 @@ namespace Game
 		coords = { {345, 36} , {250, 215}, {250, 315}, {250, 410}, {250, 510} };
 		tamanho = { 18, 22, 18, 18, 22 };
 	}
-	void Menu::valores_saves()
+	void Menu::valores_qtd_jogadores()
 	{
 	}
 
@@ -178,7 +178,7 @@ namespace Game
 		ler_teclado();
 	}
 
-	void Menu::menu_saves()
+	void Menu::menu_qtd_jogadores()
 	{
 	}
 
@@ -229,7 +229,7 @@ namespace Game
 		else if (num_menu == PLACAR)
 			menu_placar();
 		else if (num_menu == SAVES)
-			menu_saves();
+			menu_qtd_jogadores();
 		else if (num_menu == FASE_1)
 			fase = 1;
 		else if (num_menu == FASE_2)

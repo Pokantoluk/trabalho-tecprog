@@ -26,7 +26,7 @@ namespace Game
 			pedra(new Entidades::Obstaculos::Obstaculo(Vector2F(1000.0f, 750.0f), "assets/rocks1_5.png")),
 			pedra2(new Entidades::Obstaculos::Obstaculo(Vector2F(1400.0f, 750.0f), "assets/rocks1_5.png")),
 			chefao(new Entidades::Obstaculos::Obstaculo(Vector2F(2600.0f, 600.0f), "assets/bomba.png")),
-			gosma1( new Entidades::Obstaculos::Gosma(Vector2F(2000.0f,700.0f), "assets/gosma (1).png"))
+			gosma1( new Entidades::Obstaculos::Gosma(Vector2F(2000.0f,700.0f), "assets/gosma.png"))
 		{
 			
 		}
@@ -56,9 +56,9 @@ namespace Game
 			pedra2->set_lista(entidades_estaticas);
 			chefao->set_lista(entidades_estaticas);
 			fogo->set_lista(entidades_estaticas);
+			gosma1->set_lista(entidades_estaticas);
 			entidades_moveis.inicializar_entidades();
 			entidades_estaticas.inicializar_entidades();
-			gosma1->set_lista(entidades_estaticas);
 		}
 
 		void Fase_1::carregar_fundo() const
