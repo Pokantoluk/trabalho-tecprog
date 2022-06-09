@@ -11,8 +11,8 @@ namespace Game
 		
  
 	public:
-		ComponenteGrafico();
-		~ComponenteGrafico();
+		ComponenteGrafico(){}
+		~ComponenteGrafico(){}
 		virtual void executar() = 0;
 		virtual void atualizar(Entidades::Jogador* jogador) {};
 
