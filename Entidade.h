@@ -10,7 +10,7 @@
 #define VEL_JOGADOR 300.f
 #define PULO 150.0f
 
-namespace Game
+namespace Jogo
 {
 	class Fase;
 	class Entidade :

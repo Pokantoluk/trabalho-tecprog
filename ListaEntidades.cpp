@@ -1,7 +1,7 @@
 #include "ListaEntidades.h"
 #include "Entidade.h"
 
-namespace Game
+namespace Jogo
 {
 	namespace Listas
 	{

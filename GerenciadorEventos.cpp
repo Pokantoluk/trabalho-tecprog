@@ -1,7 +1,7 @@
 #include "GerenciadorEventos.h"
 #include "stdafx.h"
 
-namespace Game
+namespace Jogo
 {
 	namespace Gerenciadores 
 	{

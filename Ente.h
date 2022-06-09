@@ -3,7 +3,7 @@
 #include "Vector2D.h"
 #include "GerenciadorGrafico.h"
 
-namespace Game
+namespace Jogo
 {
 	class Ente
 	{

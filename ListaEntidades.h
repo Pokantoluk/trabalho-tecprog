@@ -2,7 +2,7 @@
 #include "Lista.h"
 
 
-namespace Game
+namespace Jogo
 {
 	class Entidade;
 	class GerenciadorGrafico;

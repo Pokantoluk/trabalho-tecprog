@@ -2,7 +2,7 @@
 #include "SFML/Graphics.hpp"
 #include "stdafx.h"
 
-namespace Game
+namespace Jogo
 {
 	namespace Gerenciadores
 	{

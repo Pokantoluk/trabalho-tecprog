@@ -3,7 +3,7 @@
 #include <math.h>
 #include "ListaEntidades.h"
 
-namespace Game
+namespace Jogo
 {
 	class Inimigo;
 	class Entidade;

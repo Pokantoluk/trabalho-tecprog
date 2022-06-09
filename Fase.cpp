@@ -1,7 +1,7 @@
 #include "Fase.h"
 #include <Windows.h>
 
-namespace Game
+namespace Jogo
 {
 	namespace Fases
 	{
@@ -57,7 +57,6 @@ namespace Game
 		{
 			entidades_moveis.inserir(j);
 			vidaui = new VidaUI(j);
-
 		}
 
 		void Fase::inicializar_entidades()
@@ -71,6 +70,13 @@ namespace Game
 			entidades_moveis.destruir();
 			entidades_estaticas.destruir();
 			inicializar_entidades();
+		}
+
+		void Fase::terminar_fase()
+		{
+			
+			entidades_moveis.destruir();
+			entidades_estaticas.destruir();
 		}
 
 		void Fase::executar(float t)

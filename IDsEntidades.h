@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Game
+namespace Jogo
 {
 	namespace IDsEntidades
 	{
@@ -10,7 +10,6 @@ namespace Game
 			Inimigo,
 			obstaculo
 		};
-
 	}
 }
 

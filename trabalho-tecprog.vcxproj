@@ -140,7 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Chefao.cpp" />
-    <ClCompile Include="ComponenteGrafico.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Fase_1.cpp" />
@@ -155,10 +154,12 @@
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="ListaEntidades.cpp" />
+    <ClCompile Include="Luigi.cpp" />
+    <ClCompile Include="Mario.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="NuvemMal.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
-    <ClCompile Include="Origem.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="VidaUI.cpp" />
@@ -166,7 +167,6 @@
   <ItemGroup>
     <ClInclude Include="Chefao.h" />
     <ClInclude Include="ComponenteGrafico.h" />
-    <ClInclude Include="Elemento.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="Fase_1.h" />
@@ -183,6 +183,8 @@
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidades.h" />
+    <ClInclude Include="Luigi.h" />
+    <ClInclude Include="Mario.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="NuvemMal.h" />
     <ClInclude Include="Obstaculo.h" />
@@ -191,6 +193,9 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="VidaUI.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,7 +1,7 @@
 #pragma once
 #include <cmath>
 
-namespace Game
+namespace Jogo
 {
 	template <typename T>
 	class Vector2D

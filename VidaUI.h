@@ -4,7 +4,7 @@
 #include "Jogador.h"
 
 
-namespace Game
+namespace Jogo
 {
     class VidaUI :
         public ComponenteGrafico

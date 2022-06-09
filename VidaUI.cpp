@@ -3,7 +3,7 @@
 #include "Jogador.h"
 
 
-namespace Game
+namespace Jogo
 {
 
 	VidaUI::VidaUI(Entidades::Personagens::Jogador* jog):

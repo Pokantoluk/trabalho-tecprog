@@ -3,7 +3,7 @@
 #include "IDsEntidades.h"
 
 
-namespace Game
+namespace Jogo
 {
 	namespace Entidades
 	{

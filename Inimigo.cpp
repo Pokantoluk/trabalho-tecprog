@@ -1,6 +1,6 @@
 #include "Inimigo.h"
 
-namespace Game
+namespace Jogo
 {
 	namespace Entidades
 	{

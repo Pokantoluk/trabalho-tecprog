@@ -1,7 +1,7 @@
 #pragma once
 #include "Obstaculo.h"
 
-namespace Game
+namespace Jogo
 {
     namespace Entidades
     {

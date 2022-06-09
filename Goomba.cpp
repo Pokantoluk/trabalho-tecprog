@@ -1,5 +1,5 @@
 #include "Goomba.h"
-namespace Game
+namespace Jogo
 {
 	namespace Entidades
 	{

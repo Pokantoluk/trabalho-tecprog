@@ -5,7 +5,7 @@
 
 
 using namespace std;
-namespace Game
+namespace Jogo
 {
 	namespace Entidades
 	{
@@ -14,13 +14,13 @@ namespace Game
 
 			int Jogador::pontos = 0;
 
-			Jogador::Jogador(Vector2F pos, Vector2F vel) :
-				Personagem(IDsEntidades::Jogador, pos, vel, "assets/mario.png", 6),
+			Jogador::Jogador(Vector2F pos, const char* caminho, const char* caminho_e) :
+				Personagem(IDsEntidades::Jogador, pos, Vector2F(0,0), caminho, 6),
 				andando(false),
 				olhando_esquerda(false),
 				pode_pular(false),
 				morto(false),
-				caminho_e("assets/mario_e.png")
+				caminho_e(caminho_e)
 			{
 
 			}
@@ -31,7 +31,6 @@ namespace Game
 			void Jogador::executar(float t)
 			{
 				atualizar(t);
-				Gerenciadores::GerenciadorGrafico::get_gerenciador()->centralizar(posicao);
 				if (olhando_esquerda)
 				{
 					imprimir(caminho_e, posicao);
@@ -185,7 +184,7 @@ namespace Game
 			{
 				if (vidas == 0)
 				{
-					Gerenciadores::GerenciadorGrafico::get_gerenciador()->centralizar(0.0f);
+					Gerenciadores::GerenciadorGrafico::get_gerenciador()->centralizar(0.0f, 0.0f);
 					return true;
 				}
 				else

@@ -1,6 +1,6 @@
 #pragma once
 #include "Fase.h"
-namespace Game {
+namespace Jogo {
     namespace Fases {
         class Fase_2 :
             public Fase

@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 
-namespace Game
+namespace Jogo
 {
 	namespace Listas
 	{
