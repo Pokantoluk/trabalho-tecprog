@@ -19,9 +19,9 @@ namespace Game
 			public Ente
 		{
 		protected:
-			ListaEntidades entidades_estaticas;
-			ListaEntidades entidades_moveis;
-			GerenciadorColisoes gc;
+			Listas::ListaEntidades entidades_estaticas;
+			Listas::ListaEntidades entidades_moveis;
+			Gerenciadores::GerenciadorColisoes gc;
 			VidaUI* vidaui;
 			
 			sf::Music music;
@@ -35,7 +35,7 @@ namespace Game
 
 			virtual void carregar_fundo() const;
 			void randomizar_inimigos();
-			void inserir_jogador(Entidades::Jogador* j);
+			void inserir_jogador(Entidades::Personagens::Jogador* j);
 			virtual void inicializar_entidades();
 			void reiniciar_entidades(Vector2F pos_jogador);
 			void executar(float t);

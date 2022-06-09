@@ -3,6 +3,8 @@ namespace Game
 {
 	namespace Entidades
 	{
+		namespace Personagens
+		{
 		Goomba::Goomba(Vector2F pos, Vector2F vel, const char* caminho_textura):
 		 Inimigo(pos,vel, caminho_textura,1)
 		{
@@ -40,6 +42,7 @@ namespace Game
 			}
 
 
+		}
 		}
 	}
 }

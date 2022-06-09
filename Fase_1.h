@@ -25,7 +25,6 @@ namespace Game
 			Entidades::Obstaculos::Obstaculo* o13;
 			Entidades::Obstaculos::Obstaculo* o14;
 			Entidades::Obstaculos::Fogo* fogo;
-			//Entidades::Obstaculos::Obstaculo* fogo2;
 			Entidades::Obstaculos::Obstaculo* pedra;
 			Entidades::Obstaculos::Obstaculo* pedra2;
 			Entidades::Obstaculos::Obstaculo* chefao;

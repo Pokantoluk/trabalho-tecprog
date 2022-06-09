@@ -1,151 +1,155 @@
 #pragma once
-#include <iostream>
+#include "stdafx.h"
 
 namespace Game
 {
-	template<typename TL>
-	class Lista
+	namespace Listas
 	{
-	private:
-		template<typename TE>
-		class Elemento
+
+		template<typename TL>
+		class Lista
 		{
 		private:
-			TE* data;
-			Elemento<TE>* ante;
-			Elemento<TE>* prox;
-
-		public:
-			Elemento():
-				data(nullptr),
-				ante(nullptr),
-				prox(nullptr)
+			template<typename TE>
+			class Elemento
 			{
-			}
-			~Elemento(){}
+			private:
+				TE* data;
+				Elemento<TE>* ante;
+				Elemento<TE>* prox;
 
-			/*gets*/
-			Elemento<TE>* get_ante() { return ante; }
-			Elemento<TE>* get_prox() { return prox; }
-			TE* get_data() { return data; }
+			public:
+				Elemento() :
+					data(nullptr),
+					ante(nullptr),
+					prox(nullptr)
+				{
+				}
+				~Elemento() {}
 
-			/*sets*/
-			void set_ante(Elemento<TE>* ante) { this->ante = ante; }
-			void set_prox(Elemento<TE>* prox) { this->prox = prox; }
-			void set_data(TE* data) { this->data = data; }
+				/*gets*/
+				Elemento<TE>* get_ante() { return ante; }
+				Elemento<TE>* get_prox() { return prox; }
+				TE* get_data() { return data; }
+
+				/*sets*/
+				void set_ante(Elemento<TE>* ante) { this->ante = ante; }
+				void set_prox(Elemento<TE>* prox) { this->prox = prox; }
+				void set_data(TE* data) { this->data = data; }
+			};
+
+			Elemento<TL>* inicio;
+			Elemento<TL>* fim;
+			Elemento<TL>* atual;
+		public:
+			Lista();
+			~Lista();
+
+			void inserir(TL* info);
+			void esvaziar();
+			TL* voltar_inicio();
+			TL* proximo();
+			TL* operator[](int x);
+			void remover(int index);
 		};
 
-		Elemento<TL>* inicio;
-		Elemento<TL>* fim;
-		Elemento<TL>* atual;
-	public:
-		Lista();
-		~Lista();
-
-		void inserir(TL* info);
-		void esvaziar();
-		TL* voltar_inicio();
-		TL* proximo();
-		TL* operator[](int x);
-		void remover(int index);
-	};
-
-	template<typename TL>
-	inline Lista<TL>::Lista()
-	{
-	}
-
-	template<typename TL>
-	inline Lista<TL>::~Lista()
-	{
-	}
-
-	template<typename TL>
-	inline void Lista<TL>::inserir(TL* info)
-	{
-		if (info)
+		template<typename TL>
+		inline Lista<TL>::Lista()
 		{
-			Elemento<TL>* novo = new Elemento<TL>();
-			novo->set_data(info);
-			if (!inicio)
+		}
+
+		template<typename TL>
+		inline Lista<TL>::~Lista()
+		{
+		}
+
+		template<typename TL>
+		inline void Lista<TL>::inserir(TL* info)
+		{
+			if (info)
 			{
-				inicio = novo;
-				fim = novo;
+				Elemento<TL>* novo = new Elemento<TL>();
+				novo->set_data(info);
+				if (!inicio)
+				{
+					inicio = novo;
+					fim = novo;
+				}
+				else
+				{
+					fim->set_prox(novo);
+					novo->set_ante(fim);
+					fim = novo;
+				}
+			}
+		}
+		template<typename TL>
+		inline void Lista<TL>::esvaziar()
+		{
+			Elemento<TL>* aux = inicio;
+			atual = inicio;
+			while (atual)
+			{
+				aux = atual->get_prox();
+				delete atual;
+				atual = aux;
+			}
+			inicio = nullptr;
+			fim = nullptr;
+			atual = nullptr;
+		}
+		template<typename TL>
+		inline TL* Lista<TL>::voltar_inicio()
+		{
+			atual = inicio;
+			if (atual) { return atual->get_data(); }
+			else { return nullptr; }
+		}
+		template<typename TL>
+		inline TL* Lista<TL>::proximo()
+		{
+			atual = atual->get_prox();
+			if (atual) { return atual->get_data(); }
+			else { return nullptr; }
+		}
+
+		template<typename TL>
+		TL* Lista<TL>::operator[](int index)
+		{
+			Elemento<TL>* aux = inicio;
+			for (int i = 0; i < index; i++)
+			{
+				aux = aux->get_prox();
+			}
+			if (aux)
+			{
+				return aux->get_data();
+			}
+			return nullptr;
+		}
+		template<typename TL>
+		inline void Lista<TL>::remover(int index)
+		{
+			Elemento<TL>* aux = inicio;
+			for (int i = 0; i < index; i++)
+			{
+				aux = aux->get_prox();
+			}
+			if (aux == inicio)
+			{
+				inicio = aux->get_prox();
+				aux->get_prox()->set_ante(inicio);
+			}
+			else if (aux == fim)
+			{
+				fim = aux->get_ante();
+				aux->get_ante()->set_prox(fim);
 			}
 			else
 			{
-				fim->set_prox(novo);
-				novo->set_ante(fim);
-				fim = novo;
+				aux->get_ante()->set_prox(aux->get_prox());
+				aux->get_prox()->set_ante(aux->get_ante());
 			}
-		}
-	}
-	template<typename TL>
-	inline void Lista<TL>::esvaziar()
-	{
-		Elemento<TL>* aux = inicio;
-		atual = inicio;
-		while (atual)
-		{
-			aux = atual->get_prox();
-			delete atual;
-			atual = aux;
-		}
-		inicio = nullptr;
-		fim = nullptr;
-		atual = nullptr;
-	}
-	template<typename TL>
-	inline TL* Lista<TL>::voltar_inicio()
-	{
-		atual = inicio;
-		if (atual) { return atual->get_data(); }
-		else { return nullptr; }
-	}
-	template<typename TL>
-	inline TL* Lista<TL>::proximo()
-	{
-		atual = atual->get_prox();
-		if (atual) { return atual->get_data(); }
-		else { return nullptr; }
-	}
-
-	template<typename TL>
-	TL* Lista<TL>::operator[](int index)
-	{
-		Elemento<TL>* aux = inicio;
-		for (int i = 0; i < index; i++)
-		{
-			aux = aux->get_prox();
-		}
-		if (aux)
-		{
-	      return aux->get_data();
-		}
-		return nullptr;
-	}
-	template<typename TL> 
-	inline void Lista<TL>::remover(int index)
-	{
-		Elemento<TL>* aux = inicio;
-		for (int i = 0; i < index; i++)
-		{
-			aux = aux->get_prox();
-		}
-		if (aux == inicio)
-		{
-			inicio = aux->get_prox();
-			aux->get_prox()->set_ante(inicio);
-		}
-		else if (aux == fim)
-		{
-			fim = aux->get_ante();
-			aux->get_ante()->set_prox(fim);
-		}
-		else
-		{
-			aux->get_ante()->set_prox(aux->get_prox()); 
-			aux->get_prox()->set_ante(aux->get_ante());
 		}
 	}
 }

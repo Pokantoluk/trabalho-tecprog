@@ -34,7 +34,6 @@ namespace Game
 		Fase_1::~Fase_1()
 		{
 		}
-
 		void Fase_1::inicializar_entidades()
 		{
 			
@@ -57,13 +56,13 @@ namespace Game
 			chefao->set_lista(entidades_estaticas);
 			fogo->set_lista(entidades_estaticas);
 			gosma1->set_lista(entidades_estaticas);
+
 			entidades_moveis.inicializar_entidades();
 			entidades_estaticas.inicializar_entidades();
 		}
-
 		void Fase_1::carregar_fundo() const
 		{
-			GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_fase_1);
+			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_fase_1);
 		}
 	}
 }

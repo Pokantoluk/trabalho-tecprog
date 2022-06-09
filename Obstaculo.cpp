@@ -25,15 +25,15 @@ namespace Game
 
 			void Obstaculo::inicializar()
 			{
-				GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho);
-				dimensao = GerenciadorGrafico::get_gerenciador()->get_tamanho(caminho);
+				Gerenciadores::GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho);
+				dimensao = Gerenciadores::GerenciadorGrafico::get_gerenciador()->get_tamanho(caminho);
 			}
 			void Obstaculo::atualizar(float t)
 			{
 			}
 			void Obstaculo::desenhar()
 			{
-				GerenciadorGrafico::get_gerenciador()->desenhar(caminho, posicao);
+				Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar(caminho, posicao);
 			}
 
 		}

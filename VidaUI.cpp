@@ -6,7 +6,7 @@
 namespace Game
 {
 
-	VidaUI::VidaUI(Entidades::Jogador* jog):
+	VidaUI::VidaUI(Entidades::Personagens::Jogador* jog):
 		ComponenteGrafico(jog)
 	{
 		poss[0] = Vector2F(0.0f, 400.0f);
@@ -16,7 +16,7 @@ namespace Game
 		poss[4] = Vector2F(200.0f, 0.0f);
 
 		//GerenciadorGrafico::get_gerenciador()->carregar_textura(VAZIO);
-		GerenciadorGrafico::get_gerenciador()->carregar_textura(CHEIO);
+		Gerenciadores::GerenciadorGrafico::get_gerenciador()->carregar_textura(CHEIO);
 	}
 
 
@@ -28,7 +28,7 @@ namespace Game
 		{ 
 			  for (unsigned int i = 0; i < jogador->get_vida(); i++)
 			  {
-				 GerenciadorGrafico::get_gerenciador()->desenhar(CHEIO, Vector2F(poss[i].x + jogador->get_pos().x, poss[i].y));
+				  Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar(CHEIO, Vector2F(poss[i].x + jogador->get_pos().x, poss[i].y));
 			  }
         }
 

@@ -20,15 +20,15 @@ namespace Game
 
 	void Entidade::inicializar()
 	{
-		GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho);
-		dimensao = GerenciadorGrafico::get_gerenciador()->get_tamanho(caminho);
+		Gerenciadores::GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho);
+		dimensao = Gerenciadores::GerenciadorGrafico::get_gerenciador()->get_tamanho(caminho);
 	}
 
 	void Entidade::atualizar(float t)
 	{
 	}
 
-	void Entidade::set_lista(ListaEntidades& l)
+	void Entidade::set_lista(Listas::ListaEntidades& l)
 	{
 		l.inserir(this);
 	}

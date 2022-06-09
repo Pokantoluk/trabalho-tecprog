@@ -5,10 +5,14 @@ namespace Game
 {
 	namespace Entidades
 	{
-		class NuvemMal :
-			public	Inimigo
+		namespace Personagens
 		{
+			class NuvemMal :
+				public	Inimigo
+			{
 
-		};
+			};
+
+		}
 	}
 }

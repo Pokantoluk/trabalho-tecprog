@@ -37,7 +37,7 @@ namespace Game
 		void set_gosma(bool g) { gosma = g; }
 		void set_vel(Vector2F vel) { v = vel; }
 		const Vector2F get_vel() const { return v; }
-		void set_lista(ListaEntidades& l);
+		void set_lista(Listas::ListaEntidades& l);
 		const Vector2F get_dim() const { return dimensao; }
 		const Vector2F get_pos() const { return posicao; }
 		const IDsEntidades::IDsEntidades get_id() const { return id; }
