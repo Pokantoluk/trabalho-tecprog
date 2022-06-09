@@ -9,6 +9,7 @@
 #define SAVES 4
 #define FASE_1 5
 #define FASE_2 6
+#define GAMEOVER 7
 using namespace std;
 
 namespace Game
@@ -32,6 +33,7 @@ namespace Game
 
 	void Menu::iniciar()
 	{
+		recuperar();
 		set_valores(MENU_PRINCIPAL);
 	}
 	void Menu::set_valores(unsigned int qual_menu)
@@ -49,6 +51,10 @@ namespace Game
 		case PLACAR:
 			valores_placar();
 			GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_placar);
+			break;
+		case GAMEOVER:
+			GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
+			valores_gameover();
 			break;
 		}
 		for (std::size_t i{}; i < textos.size(); i++)
@@ -79,12 +85,20 @@ namespace Game
 	void Menu::valores_placar()
 	{
 		textos.resize(5);
-		opcoes = { "CocKnight", "fulano", "ciclano", "beltrano", " baiano" };
+		opcoes = { "Mario++", jogadores[0], jogadores[1], jogadores[2], jogadores[3], to_string(pontos[0]), to_string(pontos[1]), to_string(pontos[2]) , to_string(pontos[3])};
 		coords = { {345, 36} , {250, 215}, {250, 315}, {250, 410}, {250, 510} };
 		tamanho = { 18, 22, 18, 18, 22 };
 	}
 	void Menu::valores_saves()
 	{
+	}
+
+	void Menu::valores_gameover()
+	{
+		textos.resize(2);
+		opcoes = { "Digite o seu nome:", GerenciadorEventos::get_nome()};
+		coords = { {250, 215}, {300, 400} };
+		tamanho = { 22, 30};
 	}
 
 	void Menu::menu_principal()
@@ -186,7 +200,21 @@ namespace Game
 
 	void Menu::menu_gameOver()
 	{
-		GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
+		
+		set_valores(GAMEOVER);
+		GerenciadorEventos::escrever_nome(true);
+		for (auto t : textos)
+		{
+			GerenciadorGrafico::get_gerenciador()->desenhar_menu(t);
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+		{
+			GerenciadorEventos::escrever_nome(false);
+			tratar_pontos();
+			gravar();
+			num_menu = MENU_PRINCIPAL;
+			fase = 0;
+		}
 	}
 
 	void Menu::executar(float t)
@@ -194,15 +222,15 @@ namespace Game
 		//printf("%u", num_menu);
 		if (num_menu == 1)
 			menu_principal();
-		else if (num_menu == 2)
+		else if (num_menu == SELETOR)
 			menu_seletor();
-		else if (num_menu == 3)
+		else if (num_menu == PLACAR)
 			menu_placar();
-		else if (num_menu == 4)
+		else if (num_menu == SAVES)
 			menu_saves();
-		else if (num_menu == 5)
+		else if (num_menu == FASE_1)
 			fase = 1;
-		else if (num_menu == 6)
+		else if (num_menu == FASE_2)
 			fase = 2;
 	}
 	void Menu::ler_teclado()
@@ -245,8 +273,41 @@ namespace Game
 
 	void Menu::tratar_pontos()
 	{
-		int ponto = Entidades::Jogador::get_pontuacao();
+		unsigned int ponto = Entidades::Jogador::get_pontuacao();
+		unsigned int i;
+		for (i = 0;  i < 5; i++)
+		{
+			if (pontos[i] < ponto)
+			{
+				pontos[i] = ponto;
+				jogadores[i] = nome_a_salvar;
+			}
+		}
+	}
 
+	void Menu::gravar()
+	{
+		ofstream dat_jogadores;
+		dat_jogadores.open("assets/jogadores.dat", ios::out);
+		for (int i = 0; i < 5; i++)
+		{
+			dat_jogadores << jogadores[i] << " " << pontos[i];
+		}
+		dat_jogadores.close();
+	}
+
+	void Menu::recuperar()
+	{
+		ifstream dat_jogadores;
+		dat_jogadores.open("assets/jogadores.dat", ios::in);
+		string nome;
+		unsigned int p;
+		while (dat_jogadores >> nome >> p)
+		{
+			jogadores.push_back(nome);
+			pontos.push_back(p);
+		}
+		dat_jogadores.close();
 	}
 
 

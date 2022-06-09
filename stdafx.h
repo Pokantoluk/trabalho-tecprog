@@ -14,6 +14,7 @@
 #include<cmath>
 #include<exception>
 #include<fstream>
+#include<map>
 
 //sfml 
 #include<SFML/System.hpp>

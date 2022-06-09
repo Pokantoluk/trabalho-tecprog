@@ -3,6 +3,7 @@
 #include "Ente.h"
 #include "Vector2D.h"
 #include "GerenciadorGrafico.h"
+#include "GerenciadorEventos.h"
 #include "Jogador.h"
 using namespace std;
 
@@ -20,12 +21,16 @@ namespace Game
         const char* fundo;
         const char* fundo_placar;
         const char* fundo_pausa;
+        string nome_a_salvar;
         sf::Font* fonte;
 
-        std::vector<const char*> opcoes;
-        std::vector<Vector2F> coords;
-        std::vector<sf::Text> textos;
-        std::vector<std::size_t> tamanho;
+
+        vector<unsigned int> pontos;
+        vector<string> jogadores;
+        vector<string> opcoes;
+        vector<Vector2F> coords;
+        vector<sf::Text> textos;
+        vector<unsigned int> tamanho;
 
     public:
         Menu();
@@ -38,6 +43,7 @@ namespace Game
         void valores_seletor_fase();
         void valores_placar();
         void valores_saves();
+        void valores_gameover();
 
         /*metodos do menu*/
         void menu_principal();
@@ -47,10 +53,16 @@ namespace Game
         void menu_pausa();
         void menu_gameOver();
 
+
         void executar(float t);
         void ler_teclado();
         const unsigned int get_fase() const { return fase; }
         void tratar_pontos();
+
+        /*metodos de arquivo*/
+
+        void gravar();
+        void recuperar();
     };
 
 }
