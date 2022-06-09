@@ -154,6 +154,8 @@
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="ListaEntidades.cpp" />
+    <ClCompile Include="Luigi.cpp" />
+    <ClCompile Include="Mario.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="NuvemMal.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
@@ -181,6 +183,8 @@
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidades.h" />
+    <ClInclude Include="Luigi.h" />
+    <ClInclude Include="Mario.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="NuvemMal.h" />
     <ClInclude Include="Obstaculo.h" />

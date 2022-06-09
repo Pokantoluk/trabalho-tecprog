@@ -87,6 +87,12 @@
     <ClCompile Include="VidaUI.cpp">
       <Filter>Arquivos de Origem\Fonte de entidades</Filter>
     </ClCompile>
+    <ClCompile Include="Mario.cpp">
+      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="Luigi.cpp">
+      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -165,6 +171,12 @@
       <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
     </ClInclude>
     <ClInclude Include="VidaUI.h">
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Mario.h">
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Luigi.h">
       <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
     </ClInclude>
   </ItemGroup>

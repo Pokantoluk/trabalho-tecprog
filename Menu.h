@@ -16,6 +16,7 @@ namespace Jogo
     private:
         unsigned int num_menu;
         unsigned int fase;
+        unsigned int num_jogadores;
         int pos;
         bool enter;
         const char* fundo;
@@ -43,7 +44,7 @@ namespace Jogo
         void valores_seletor_fase();
         void valores_placar();
         void valores_qtd_jogadores();
-        void valores_Jogoover();
+        void valores_gameover();
 
         /*metodos do menu*/
         void menu_principal();
@@ -58,6 +59,7 @@ namespace Jogo
         void ler_teclado();
         const unsigned int get_fase() const { return fase; }
         void tratar_pontos();
+        unsigned int get_jogadores();
 
         /*metodos de arquivo*/
 

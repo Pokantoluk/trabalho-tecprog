@@ -10,7 +10,6 @@ namespace Jogo
 			Inimigo,
 			obstaculo
 		};
-
 	}
 }
 

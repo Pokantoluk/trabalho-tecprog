@@ -6,7 +6,7 @@
 #define MENU_PRINCIPAL 1
 #define SELETOR 2
 #define PLACAR 3
-#define SAVES 4
+#define QTD_JOG 4
 #define FASE_1 5
 #define FASE_2 6
 #define JogoOVER 7
@@ -52,9 +52,13 @@ namespace Jogo
 			valores_placar();
 			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_placar);
 			break;
+		case QTD_JOG:
+			valores_qtd_jogadores();
+			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo);
+			break;
 		case JogoOVER:
 			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
-			valores_Jogoover();
+			valores_gameover();
 			break;
 		}
 		for (std::size_t i{}; i < textos.size(); i++)
@@ -71,9 +75,9 @@ namespace Jogo
 	void Menu::valores_principal()
 	{
 		textos.resize(5);
-		opcoes = { "Mario++", "Jogar", "Placar", "Saves", "quit" };
+		opcoes = { "Mario++", "Jogar", "Placar", "Jogadores", "quit" };
 		coords = { {345, 36} , {360, 215}, {363, 315}, {360, 410}, {375, 510} };
-		tamanho = { 18, 22, 18, 22, 22 };
+		tamanho = { 18, 22, 18, 12, 22 };
 	}
 	void Menu::valores_seletor_fase()
 	{
@@ -93,9 +97,13 @@ namespace Jogo
 	}
 	void Menu::valores_qtd_jogadores()
 	{
+		textos.resize(5);
+		opcoes = { "Mario++", "Um", "Dois", "Voltar", "Sair"};
+		coords = { {345, 36} , {380, 215}, {380, 315}, {360, 410}, {375, 510} };
+		tamanho = { 18, 22, 18, 18, 22 };
 	}
 
-	void Menu::valores_Jogoover()
+	void Menu::valores_gameover()
 	{
 		textos.resize(2);
 		opcoes = { "Digite o seu nome:", Gerenciadores::GerenciadorEventos::get_nome() };
@@ -124,7 +132,7 @@ namespace Jogo
 				num_menu = PLACAR;
 				break;
 			case 3:
-				num_menu = SAVES;
+				num_menu = QTD_JOG;
 				break;
 			case 4:
 				exit(1);
@@ -180,6 +188,34 @@ namespace Jogo
 
 	void Menu::menu_qtd_jogadores()
 	{
+		enter = false;
+		cout << pos;
+		set_valores(QTD_JOG);
+		ler_teclado();
+		if (enter) 
+		{
+			if (pos == 1)
+			{
+				num_jogadores = 1;
+			}
+			else if (pos == 2)
+			{
+				num_jogadores = 2;
+			}
+			else if (pos == 3)
+			{
+				num_menu = MENU_PRINCIPAL;
+			}
+			else
+			{
+				exit(1);
+			}
+			sf::sleep(sf::milliseconds(200));
+		}
+		for (auto t : textos)
+		{
+			Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar_menu(t);// colocar os escores
+		}
 	}
 
 	void Menu::menu_pausa()
@@ -222,13 +258,13 @@ namespace Jogo
 	void Menu::executar(float t)
 	{
 		//printf("%u", num_menu);
-		if (num_menu == 1)
+		if (num_menu == MENU_PRINCIPAL)
 			menu_principal();
 		else if (num_menu == SELETOR)
 			menu_seletor();
 		else if (num_menu == PLACAR)
 			menu_placar();
-		else if (num_menu == SAVES)
+		else if (num_menu == QTD_JOG)
 			menu_qtd_jogadores();
 		else if (num_menu == FASE_1)
 			fase = 1;
@@ -285,6 +321,11 @@ namespace Jogo
 				jogadores[i] = nome_a_salvar;
 			}
 		}
+	}
+
+	unsigned int Menu::get_jogadores()
+	{
+		return num_jogadores;
 	}
 
 	void Menu::gravar()

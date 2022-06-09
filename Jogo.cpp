@@ -11,9 +11,12 @@ namespace Jogo
 		gg(),
 		fase_1(),
 		fase_2(),
-		jogador(new Entidades::Personagens::Jogador(Vector2F(50.0f, 650.0f))),
-		jogador_2(new Entidades::Personagens::Jogador(Vector2F(20.0f, 650.0f)))
+		jogador_1(),
+		jogador_2(),
+		dois_jogadores(false)
 	{
+		jogador_1 = new Entidades::Personagens::Mario(Vector2F(50.0f, 650.0f));
+		jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f));
 		ge.set_janela(gg.get_janela());
 		menu.iniciar();
 		executar();
@@ -26,6 +29,10 @@ namespace Jogo
 	{
 		fase_1.inserir_jogador(jogador);
 		fase_1.inicializar_entidades();
+		if (dois_jogadores)
+		{
+			fase_1.inserir_jogador(jogador_2);
+		}
 	}
 	void Jogo::inicializar_fase_2()
 	{
@@ -49,6 +56,14 @@ namespace Jogo
 			relogio.restart();
 			gg.limpar();
 			ge.tratar_eventos();
+			if (menu.get_jogadores() == 2)
+			{
+				dois_jogadores = true;
+			}
+			else
+			{
+				dois_jogadores = false;
+			}
 			if (menu.get_fase() == 0)
 				menu.executar(t.asSeconds());
 			else if (menu.get_fase() == 1)

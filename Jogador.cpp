@@ -14,13 +14,13 @@ namespace Jogo
 
 			int Jogador::pontos = 0;
 
-			Jogador::Jogador(Vector2F pos, Vector2F vel) :
-				Personagem(IDsEntidades::Jogador, pos, vel, "assets/mario.png", 6),
+			Jogador::Jogador(Vector2F pos, const char* caminho, const char* caminho_e) :
+				Personagem(IDsEntidades::Jogador, pos, Vector2F(0,0), caminho, 6),
 				andando(false),
 				olhando_esquerda(false),
 				pode_pular(false),
 				morto(false),
-				caminho_e("assets/mario_e.png")
+				caminho_e(caminho_e)
 			{
 
 			}
