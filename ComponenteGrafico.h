@@ -8,7 +8,7 @@ namespace Game
 	class ComponenteGrafico
 	{
 	protected:
-		static GerenciadorGrafico* gg;
+		
  
 	public:
 		ComponenteGrafico();
@@ -17,7 +17,4 @@ namespace Game
 		virtual void atualizar(Entidades::Jogador* jogador) {};
 
 	};
-
-	GerenciadorGrafico* ComponenteGrafico::gg = GerenciadorGrafico::get_gerenciador();
-
 }
