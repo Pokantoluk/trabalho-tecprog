@@ -14,17 +14,17 @@ namespace Game
 	 poss[2] = Vector2F(0.0f, 0.0f);
 	 poss[3] = Vector2F(0.0f, 0.0f);
 	 poss[4] = Vector2F(5.0f, 0.0f);
-     gg->carregar_textura(VAZIO);
-	 gg->carregar_textura(CHEIO);
+	 GerenciadorGrafico::get_gerenciador()->carregar_textura(VAZIO);
+	 GerenciadorGrafico::get_gerenciador()->carregar_textura(CHEIO);
 	}
 
-	 VidaUI::~VidaUI() {}
+	VidaUI::~VidaUI() {}
 
-	 void VidaUI::executar()
-	 {
-		 for (int i=0; i < n_vidas; i++)
-		 { 
-			 gg->desenhar(CHEIO, poss[i]);
+	void VidaUI::executar()
+	{
+		for (int i = 0; i < n_vidas; i++)
+		{
+			GerenciadorGrafico::get_gerenciador()->desenhar(CHEIO, poss[i]);
 		 }
 	
 	 }

@@ -1,6 +1,6 @@
 #include "jogador.h"
 #include "Fase.h"
-#include <iostream>
+#include "ComponenteGrafico.h"
 #include "VidaUI.h"
 
 
@@ -21,7 +21,8 @@ namespace Game
 			componentes()
 
 		{
-			componentes.push_back(new VidaUI());
+
+			//componentes.push_back(static_cast<Game::ComponenteGrafico*>(new VidaUI()));
 		}
 
 		Jogador::~Jogador()
@@ -80,7 +81,7 @@ namespace Game
 			}
 			else
 			{
-				v.x *= 0.99;
+				v.x *= 0.99f;
 			}
 			if (!pode_pular)
 			{
@@ -186,7 +187,10 @@ namespace Game
 		bool Jogador::get_morto()
 		{
 			if (vidas == 0)
+			{
+				GerenciadorGrafico::get_gerenciador()->centralizar(0.0f);
 				return true;
+			}
 			else
 				return false;
 		}

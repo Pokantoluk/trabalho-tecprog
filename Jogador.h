@@ -1,11 +1,9 @@
 #pragma once
 #include "Personagem.h"
-#include "GerenciadorEventos.h"
-#include "GerenciadorGrafico.h"
-#include "ComponenteGrafico.h"
 
 namespace Game
 {
+	class ComponenteGrafico;
 	namespace Entidades
 	{
 		class Jogador :
@@ -36,6 +34,7 @@ namespace Game
 			void bordas();
 			void set_pode_pular(bool pode) { pode_pular = pode; }
 
+			unsigned int get_vida() const {return vidas; }
 			bool get_morto();
 		};
 	}

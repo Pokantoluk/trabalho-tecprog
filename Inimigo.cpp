@@ -46,12 +46,17 @@ namespace Game
 		{
 			if (ente->get_id() == IDsEntidades::Jogador)
 			{
-				
+				ente->machucar(1);
 			}
-			if (ente->get_id()== IDsEntidades::Inimigo)
+			else if (ente->get_id()== IDsEntidades::Inimigo)
 			{
 				v.x *= -1;
 			}
+			else if (ente->get_id() == IDsEntidades::obstaculo)
+			{
+				v.x *= -1;
+			}
+
 		}
 		void Inimigo::bordas()
 		{

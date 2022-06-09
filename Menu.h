@@ -24,7 +24,6 @@ namespace Game
         string nome_a_salvar;
         sf::Font* fonte;
 
-
         vector<unsigned int> pontos;
         vector<string> jogadores;
         vector<string> opcoes;

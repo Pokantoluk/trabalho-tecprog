@@ -148,7 +148,6 @@
     <ClCompile Include="GerenciadorColisoes.cpp" />
     <ClCompile Include="GerenciadorEventos.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
-    <ClCompile Include="GerenciadorInputs.cpp" />
     <ClCompile Include="Gosma.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Jogador.cpp" />
@@ -172,7 +171,6 @@
     <ClInclude Include="GerenciadorColisoes.h" />
     <ClInclude Include="GerenciadorEventos.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
-    <ClInclude Include="GerenciadorInputs.h" />
     <ClInclude Include="Gosma.h" />
     <ClInclude Include="IDsEntidades.h" />
     <ClInclude Include="Inimigo.h" />
