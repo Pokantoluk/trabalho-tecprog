@@ -66,26 +66,26 @@ namespace Game
 			textos[i].setPosition(coords[i].x, coords[i].y);
 		}
 		textos[pos].setOutlineThickness(8);
-		
+
 	}
 	void Menu::valores_principal()
 	{
 		textos.resize(5);
-		opcoes = { "CocKnight", "Jogar", "Placar", "Saves", "quit" };
+		opcoes = { "Mario++", "Jogar", "Placar", "Saves", "quit" };
 		coords = { {345, 36} , {360, 215}, {363, 315}, {360, 410}, {375, 510} };
 		tamanho = { 18, 22, 18, 22, 22 };
 	}
 	void Menu::valores_seletor_fase()
 	{
 		textos.resize(5);
-		opcoes = { "CocKnight", "Fase 1", "Fase 2", "Voltar", "Quit" };
+		opcoes = { "Mario++", "Fase 1", "Fase 2", "Voltar", "Quit" };
 		coords = { {345, 36} , {360, 215}, {363, 315}, {360, 410}, {375, 510} };
 		tamanho = { 18, 22, 18, 18, 22 };
 	}
 	void Menu::valores_placar()
 	{
 		textos.resize(5);
-		opcoes = { "Mario++", jogadores[0], jogadores[1], jogadores[2], jogadores[3], to_string(pontos[0]), to_string(pontos[1]), to_string(pontos[2]) , to_string(pontos[3])};
+		opcoes = { "Mario++", jogadores[0], jogadores[1], jogadores[2], jogadores[3], to_string(pontos[0]), to_string(pontos[1]), to_string(pontos[2]) , to_string(pontos[3]) };
 		coords = { {345, 36} , {250, 215}, {250, 315}, {250, 410}, {250, 510} };
 		tamanho = { 18, 22, 18, 18, 22 };
 	}
@@ -96,9 +96,9 @@ namespace Game
 	void Menu::valores_gameover()
 	{
 		textos.resize(2);
-		opcoes = { "Digite o seu nome:", GerenciadorEventos::get_nome()};
+		opcoes = { "Digite o seu nome:", GerenciadorEventos::get_nome() };
 		coords = { {250, 215}, {300, 400} };
-		tamanho = { 22, 30};
+		tamanho = { 22, 30 };
 	}
 
 	void Menu::menu_principal()
@@ -200,7 +200,7 @@ namespace Game
 
 	void Menu::menu_gameOver()
 	{
-		
+
 		set_valores(GAMEOVER);
 		GerenciadorEventos::escrever_nome(true);
 		for (auto t : textos)
@@ -242,7 +242,7 @@ namespace Game
 				num_menu = MENU_PRINCIPAL;
 			}
 		}
-		else 
+		else
 		{
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 			{
@@ -275,7 +275,7 @@ namespace Game
 	{
 		unsigned int ponto = Entidades::Jogador::get_pontuacao();
 		unsigned int i;
-		for (i = 0;  i < 5; i++)
+		for (i = 0; i < 5; i++)
 		{
 			if (pontos[i] < ponto)
 			{
