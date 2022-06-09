@@ -33,7 +33,7 @@ namespace Game
 		virtual void machucar(int dano) {};
 
 		void set_gosma(bool g) { gosma = g; }
-		void set_vel(Vector2F vel);
+		void set_vel(Vector2F vel) { v = vel; }
 		const Vector2F get_vel() const { return v; }
 		void set_lista(ListaEntidades& l);
 		const Vector2F get_dim() const { return dimensao; }

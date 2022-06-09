@@ -2,10 +2,10 @@
 #include "Personagem.h"
 #include "GerenciadorEventos.h"
 #include "GerenciadorGrafico.h"
-#include "ComponenteGrafico.h"
 
 namespace Game
 {
+	class ComponenteGrafico;
 	namespace Entidades
 	{
 		class Jogador :

@@ -1,6 +1,6 @@
 #include "jogador.h"
 #include "Fase.h"
-#include <iostream>
+#include "ComponenteGrafico.h"
 #include "VidaUI.h"
 
 
@@ -21,7 +21,7 @@ namespace Game
 			componentes()
 
 		{
-			componentes.push_back(new VidaUI());
+			//componentes.push_back(new VidaUI());
 		}
 
 		Jogador::~Jogador()

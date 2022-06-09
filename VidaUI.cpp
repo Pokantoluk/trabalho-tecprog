@@ -18,7 +18,9 @@ namespace Game
 		GerenciadorGrafico::get_gerenciador()->carregar_textura(CHEIO);
 	}
 
-	VidaUI::~VidaUI() {}
+	VidaUI::~VidaUI()
+	{
+	}
 
 	void VidaUI::executar()
 	{
