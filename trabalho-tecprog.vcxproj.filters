@@ -13,21 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Arquivos de Cabeçalho\Cabeçalhos de entidades">
+      <UniqueIdentifier>{5b357d56-339e-4a94-84c7-4a1361d0351f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquivos de Origem\Fonte de entidades">
+      <UniqueIdentifier>{c57a1913-731a-48cc-93bc-e4cf6a432570}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Jogo.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Entidade.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Ente.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Obstaculo.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="ListaEntidades.cpp">
@@ -39,19 +36,10 @@
     <ClCompile Include="GerenciadorGrafico.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Jogador.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Inimigo.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
     <ClCompile Include="GerenciadorColisoes.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Fase.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Personagem.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
@@ -63,39 +51,45 @@
     <ClCompile Include="Fase_2.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="VidaUI.cpp">
-      <Filter>Arquivos de Origem</Filter>
+    <ClCompile Include="Chefao.cpp">
+      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
     </ClCompile>
-    <ClCompile Include="ComponenteGrafico.cpp">
-      <Filter>Arquivos de Origem</Filter>
+    <ClCompile Include="Ente.cpp">
+      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="Entidade.cpp">
+      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
     </ClCompile>
     <ClCompile Include="Fogo.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Gosma.cpp">
-      <Filter>Arquivos de Origem</Filter>
+      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
     </ClCompile>
     <ClCompile Include="Goomba.cpp">
-      <Filter>Arquivos de Origem</Filter>
+      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
     </ClCompile>
-    <ClCompile Include="Chefao.cpp">
-      <Filter>Arquivos de Origem</Filter>
+    <ClCompile Include="Gosma.cpp">
+      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="Inimigo.cpp">
+      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="Jogador.cpp">
+      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="Obstaculo.cpp">
+      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
     </ClCompile>
     <ClCompile Include="NuvemMal.cpp">
-      <Filter>Arquivos de Origem</Filter>
+      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="Personagem.cpp">
+      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="VidaUI.cpp">
+      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Entidade.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Ente.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Obstaculo.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="ListaEntidades.h">
@@ -113,22 +107,10 @@
     <ClInclude Include="Lista.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Jogador.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Inimigo.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
     <ClInclude Include="GerenciadorColisoes.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="IDsEntidades.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
     <ClInclude Include="Fase.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Personagem.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
@@ -143,26 +125,50 @@
     <ClInclude Include="Fase_2.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="VidaUI.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+    <ClInclude Include="Chefao.h">
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
     </ClInclude>
-    <ClInclude Include="ComponenteGrafico.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+    <ClInclude Include="Entidade.h">
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
     </ClInclude>
     <ClInclude Include="Fogo.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Gosma.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
     </ClInclude>
     <ClInclude Include="Goomba.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
     </ClInclude>
-    <ClInclude Include="Chefao.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+    <ClInclude Include="Gosma.h">
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Inimigo.h">
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Jogador.h">
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Obstaculo.h">
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Personagem.h">
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
     </ClInclude>
     <ClInclude Include="NuvemMal.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
     </ClInclude>
+    <ClInclude Include="IDsEntidades.h">
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Ente.h">
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponenteGrafico.h">
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="VidaUI.h">
+      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

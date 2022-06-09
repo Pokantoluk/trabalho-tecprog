@@ -140,7 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Chefao.cpp" />
-    <ClCompile Include="ComponenteGrafico.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Fase_1.cpp" />
@@ -190,6 +189,9 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="VidaUI.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

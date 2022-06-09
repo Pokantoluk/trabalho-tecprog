@@ -11,7 +11,8 @@ namespace Jogo
 		gg(),
 		fase_1(),
 		fase_2(),
-		jogador(new Entidades::Personagens::Jogador(Vector2F(50.0f, 650.0f)))
+		jogador(new Entidades::Personagens::Jogador(Vector2F(50.0f, 650.0f))),
+		jogador_2(new Entidades::Personagens::Jogador(Vector2F(20.0f, 650.0f)))
 	{
 		ge.set_janela(gg.get_janela());
 		menu.iniciar();
