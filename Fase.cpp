@@ -47,13 +47,13 @@ namespace Game
 			for (int i = 0; i < qtd; i++)
 			{
 				float posX = static_cast<float>(rand() % 2100 + 500);
-				Entidades::Goomba* e = new Entidades::Goomba(Vector2F(posX, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
+				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(posX, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
 				e->set_lista(entidades_moveis);
 				e = nullptr;
 			}
 		}
 
-		void Fase::inserir_jogador(Entidades::Jogador* j)
+		void Fase::inserir_jogador(Entidades::Personagens::Jogador* j)
 		{
 			entidades_moveis.inserir(j);
 			vidaui = new VidaUI(j);

@@ -5,6 +5,9 @@ namespace Game
 {
 	namespace Entidades
 	{
-		
+		namespace Personagens
+		{
+
+		}
 	}
 }

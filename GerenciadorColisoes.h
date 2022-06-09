@@ -9,20 +9,24 @@ namespace Game
 	class Entidade;
 	class Obstaculo;
 	class Jogador;
-	class GerenciadorColisoes
+	namespace Gerenciadores
 	{
-	private:
-		std::list<Obstaculo*> LOs;
-		std::vector<Inimigo*> LIs;
 
-		ListaEntidades* moveis;
-		ListaEntidades* estaticos;
-	public:
-		GerenciadorColisoes(ListaEntidades* m = nullptr, ListaEntidades* e = nullptr);
-		~GerenciadorColisoes();
+		class GerenciadorColisoes
+		{
+		private:
+			std::list<Obstaculo*> LOs;
+			std::vector<Inimigo*> LIs;
 
-		void verificar_colisoes();
-	};
+			Listas::ListaEntidades* moveis;
+			Listas::ListaEntidades* estaticos;
+		public:
+			GerenciadorColisoes(Listas::ListaEntidades* m = nullptr, Listas::ListaEntidades* e = nullptr);
+			~GerenciadorColisoes();
+
+			void verificar_colisoes();
+		};
+	}
 
 }
 

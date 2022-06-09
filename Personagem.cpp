@@ -4,17 +4,21 @@ namespace Game
 {
 	namespace Entidades
 	{
-		Personagem::Personagem(IDsEntidades::IDsEntidades id, Vector2F pos, Vector2F vel, const char* caminho_textura, unsigned int vidas) :
-			Entidade(id, pos, vel, caminho_textura),
-			vidas(vidas),
-			no_chao(false)
+		namespace Personagens
 		{
-		}
-		void Personagem::machucar(int dano)
-		{
-			vidas -= dano;
-			vidas = vidas < 0 ? 0 : vidas;
-			std::cout << vidas << std::endl;
+			Personagem::Personagem(IDsEntidades::IDsEntidades id, Vector2F pos, Vector2F vel, const char* caminho_textura, unsigned int vidas) :
+				Entidade(id, pos, vel, caminho_textura),
+				vidas(vidas),
+				no_chao(false)
+			{
+			}
+			void Personagem::machucar(int dano)
+			{
+				vidas -= dano;
+				vidas = vidas < 0 ? 0 : vidas;
+				std::cout << vidas << std::endl;
+			}
+
 		}
 	}
 }

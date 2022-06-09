@@ -42,18 +42,18 @@ namespace Game
 		{
 		case MENU_PRINCIPAL:
 			valores_principal();
-			GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo);
+			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo);
 			break;
 		case SELETOR:
 			valores_seletor_fase();
-			GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo);
+			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo);
 			break;
 		case PLACAR:
 			valores_placar();
-			GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_placar);
+			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_placar);
 			break;
 		case GAMEOVER:
-			GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
+			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
 			valores_gameover();
 			break;
 		}
@@ -98,7 +98,7 @@ namespace Game
 	void Menu::valores_gameover()
 	{
 		textos.resize(2);
-		opcoes = { "Digite o seu nome:", GerenciadorEventos::get_nome() };
+		opcoes = { "Digite o seu nome:", Gerenciadores::GerenciadorEventos::get_nome() };
 		coords = { {250, 215}, {300, 400} };
 		tamanho = { 22, 30 };
 	}
@@ -109,7 +109,7 @@ namespace Game
 		set_valores(MENU_PRINCIPAL);
 		for (auto t : textos)
 		{
-			GerenciadorGrafico::get_gerenciador()->desenhar_menu(t);
+			Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar_menu(t);
 		}
 		ler_teclado();
 		if (enter)
@@ -140,7 +140,7 @@ namespace Game
 		set_valores(SELETOR);
 		for (auto t : textos)
 		{
-			GerenciadorGrafico::get_gerenciador()->desenhar_menu(t);
+			Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar_menu(t);
 		}
 		ler_teclado();
 		if (enter)
@@ -170,10 +170,10 @@ namespace Game
 		textos[3].setOutlineThickness(0);//nao ta mudando
 		enter = false;
 		set_valores(PLACAR);
-		GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_placar);
+		Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_placar);
 		for (auto t : textos)
 		{
-			GerenciadorGrafico::get_gerenciador()->desenhar_menu(t);// colocar os escores
+			Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar_menu(t);// colocar os escores
 		}
 		ler_teclado();
 	}
@@ -184,7 +184,7 @@ namespace Game
 
 	void Menu::menu_pausa()
 	{
-		GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
+		Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
@@ -204,14 +204,14 @@ namespace Game
 	{
 
 		set_valores(GAMEOVER);
-		GerenciadorEventos::escrever_nome(true);
+		Gerenciadores::GerenciadorEventos::escrever_nome(true);
 		for (auto t : textos)
 		{
-			GerenciadorGrafico::get_gerenciador()->desenhar_menu(t);
+			Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar_menu(t);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 		{
-			GerenciadorEventos::escrever_nome(false);
+			Gerenciadores::GerenciadorEventos::escrever_nome(false);
 			tratar_pontos();
 			gravar();
 			num_menu = MENU_PRINCIPAL;
@@ -275,7 +275,7 @@ namespace Game
 
 	void Menu::tratar_pontos()
 	{
-		unsigned int ponto = Entidades::Jogador::get_pontuacao();
+		unsigned int ponto = Entidades::Personagens::Jogador::get_pontuacao();
 		unsigned int i;
 		for (i = 0; i < 5; i++)
 		{

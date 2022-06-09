@@ -3,8 +3,6 @@
 #include "Vector2D.h"
 #include "Jogador.h"
 
-#include "Jogador.h"
-
 
 namespace Game
 {
@@ -14,7 +12,7 @@ namespace Game
     private:
         Vector2F poss[5];
     public:
-        VidaUI(Entidades::Jogador* jog = nullptr);
+        VidaUI(Entidades::Personagens::Jogador* jog = nullptr);
         ~VidaUI();
         void executar();
         

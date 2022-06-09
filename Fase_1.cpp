@@ -34,7 +34,6 @@ namespace Game
 		Fase_1::~Fase_1()
 		{
 		}
-
 		void Fase_1::inicializar_entidades()
 		{
 			
@@ -61,10 +60,9 @@ namespace Game
 			entidades_moveis.inicializar_entidades();
 			entidades_estaticas.inicializar_entidades();
 		}
-
 		void Fase_1::carregar_fundo() const
 		{
-			GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_fase_1);
+			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_fase_1);
 		}
 	}
 }

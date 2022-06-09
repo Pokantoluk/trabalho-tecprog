@@ -4,6 +4,9 @@
 
 namespace Game
 {
+	namespace Gerenciadores
+	{
+
 	class GerenciadorEventos
 	{
 	private:
@@ -20,6 +23,6 @@ namespace Game
 		static void escrever_nome(const bool e) { escrevendo = e; }
 		static std::string get_nome() { return nome; }
 	};
-
+	}
 }
 

@@ -9,10 +9,10 @@ namespace Game
 	{
 	protected:
 
-		Entidades::Jogador* jogador;
+		Entidades::Personagens::Jogador* jogador;
  
 	public:
-		ComponenteGrafico(Entidades::Jogador* jog = nullptr):
+		ComponenteGrafico(Entidades::Personagens::Jogador* jog = nullptr):
 			jogador(jog)
 		{
 		}

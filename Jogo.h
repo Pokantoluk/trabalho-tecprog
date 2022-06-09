@@ -13,11 +13,12 @@ namespace Game
 	{
 	private:
 		Menu menu;
-		Entidades::Jogador* jogador;
+		Entidades::Personagens::Jogador* jogador;
+		Entidades::Personagens::Jogador* jogador_2;
 		Fases::Fase_1 fase_1;
 		Fases::Fase_2 fase_2;
-		GerenciadorGrafico gg;
-		GerenciadorEventos ge;
+		Gerenciadores::GerenciadorGrafico gg;
+		Gerenciadores::GerenciadorEventos ge;
 		sf::Clock relogio;
 
 	public:

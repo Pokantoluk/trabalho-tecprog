@@ -9,197 +9,192 @@ namespace Game
 {
 	namespace Entidades
 	{
-		int Jogador::pontos = 0;
-
-		Jogador::Jogador(Vector2F pos, Vector2F vel) :
-			Personagem(IDsEntidades::Jogador, pos, vel, "assets/mario.png", 6),
-			andando(false),
-			olhando_esquerda(false),
-			pode_pular(false),
-			morto(false),
-			caminho_e("assets/mario_e.png")
+		namespace Personagens 
 		{
 
-		}
+			int Jogador::pontos = 0;
 
-		Jogador::~Jogador()
-		{
-			
-		}
-		void Jogador::executar(float t)
-		{
-			atualizar(t);
-			GerenciadorGrafico::get_gerenciador()->centralizar(posicao);
-			if (olhando_esquerda)
+			Jogador::Jogador(Vector2F pos, Vector2F vel) :
+				Personagem(IDsEntidades::Jogador, pos, vel, "assets/mario.png", 6),
+				andando(false),
+				olhando_esquerda(false),
+				pode_pular(false),
+				morto(false),
+				caminho_e("assets/mario_e.png")
 			{
-				imprimir(caminho_e, posicao);
+
 			}
-			else
+			Jogador::~Jogador()
 			{
-				imprimir(caminho, posicao);
+
 			}
-			
-
-		}
-
-		void Jogador::inicializar()
-		{
-			GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho_e);
-			GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho);
-			dimensao = GerenciadorGrafico::get_gerenciador()->get_tamanho(caminho);
-		}
-
-		void Jogador::atualizar(float t)
-		{
-			tratar_eventos();
-			bordas();
-			if (andando)
+			void Jogador::executar(float t)
 			{
-				v.x = VEL_JOGADOR;//coloca a velocidade do jogador
+				atualizar(t);
+				Gerenciadores::GerenciadorGrafico::get_gerenciador()->centralizar(posicao);
 				if (olhando_esquerda)
 				{
-					v.x *= -1;//anda para o outro lado
-
+					imprimir(caminho_e, posicao);
 				}
-			}
-			else
-			{
-				v.x *= 0.99f;
-			}
-			if (!pode_pular)
-			{
-				v.y += GRAVIDADE * t;
-			}
-			posicao += v * t;
-			if (!no_chao)
-				pode_pular = false;
-			else
-				pode_pular = true;
-		}
-
-
-		void Jogador::tratar_eventos()
-		{
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-			{
-				Fases::Fase::set_pausa(true);
-				sf::sleep(sf::milliseconds(300));
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-			{
-				andar(false);//anda com falso para esquerda
-			}
-			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-			{
-				andar(true);
-			}
-			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-			{
-				//posicao.y -= 0.1;
-			}
-			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-			{
-				//posicao.y += 0.1;
-			}
-			else
-			{
-				andando = false;
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-			{
-				pular();
-			}
-		}
-
-		void Jogador::colidir(Entidade* ente, Vector2F intersse)
-		{
-			if (ente->get_id() == IDsEntidades::Inimigo)
-			{
-				if (posicao.y + dimensao.y - 30 <= ente->get_pos().y)
+				else
 				{
-					
-					posicao.y = ente->get_pos().y - dimensao.y;
-					v.y = -sqrtf(2.0f * GRAVIDADE * PULO );
+					imprimir(caminho, posicao);
+				}
+
+
+			}
+			void Jogador::inicializar()
+			{
+				Gerenciadores::GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho_e);
+				Gerenciadores::GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho);
+				dimensao = Gerenciadores::GerenciadorGrafico::get_gerenciador()->get_tamanho(caminho);
+			}
+			void Jogador::atualizar(float t)
+			{
+				tratar_eventos();
+				bordas();
+				if (andando)
+				{
+					v.x = VEL_JOGADOR;//coloca a velocidade do jogador
+					if (olhando_esquerda)
+					{
+						v.x *= -1;//anda para o outro lado
+
+					}
+				}
+				else
+				{
+					v.x *= 0.99f;
+				}
+				if (!pode_pular)
+				{
+					v.y += GRAVIDADE * t;
+				}
+				posicao += v * t;
+				if (!no_chao)
+					pode_pular = false;
+				else
 					pode_pular = true;
-				}
-				else if (posicao.x < ente->get_pos().x)
+			}
+			void Jogador::tratar_eventos()
+			{
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 				{
-					v.x = -1000;
-					
-					posicao.x = ente->get_pos().x - dimensao.x;
+					Fases::Fase::set_pausa(true);
+					sf::sleep(sf::milliseconds(300));
 				}
-				else if (posicao.x > ente->get_pos().x)
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 				{
-					v.x = +1000;
-					posicao.x = ente->get_pos().x + ente->get_dim().x;
-					
+					andar(false);//anda com falso para esquerda
 				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+				{
+					andar(true);
+				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+				{
+					//posicao.y -= 0.1;
+				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+				{
+					//posicao.y += 0.1;
+				}
+				else
+				{
+					andando = false;
+				}
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+				{
+					pular();
+				}
+			}
+			void Jogador::colidir(Entidade* ente, Vector2F intersse)
+			{
+				if (ente->get_id() == IDsEntidades::Inimigo)
+				{
+					if (posicao.y + dimensao.y - 30 <= ente->get_pos().y)
+					{
 
-			}
-			else if (ente->get_id() == IDsEntidades::obstaculo)
-			{
-				
-				if (posicao.y + dimensao.y - 10 <= ente->get_pos().y )
-				{
-					v.y = 0;
-					posicao.y = ente->get_pos().y - dimensao.y;
-					pode_pular = true;
-				}
-				else if (posicao.x < ente->get_pos().x)
-				{
-					v.x = 0;
-					posicao.x = ente->get_pos().x - dimensao.x;
-				}
-				else if (posicao.x > ente->get_pos().x)
-				{
-					v.x = 0;
-					posicao.x = ente->get_pos().x + ente->get_dim().x;
-				}
-			}
-		}
+						posicao.y = ente->get_pos().y - dimensao.y;
+						v.y = -sqrtf(2.0f * GRAVIDADE * PULO);
+						pode_pular = true;
+					}
+					else if (posicao.x < ente->get_pos().x)
+					{
+						v.x = -1000;
 
-		void Jogador::pular() //para fazer o personagem pular
-		{
-			if (pode_pular)
-			{
-				v.y = -sqrtf(2.0f * GRAVIDADE * PULO);
-			}
-			no_chao = false;
-		}
+						posicao.x = ente->get_pos().x - dimensao.x;
+					}
+					else if (posicao.x > ente->get_pos().x)
+					{
+						v.x = +1000;
+						posicao.x = ente->get_pos().x + ente->get_dim().x;
 
-		void Jogador::andar(bool esquerda)
-		{
-			andando = true;
-			olhando_esquerda = esquerda;
-		}
+					}
 
-		void Jogador::bordas()//para não sair da tela
-		{
-			if (posicao.x < 0) { posicao.x = 0; }
-			if (posicao.y + dimensao.y >= 800)
-			{
-				posicao.y = 800 - dimensao.y;
-				//pode_pular = true;
-				no_chao = true;
+				}
+				else if (ente->get_id() == IDsEntidades::obstaculo)
+				{
+
+					if (posicao.y + dimensao.y - 10 <= ente->get_pos().y)
+					{
+						v.y = 0;
+						posicao.y = ente->get_pos().y - dimensao.y;
+						pode_pular = true;
+					}
+					else if (posicao.x < ente->get_pos().x)
+					{
+						v.x = 0;
+						posicao.x = ente->get_pos().x - dimensao.x;
+					}
+					else if (posicao.x > ente->get_pos().x)
+					{
+						v.x = 0;
+						posicao.x = ente->get_pos().x + ente->get_dim().x;
+					}
+				}
 			}
-			else
+			void Jogador::pular() //para fazer o personagem pular
 			{
-				//pode_pular = false;
+				if (pode_pular)
+				{
+					v.y = -sqrtf(2.0f * GRAVIDADE * PULO);
+				}
+				no_chao = false;
 			}
-		}
-		bool Jogador::get_morto()
-		{
-			if (vidas == 0)
+			void Jogador::andar(bool esquerda)
 			{
-				GerenciadorGrafico::get_gerenciador()->centralizar(0.0f);
-				return true;
+				andando = true;
+				olhando_esquerda = esquerda;
 			}
-			else
-				return false;
-		}
-		unsigned int Jogador::get_pontuacao()
-		{
-			return pontos;
+			void Jogador::bordas()//para não sair da tela
+			{
+				if (posicao.x < 0) { posicao.x = 0; }
+				if (posicao.y + dimensao.y >= 800)
+				{
+					posicao.y = 800 - dimensao.y;
+					//pode_pular = true;
+					no_chao = true;
+				}
+				else
+				{
+					//pode_pular = false;
+				}
+			}
+			bool Jogador::get_morto()
+			{
+				if (vidas == 0)
+				{
+					Gerenciadores::GerenciadorGrafico::get_gerenciador()->centralizar(0.0f);
+					return true;
+				}
+				else
+					return false;
+			}
+			unsigned int Jogador::get_pontuacao()
+			{
+				return pontos;
+			}
 		}
 	}
 }
