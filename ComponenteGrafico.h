@@ -12,6 +12,7 @@ namespace Game
 	class ComponenteGrafico
 	{
 	protected:
+
 		Entidades::Jogador* jogador;
  
 	public:
@@ -19,6 +20,7 @@ namespace Game
 			jogador(jog)
 		{
 		}
+
 		~ComponenteGrafico(){}
 		virtual void executar() = 0;
 	

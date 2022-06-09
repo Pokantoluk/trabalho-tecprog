@@ -2,6 +2,8 @@
 #include "ComponenteGrafico.h"
 #include "Vector2D.h"
 
+#include "Jogador.h"
+
 
 namespace Game
 {
