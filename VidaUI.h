@@ -1,7 +1,7 @@
 #pragma once
 #include "ComponenteGrafico.h"
 #include "Vector2D.h"
-#include "Jogador.h"
+
 
 namespace Game
 {
@@ -12,11 +12,10 @@ namespace Game
         Vector2F poss[5];
         int n_vidas;
     public:
-        VidaUI();
+        VidaUI(Entidades::Jogador* jog);
         ~VidaUI();
         void executar();
-        void atualizar(Entidades::Jogador* jogador);
-      
+        
     };
 
 }

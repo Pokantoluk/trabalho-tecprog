@@ -47,6 +47,7 @@ namespace Game
 		TL* voltar_inicio();
 		TL* proximo();
 		TL* operator[](int x);
+		void remover(int index);
 	};
 
 	template<typename TL>
@@ -117,12 +118,35 @@ namespace Game
 		{
 			aux = aux->get_prox();
 		}
-		if (aux == nullptr)
+		if (aux)
 		{
-			std::cout << "Erro no operator[] aux == nullptr." << std::endl;
-			exit(1);
+	      return aux->get_data();
 		}
-		return aux->get_data();
+		return nullptr;
+	}
+	template<typename TL> 
+	inline void Lista<TL>::remover(int index)
+	{
+		Elemento<TL>* aux = inicio;
+		for (int i = 0; i < index; i++)
+		{
+			aux = aux->get_prox();
+		}
+		if (aux == inicio)
+		{
+			inicio = aux->get_prox();
+			aux->get_prox()->set_ante(inicio);
+		}
+		else if (aux == fim)
+		{
+			fim = aux->get_ante();
+			aux->get_ante()->set_prox(fim);
+		}
+		else
+		{
+			aux->get_ante()->set_prox(aux->get_prox()); 
+			aux->get_prox()->set_ante(aux->get_ante());
+		}
 	}
 }
 

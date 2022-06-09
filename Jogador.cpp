@@ -19,10 +19,9 @@ namespace Game
 			morto(false),
 			caminho_e("assets/mario_e.png"),
 			componentes()
-
 		{
-
-			//componentes.push_back(static_cast<Game::ComponenteGrafico*>(new VidaUI()));
+			componentes.clear();
+			//componentes.push_back(static_cast<Game::ComponenteGrafico*>(new VidaUI(this)));
 		}
 
 		Jogador::~Jogador()
@@ -41,6 +40,7 @@ namespace Game
 
 		void Jogador::executar(float t)
 		{
+			std::cout << "test" << std::endl;
 			atualizar(t);
 			GerenciadorGrafico::get_gerenciador()->centralizar(posicao);
 			if (olhando_esquerda)
@@ -51,9 +51,10 @@ namespace Game
 			{
 				imprimir(caminho, posicao);
 			}
+			
 			for (int i = 0; i < componentes.size(); i++)
 			{
-				componentes[i]->atualizar(this);
+				
 				componentes[i]->executar();
 			}
 
@@ -132,11 +133,31 @@ namespace Game
 		{
 			if (ente->get_id() == IDsEntidades::Inimigo)
 			{
+				if (posicao.y + dimensao.y - 30 <= ente->get_pos().y)
+				{
+					
+					posicao.y = ente->get_pos().y - dimensao.y;
+					v.y = -sqrtf(2.0f * GRAVIDADE * PULO );
+					pode_pular = true;
+				}
+				else if (posicao.x < ente->get_pos().x)
+				{
+					v.x = -1000;
+					
+					posicao.x = ente->get_pos().x - dimensao.x;
+				}
+				else if (posicao.x > ente->get_pos().x)
+				{
+					v.x = +1000;
+					posicao.x = ente->get_pos().x + ente->get_dim().x;
+					
+				}
+
 			}
 			else if (ente->get_id() == IDsEntidades::obstaculo)
 			{
 				
-				if (posicao.y + dimensao.y - 10 <= ente->get_pos().y)
+				if (posicao.y + dimensao.y - 10 <= ente->get_pos().y )
 				{
 					v.y = 0;
 					posicao.y = ente->get_pos().y - dimensao.y;

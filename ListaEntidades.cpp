@@ -56,7 +56,12 @@ namespace Game
 			p = lista.proximo();
 		}
 		lista.esvaziar();
+		tam = 0;
 	}
 
-
+	void ListaEntidades::remover(int i)
+	{
+		lista.remover(i);
+		tam--;
+	}
 }

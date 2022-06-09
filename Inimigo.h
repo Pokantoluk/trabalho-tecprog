@@ -18,6 +18,7 @@ namespace Game
 			void atualizar(float t);
 			void colidir(Entidade* ente, Vector2F intersse);
 			void bordas();
+			bool ObjetoEmCima(Entidade* ente);
 		};
 	}
 }
