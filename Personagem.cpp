@@ -14,6 +14,7 @@ namespace Game
 		{
 			vidas -= dano;
 			vidas = vidas < 0 ? 0 : vidas;
+			std::cout << vidas << std::endl;
 		}
 	}
 }

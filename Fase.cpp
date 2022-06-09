@@ -8,7 +8,8 @@ namespace Game
 		bool Fase::pausado{ false };
 
 		Fase::Fase() :
-			gc(&entidades_moveis, &entidades_estaticas)
+			gc(&entidades_moveis, &entidades_estaticas),
+			vidaui(nullptr)
 		{
 			randomizar_inimigos();
 			musica();
@@ -18,6 +19,11 @@ namespace Game
 		{
 			entidades_moveis.destruir();
 			entidades_estaticas.destruir();
+			if (vidaui)
+			{
+				delete vidaui;
+				vidaui = nullptr;
+			}
 		}
 		void Fase::musica()
 		{
@@ -50,6 +56,7 @@ namespace Game
 		void Fase::inserir_jogador(Entidades::Jogador* j)
 		{
 			entidades_moveis.inserir(j);
+			vidaui = new VidaUI(j);
 
 		}
 
@@ -71,7 +78,7 @@ namespace Game
 			entidades_moveis.percorrer_executar(t);
 			entidades_estaticas.percorrer_executar(t);
 			gerenciar_colisoes();
-			
+			vidaui->executar();
 		}
 
 		void Fase::gerenciar_colisoes()

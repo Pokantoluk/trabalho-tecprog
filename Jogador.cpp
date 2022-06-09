@@ -12,35 +12,22 @@ namespace Game
 		int Jogador::pontos = 0;
 
 		Jogador::Jogador(Vector2F pos, Vector2F vel) :
-			Personagem(IDsEntidades::Jogador, pos, vel, "assets/mario.png", 1),
+			Personagem(IDsEntidades::Jogador, pos, vel, "assets/mario.png", 6),
 			andando(false),
 			olhando_esquerda(false),
 			pode_pular(false),
 			morto(false),
-			caminho_e("assets/mario_e.png"),
-			componentes()
+			caminho_e("assets/mario_e.png")
 		{
-			componentes.clear();
-			//componentes.push_back(static_cast<Game::ComponenteGrafico*>(new VidaUI(this)));
+
 		}
 
 		Jogador::~Jogador()
 		{
-			for (int i = 0; i < componentes.size(); i++)
-			{
-				if (componentes[i] != nullptr)
-				{
-					delete componentes[i];
-					componentes[i] = nullptr;
-				}
-			}
-			componentes.clear();
-
+			
 		}
-
 		void Jogador::executar(float t)
 		{
-			std::cout << "test" << std::endl;
 			atualizar(t);
 			GerenciadorGrafico::get_gerenciador()->centralizar(posicao);
 			if (olhando_esquerda)
@@ -52,11 +39,6 @@ namespace Game
 				imprimir(caminho, posicao);
 			}
 			
-			for (int i = 0; i < componentes.size(); i++)
-			{
-				
-				componentes[i]->executar();
-			}
 
 		}
 

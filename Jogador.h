@@ -3,7 +3,6 @@
 
 namespace Game
 {
-	class ComponenteGrafico;
 	namespace Entidades
 	{
 		class Jogador :
@@ -16,7 +15,6 @@ namespace Game
 			bool olhando_esquerda;
 			const char* caminho_e;
 			bool morto;
-			std::vector<ComponenteGrafico*> componentes;
 
 		public:
 			static unsigned int get_pontuacao();

@@ -8,6 +8,7 @@
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEventos.h"
 #include "GerenciadorColisoes.h"
+#include "VidaUI.h"
 
 
 namespace Game
@@ -21,7 +22,7 @@ namespace Game
 			ListaEntidades entidades_estaticas;
 			ListaEntidades entidades_moveis;
 			GerenciadorColisoes gc;
-      
+			VidaUI* vidaui;
 			
 			sf::Music music;
       
