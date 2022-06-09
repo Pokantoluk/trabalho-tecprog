@@ -1,4 +1,5 @@
 #include "Mario.h"
+#include "Fase.h"
 
 namespace Jogo
 {

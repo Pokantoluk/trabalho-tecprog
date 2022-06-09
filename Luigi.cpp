@@ -1,4 +1,6 @@
 #include "Luigi.h"
+#include "Fase.h"
+
 namespace Jogo
 {
 	namespace Entidades
@@ -15,6 +17,23 @@ namespace Jogo
 			}
 			void Luigi::tratar_eventos()
 			{
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+				{
+					andar(false);//anda com falso para esquerda
+				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+				{
+					andar(true);
+				}
+				
+				else
+				{
+					andando = false;
+				}
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+				{
+					pular();
+				}
 			}
 		}
 	}

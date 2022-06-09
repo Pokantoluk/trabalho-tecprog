@@ -22,7 +22,8 @@ namespace Jogo
 		enter(false),
 		fonte(new sf::Font()),
 		fase(0),
-		num_menu(MENU_PRINCIPAL)
+		num_menu(MENU_PRINCIPAL),
+		num_jogadores(1)
 	{
 		fonte->loadFromFile("assets/ethn.otf");
 	}
@@ -189,7 +190,7 @@ namespace Jogo
 	void Menu::menu_qtd_jogadores()
 	{
 		enter = false;
-		cout << pos;
+		//cout << pos;
 		set_valores(QTD_JOG);
 		ler_teclado();
 		if (enter) 
@@ -197,10 +198,12 @@ namespace Jogo
 			if (pos == 1)
 			{
 				num_jogadores = 1;
+				num_menu = MENU_PRINCIPAL;
 			}
 			else if (pos == 2)
 			{
 				num_jogadores = 2;
+				num_menu = MENU_PRINCIPAL;
 			}
 			else if (pos == 3)
 			{

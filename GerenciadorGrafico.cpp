@@ -79,10 +79,11 @@ namespace Jogo
 				return true;
 			}
 		}
-		void GerenciadorGrafico::centralizar(Vector2F centro)//centraliza a camera no personagem
+		void GerenciadorGrafico::centralizar(Vector2F centro_1, Vector2F centro_2)//centraliza a camera no personagem
 		{
-			if (centro.x < 400.f) { centro.x = 400.f; }
-			camera.setCenter(centro.x, 400.f);
+			float centro = (centro_1.x + centro_2.x) / 2.0;
+			if (centro < 400.f) { centro = 400.f; }
+			camera.setCenter(centro, 400.f);
 			janela->setView(camera);
 		}
 		void GerenciadorGrafico::set_textura_fundo(const char* caminho)

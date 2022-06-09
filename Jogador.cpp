@@ -31,7 +31,6 @@ namespace Jogo
 			void Jogador::executar(float t)
 			{
 				atualizar(t);
-				Gerenciadores::GerenciadorGrafico::get_gerenciador()->centralizar(posicao);
 				if (olhando_esquerda)
 				{
 					imprimir(caminho_e, posicao);
@@ -185,7 +184,7 @@ namespace Jogo
 			{
 				if (vidas == 0)
 				{
-					Gerenciadores::GerenciadorGrafico::get_gerenciador()->centralizar(0.0f);
+					Gerenciadores::GerenciadorGrafico::get_gerenciador()->centralizar(0.0f, 0.0f);
 					return true;
 				}
 				else

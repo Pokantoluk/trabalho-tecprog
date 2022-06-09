@@ -57,7 +57,6 @@ namespace Jogo
 		{
 			entidades_moveis.inserir(j);
 			vidaui = new VidaUI(j);
-
 		}
 
 		void Fase::inicializar_entidades()
@@ -71,6 +70,13 @@ namespace Jogo
 			entidades_moveis.destruir();
 			entidades_estaticas.destruir();
 			inicializar_entidades();
+		}
+
+		void Fase::terminar_fase()
+		{
+			
+			entidades_moveis.destruir();
+			entidades_estaticas.destruir();
 		}
 
 		void Fase::executar(float t)

@@ -27,17 +27,22 @@ namespace Jogo
 	}
 	void Jogo::inicializar_fase_1()
 	{
-		fase_1.inserir_jogador(jogador);
-		fase_1.inicializar_entidades();
+		fase_1.inserir_jogador(jogador_1);
+		
 		if (dois_jogadores)
 		{
 			fase_1.inserir_jogador(jogador_2);
 		}
+		fase_1.inicializar_entidades();
 	}
 	void Jogo::inicializar_fase_2()
 	{
-		fase_2.inserir_jogador(jogador);
+		fase_2.inserir_jogador(jogador_1);
 		fase_2.inicializar_entidades();
+		if (dois_jogadores)
+		{
+			fase_1.inserir_jogador(jogador_2);
+		}
 	}
 	void Jogo::reiniciar_fase()
 	{
@@ -80,7 +85,7 @@ namespace Jogo
 				}
 				else
 				{
-					if (jogador->get_morto())
+					if (jogador_1->get_morto() && jogador_2->get_morto())
 					{
 						menu.menu_JogoOver();
 					}
@@ -102,7 +107,7 @@ namespace Jogo
 				}
 				else
 				{
-					if (jogador->get_morto())
+					if (jogador_1->get_morto() && jogador_2->get_morto())
 					{
 						menu.menu_JogoOver();
 					}
@@ -110,6 +115,10 @@ namespace Jogo
 						fase_2.executar(t.asSeconds());
 				}
 			}
+			if (dois_jogadores)
+				gg.centralizar(jogador_1->get_pos(), jogador_2->get_pos());
+			else
+				gg.centralizar(jogador_1->get_pos(), jogador_1->get_pos());
 			gg.mostrar();
 		}
 	}
