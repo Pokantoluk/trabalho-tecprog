@@ -1,6 +1,7 @@
 #pragma once
 #include "Fase.h"
 #include "Fogo.h"
+#include "Gosma.h"
 namespace Game
 {
 	namespace Fases
@@ -28,6 +29,8 @@ namespace Game
 			Entidades::Obstaculos::Obstaculo* pedra;
 			Entidades::Obstaculos::Obstaculo* pedra2;
 			Entidades::Obstaculos::Obstaculo* chefao;
+			Entidades::Obstaculos::Gosma* gosma1;
+
 			const char* fundo_fase_1;
 		public:
 			Fase_1();

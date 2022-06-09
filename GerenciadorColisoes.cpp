@@ -1,6 +1,7 @@
 #include "GerenciadorColisoes.h"
 #include "Entidade.h"
 #include "ListaEntidades.h"
+#include "IDsEntidades.h"
 
 namespace Game
 {
@@ -24,7 +25,7 @@ namespace Game
         for (i = 0; i < tam; i++)
         {
             ent1 = (*moveis)[i];
-            if (ent1 && ent1->get_destruir())
+            if (ent1 && ent1->get_destruir() && ent1->get_id() != IDsEntidades::Jogador)
             {
                 delete ent1;
                 ent1 = nullptr;
