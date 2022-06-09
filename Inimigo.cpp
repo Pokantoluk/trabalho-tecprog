@@ -4,8 +4,8 @@ namespace Game
 {
 	namespace Entidades
 	{
-		Inimigo::Inimigo(Vector2F pos, Vector2F vel, const char* caminho_textura) :
-			Personagem(IDsEntidades::Inimigo, pos, vel, caminho_textura, 1)
+		Inimigo::Inimigo(Vector2F pos, Vector2F vel, const char* caminho_textura, int vidas) :
+			Personagem(IDsEntidades::Inimigo, pos, vel, caminho_textura, vidas)
 		{
 		}
 
@@ -43,35 +43,7 @@ namespace Game
 
 		}
 
-
-		void Inimigo::colidir(Entidade* ente, Vector2F intersse)
-		{
-			if (ente->get_id() == IDsEntidades::Jogador)
-			{
-				
-				if (ObjetoEmCima(ente))
-				{
-					this->machucar(1);
-				}
-				else
-				{
-					ente->machucar(1);
-					
-				}
-				v.x *= -1;
-			
-			}
-			else if (ente->get_id()== IDsEntidades::Inimigo)
-			{
-				v.x *= -1;
-			}
-			else if (ente->get_id() == IDsEntidades::obstaculo)
-			{
-				v.x *= -1;
-			}
-			
-
-		}
+		
 		void Inimigo::bordas()
 		{
 			if (posicao.x < 0) 

@@ -1,5 +1,14 @@
 #pragma once
-class NuvemMal
-{
-};
+#include "Inimigo.h"
 
+namespace Game
+{
+	namespace Entidades
+	{
+		class NuvemMal :
+			public	Inimigo
+		{
+
+		};
+	}
+}

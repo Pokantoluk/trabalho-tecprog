@@ -47,7 +47,7 @@ namespace Game
 			for (int i = 0; i < qtd; i++)
 			{
 				float posX = static_cast<float>(rand() % 2100 + 500);
-				Entidades::Inimigo* e = new Entidades::Inimigo(Vector2F(posX, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
+				Entidades::Goomba* e = new Entidades::Goomba(Vector2F(posX, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
 				e->set_lista(entidades_moveis);
 				e = nullptr;
 			}
