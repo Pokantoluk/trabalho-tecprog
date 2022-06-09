@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Chefao.cpp" />
     <ClCompile Include="ComponenteGrafico.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Fase.cpp" />
@@ -148,13 +149,14 @@
     <ClCompile Include="GerenciadorColisoes.cpp" />
     <ClCompile Include="GerenciadorEventos.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
-    <ClCompile Include="GerenciadorInputs.cpp" />
+    <ClCompile Include="Gomba.cpp" />
     <ClCompile Include="Gosma.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="ListaEntidades.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="NuvemMal.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Origem.cpp" />
     <ClCompile Include="Entidade.cpp" />
@@ -162,6 +164,7 @@
     <ClCompile Include="VidaUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Chefao.h" />
     <ClInclude Include="ComponenteGrafico.h" />
     <ClInclude Include="Elemento.h" />
     <ClInclude Include="Ente.h" />
@@ -172,7 +175,7 @@
     <ClInclude Include="GerenciadorColisoes.h" />
     <ClInclude Include="GerenciadorEventos.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
-    <ClInclude Include="GerenciadorInputs.h" />
+    <ClInclude Include="Gomba.h" />
     <ClInclude Include="Gosma.h" />
     <ClInclude Include="IDsEntidades.h" />
     <ClInclude Include="Inimigo.h" />
@@ -181,6 +184,7 @@
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidades.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="NuvemMal.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Personagem.h" />

@@ -22,7 +22,7 @@ namespace Game
 			}
 			else
 			{
-
+                this->Destruir();
 			}
 		}
 
@@ -35,10 +35,12 @@ namespace Game
 
 		void Inimigo::atualizar(float t)
 		{
+		
 			bordas();
 			if(!no_chao)
 				v.y += GRAVIDADE * t;
 			posicao += v * t;
+
 		}
 
 
@@ -46,12 +48,24 @@ namespace Game
 		{
 			if (ente->get_id() == IDsEntidades::Jogador)
 			{
-				
+				//ente->machucar(1);
+				if (ObjetoEmCima(ente))
+				{
+					this->machucar(1);
+				}
+				v.x *= -1;
+			
 			}
-			if (ente->get_id()== IDsEntidades::Inimigo)
+			else if (ente->get_id()== IDsEntidades::Inimigo)
 			{
 				v.x *= -1;
 			}
+			else if (ente->get_id() == IDsEntidades::obstaculo)
+			{
+				v.x *= -1;
+			}
+			
+
 		}
 		void Inimigo::bordas()
 		{
@@ -69,6 +83,12 @@ namespace Game
 			{
 				no_chao = false;
 			}
+		}
+		bool Inimigo::ObjetoEmCima(Entidade* ente)
+		{
+			//return ente->get_pos().y - ente->get_dim().y >= this->get_pos().y - 0.1;
+			//std::cout << "posicao" << ente->get_pos().y << " dimensao " << ente->get_dim().y << " ´pos inimigo " << this->get_pos().y << " dim inimigo "<<this->get_dim().y << std::endl;
+			return ente->get_pos().y + ente->get_dim().y - 30 <= this->get_pos().y;
 		}
 	}
 }

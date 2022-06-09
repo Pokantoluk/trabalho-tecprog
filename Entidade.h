@@ -23,6 +23,7 @@ namespace Game
 		bool gosma;
 		const char* caminho;
 		IDsEntidades::IDsEntidades id;
+		bool destruir;
 	public:
 		Entidade(IDsEntidades::IDsEntidades id, Vector2F pos = Vector2F(0.0f, 0.0f), Vector2F vel = Vector2F(0.0f, 0.0f), const char* caminho_textura = nullptr);
 		virtual ~Entidade();
@@ -31,7 +32,8 @@ namespace Game
 		virtual void inicializar();
 		virtual void atualizar(float t);
 		virtual void machucar(int dano) {};
-
+		void Destruir() { destruir = true; }
+		const bool get_destruir() { return destruir; }
 		void set_gosma(bool g) { gosma = g; }
 		void set_vel(Vector2F vel) { v = vel; }
 		const Vector2F get_vel() const { return v; }

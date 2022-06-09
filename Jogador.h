@@ -1,7 +1,9 @@
 #pragma once
 #include "Personagem.h"
+
 #include "GerenciadorEventos.h"
 #include "GerenciadorGrafico.h"
+
 
 namespace Game
 {
@@ -36,6 +38,7 @@ namespace Game
 			void bordas();
 			void set_pode_pular(bool pode) { pode_pular = pode; }
 
+			unsigned int get_vida() const {return vidas; }
 			bool get_morto();
 			const unsigned int get_vida() const { return vidas; }
 		};

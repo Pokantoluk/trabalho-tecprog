@@ -71,6 +71,7 @@ namespace Game
 			entidades_moveis.percorrer_executar(t);
 			entidades_estaticas.percorrer_executar(t);
 			gerenciar_colisoes();
+			
 		}
 
 		void Fase::gerenciar_colisoes()

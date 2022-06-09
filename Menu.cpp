@@ -85,7 +85,9 @@ namespace Game
 	void Menu::valores_placar()
 	{
 		textos.resize(5);
+
 		opcoes = { "Mario++", jogadores[0], jogadores[1], jogadores[2], jogadores[3], to_string(pontos[0]), to_string(pontos[1]), to_string(pontos[2]) , to_string(pontos[3]) };
+
 		coords = { {345, 36} , {250, 215}, {250, 315}, {250, 410}, {250, 510} };
 		tamanho = { 18, 22, 18, 18, 22 };
 	}

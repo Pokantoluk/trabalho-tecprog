@@ -19,7 +19,7 @@ namespace Game
 		~ListaEntidades();
 		void inserir(Entidade* info);
 		Entidade* operator[](int i);
-
+		void remover(int i);
 		void inicializar_entidades();
 		void percorrer_executar(float t);
 		void destruir();

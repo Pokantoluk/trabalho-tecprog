@@ -25,7 +25,7 @@ namespace Game
 			fogo(new Entidades::Obstaculos::Fogo(Vector2F(2300.0f, 750.0f), "assets/fogo1.png")),
 			pedra(new Entidades::Obstaculos::Obstaculo(Vector2F(1000.0f, 750.0f), "assets/rocks1_5.png")),
 			pedra2(new Entidades::Obstaculos::Obstaculo(Vector2F(1400.0f, 750.0f), "assets/rocks1_5.png")),
-			chefao(new Entidades::Obstaculos::Obstaculo(Vector2F(2600.0f, 800.0f), "assets/bomba(1).png"))
+			chefao(new Entidades::Obstaculos::Obstaculo(Vector2F(2600.0f, 800.0f), "assets/bomba.png"))
 		{
 			
 		}
