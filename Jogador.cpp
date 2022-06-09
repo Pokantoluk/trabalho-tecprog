@@ -5,7 +5,7 @@
 
 
 using namespace std;
-namespace Game
+namespace Jogo
 {
 	namespace Entidades
 	{

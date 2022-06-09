@@ -1,7 +1,7 @@
 #include "Fase.h"
 #include <Windows.h>
 
-namespace Game
+namespace Jogo
 {
 	namespace Fases
 	{

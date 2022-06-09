@@ -1,6 +1,6 @@
 #include "Chefao.h"
 
-namespace Game
+namespace Jogo
 {
 	namespace Entidades
 	{

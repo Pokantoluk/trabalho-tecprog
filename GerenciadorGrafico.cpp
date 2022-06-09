@@ -1,6 +1,6 @@
 #include "GerenciadorGrafico.h"
 
-namespace Game
+namespace Jogo
 {
 	namespace Gerenciadores 
 	{

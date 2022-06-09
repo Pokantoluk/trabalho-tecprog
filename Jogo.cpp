@@ -2,7 +2,7 @@
 #include "stdafx.h"
 using namespace std;
 
-namespace Game
+namespace Jogo
 {
 	bool Jogo::na_fase{ false };
 
@@ -66,7 +66,7 @@ namespace Game
 				{
 					if (jogador->get_morto())
 					{
-						menu.menu_gameOver();
+						menu.menu_JogoOver();
 					}
 					else
 						fase_1.executar(t.asSeconds());
@@ -88,7 +88,7 @@ namespace Game
 				{
 					if (jogador->get_morto())
 					{
-						menu.menu_gameOver();
+						menu.menu_JogoOver();
 					}
 					else
 						fase_2.executar(t.asSeconds());

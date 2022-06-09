@@ -1,6 +1,6 @@
 #include "Fase_2.h"
 
-namespace Game {
+namespace Jogo {
 	namespace Fases {
 
 		Fase_2::Fase_2() :

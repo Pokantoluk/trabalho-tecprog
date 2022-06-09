@@ -1,7 +1,7 @@
 #pragma once
 #include "Entidade.h"
 
-namespace Game
+namespace Jogo
 {
     namespace Entidades
     {

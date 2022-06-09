@@ -9,10 +9,10 @@
 #define SAVES 4
 #define FASE_1 5
 #define FASE_2 6
-#define GAMEOVER 7
+#define JogoOVER 7
 using namespace std;
 
-namespace Game
+namespace Jogo
 {
 	Menu::Menu() :
 		fundo("assets/menu.png"),
@@ -52,9 +52,9 @@ namespace Game
 			valores_placar();
 			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_placar);
 			break;
-		case GAMEOVER:
+		case JogoOVER:
 			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
-			valores_gameover();
+			valores_Jogoover();
 			break;
 		}
 		for (std::size_t i{}; i < textos.size(); i++)
@@ -95,7 +95,7 @@ namespace Game
 	{
 	}
 
-	void Menu::valores_gameover()
+	void Menu::valores_Jogoover()
 	{
 		textos.resize(2);
 		opcoes = { "Digite o seu nome:", Gerenciadores::GerenciadorEventos::get_nome() };
@@ -158,7 +158,7 @@ namespace Game
 				num_menu = MENU_PRINCIPAL;//retornar;
 				break;
 			case 4:
-				exit(1); //quit game
+				exit(1); //quit Jogo
 				break;
 			}
 			sf::sleep(sf::milliseconds(200));
@@ -200,10 +200,10 @@ namespace Game
 
 	}
 
-	void Menu::menu_gameOver()
+	void Menu::menu_JogoOver()
 	{
 
-		set_valores(GAMEOVER);
+		set_valores(JogoOVER);
 		Gerenciadores::GerenciadorEventos::escrever_nome(true);
 		for (auto t : textos)
 		{

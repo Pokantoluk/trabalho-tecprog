@@ -7,7 +7,7 @@
 #include "Menu.h"
 
 
-namespace Game 
+namespace Jogo 
 {
 	class Jogo
 	{

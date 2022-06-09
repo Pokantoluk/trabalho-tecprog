@@ -11,7 +11,7 @@
 #include "VidaUI.h"
 
 
-namespace Game
+namespace Jogo
 {
 	namespace Fases
 	{

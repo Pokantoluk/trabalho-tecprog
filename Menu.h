@@ -7,7 +7,7 @@
 #include "Jogador.h"
 using namespace std;
 
-namespace Game
+namespace Jogo
 {
 
     class Menu :
@@ -43,7 +43,7 @@ namespace Game
         void valores_seletor_fase();
         void valores_placar();
         void valores_qtd_jogadores();
-        void valores_gameover();
+        void valores_Jogoover();
 
         /*metodos do menu*/
         void menu_principal();
@@ -51,7 +51,7 @@ namespace Game
         void menu_placar();
         void menu_qtd_jogadores();
         void menu_pausa();
-        void menu_gameOver();
+        void menu_JogoOver();
 
 
         void executar(float t);

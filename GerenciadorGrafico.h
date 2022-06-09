@@ -3,7 +3,7 @@
 #include "Vector2D.h"
 
 
-namespace Game 
+namespace Jogo 
 {
 	namespace Gerenciadores
 	{

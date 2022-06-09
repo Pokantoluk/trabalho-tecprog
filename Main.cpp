@@ -3,6 +3,5 @@
 
 int main()
 {
-
-	Game::Jogo jogo;
+	Jogo::Jogo jogo;
 }

@@ -2,7 +2,7 @@
 #include "Fase.h"
 #include "Fogo.h"
 #include "Gosma.h"
-namespace Game
+namespace Jogo
 {
 	namespace Fases
 	{

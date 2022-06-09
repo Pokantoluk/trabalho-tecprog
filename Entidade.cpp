@@ -2,7 +2,7 @@
 #include "Fase.h"
 
 
-namespace Game
+namespace Jogo
 {
 
 	Entidade::Entidade(IDsEntidades::IDsEntidades id, Vector2F pos, Vector2F vel, const char* caminho_textura) :
