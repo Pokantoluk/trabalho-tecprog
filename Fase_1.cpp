@@ -57,6 +57,7 @@ namespace Game
 			chefao->set_lista(entidades_estaticas);
 			fogo->set_lista(entidades_estaticas);
 			gosma1->set_lista(entidades_estaticas);
+
 			entidades_moveis.inicializar_entidades();
 			entidades_estaticas.inicializar_entidades();
 		}
