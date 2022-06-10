@@ -18,7 +18,6 @@ namespace Jogo
 		}
 		GerenciadorGrafico::~GerenciadorGrafico()
 		{
-			delete instancia;
 			delete janela;
 			for (auto i : texturas)
 			{

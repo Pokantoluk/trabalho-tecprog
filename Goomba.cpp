@@ -6,7 +6,7 @@ namespace Jogo
 		namespace Personagens
 		{
 		Goomba::Goomba(Vector2F pos, Vector2F vel, const char* caminho_textura):
-		 Inimigo(pos,vel, caminho_textura,1)
+		 Inimigo(pos, vel, caminho_textura, 1)
 		{
 			
 		}

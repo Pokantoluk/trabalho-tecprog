@@ -7,6 +7,8 @@ namespace Jogo
 	{
 		namespace Personagens
 		{
+			int Mario::pontos = 0;
+
 			Mario::Mario(Vector2F pos):
 				Jogador(pos,"assets/mario.png", "assets/mario_e.png")
 			{

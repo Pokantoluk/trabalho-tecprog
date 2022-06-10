@@ -36,7 +36,7 @@ namespace Jogo
 		}
 		void Fase_1::inicializar_entidades()
 		{
-			
+			randomizar_inimigos();
 			o1->set_lista(entidades_estaticas);
 			o2->set_lista(entidades_estaticas);
 			o3->set_lista(entidades_estaticas);

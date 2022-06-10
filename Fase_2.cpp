@@ -16,6 +16,7 @@ namespace Jogo {
 
 		void Fase_2::inicializar_entidades()
 		{
+			randomizar_inimigos();
 			entidades_moveis.inicializar_entidades();
 			entidades_estaticas.inicializar_entidades();
 		}

@@ -47,6 +47,8 @@ namespace Jogo
 			}
 		}
 
+		
+
 		void ListaEntidades::destruir()
 		{
 			Entidade* p = lista.voltar_inicio();

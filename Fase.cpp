@@ -11,7 +11,6 @@ namespace Jogo
 			gc(&entidades_moveis, &entidades_estaticas),
 			vidaui(nullptr)
 		{
-			randomizar_inimigos();
 			musica();
 		}
 
@@ -61,6 +60,7 @@ namespace Jogo
 
 		void Fase::inicializar_entidades()
 		{
+			randomizar_inimigos();
 			entidades_moveis.inicializar_entidades();
 			entidades_estaticas.inicializar_entidades();
 		}

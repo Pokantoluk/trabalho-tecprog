@@ -17,13 +17,11 @@ namespace Jogo
 		public Ente
 	{
 	protected:
-		Vector2F posicao;
 		Vector2F v;
 		Vector2F dimensao;
 		bool gosma;
-		const char* caminho;
-		IDsEntidades::IDsEntidades id;
 		bool destruir;
+
 	public:
 		Entidade(IDsEntidades::IDsEntidades id, Vector2F pos = Vector2F(0.0f, 0.0f), Vector2F vel = Vector2F(0.0f, 0.0f), const char* caminho_textura = nullptr);
 		virtual ~Entidade();

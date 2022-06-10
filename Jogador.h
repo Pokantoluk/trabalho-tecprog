@@ -16,7 +16,7 @@ namespace Jogo
 				public Personagem
 			{
 			protected:
-				static int pontos;
+				
 				bool andando;
 				bool pode_pular;
 				bool olhando_esquerda;
@@ -24,7 +24,7 @@ namespace Jogo
 				bool morto;
 
 			public:
-				static unsigned int get_pontuacao();
+				
 
 				Jogador(Vector2F pos = Vector2F(0.0f, 0.0f), const char* caminho = nullptr, const char* caminho_e = nullptr);
 				~Jogador();
@@ -32,6 +32,7 @@ namespace Jogo
 				void inicializar();
 				void set_posicao(Vector2F pos) { posicao = pos; }
 				void atualizar(float t);
+				void imprimir_se();
 				void colidir(Entidade* ente, Vector2F intersse);
 				void pular();
 				void andar(bool esquerda);
