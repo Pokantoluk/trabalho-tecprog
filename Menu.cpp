@@ -28,17 +28,14 @@ namespace Jogo
 		num_jogadores(1)
 	{
 		fonte->loadFromFile("assets/ethn.otf");
+		recuperar();
 	}
 	Menu::~Menu()
 	{
 		delete fonte;
 	}
 
-	void Menu::iniciar()
-	{
-		recuperar();
-		set_valores(MENU_PRINCIPAL);
-	}
+
 	void Menu::set_valores(unsigned int qual_menu)
 	{
 		switch (qual_menu)
@@ -61,7 +58,7 @@ namespace Jogo
 			break;
 		case GAMEOVER_1:
 			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
-			valores_gameover();
+			valores_gameover_1();
 			break;
 		}
 		for (std::size_t i{}; i < textos.size(); i++)
@@ -105,8 +102,14 @@ namespace Jogo
 		coords = { {345, 36} , {380, 215}, {380, 315}, {360, 410}, {375, 510} };
 		tamanho = { 18, 22, 18, 18, 22 };
 	}
-
-	void Menu::valores_gameover()
+	void Menu::valores_gameover_1()
+	{
+		textos.resize(2);
+		opcoes = { "Digite o seu nome:", Gerenciadores::GerenciadorEventos::get_nome() };
+		coords = { {250, 215}, {300, 400} };
+		tamanho = { 22, 30 };
+	}
+	void Menu::valores_gameover_2()
 	{
 		textos.resize(2);
 		opcoes = { "Digite o seu nome:", Gerenciadores::GerenciadorEventos::get_nome() };
@@ -144,7 +147,6 @@ namespace Jogo
 			sf::sleep(sf::milliseconds(200));
 		}
 	}
-
 	void Menu::menu_seletor()
 	{
 		enter = false;
@@ -175,7 +177,6 @@ namespace Jogo
 			sf::sleep(sf::milliseconds(200));
 		}
 	}
-
 	void Menu::menu_placar()
 	{
 		textos[3].setOutlineThickness(0);//nao ta mudando
@@ -188,7 +189,6 @@ namespace Jogo
 		}
 		ler_teclado();
 	}
-
 	void Menu::menu_qtd_jogadores()
 	{
 		enter = false;
@@ -222,7 +222,6 @@ namespace Jogo
 			Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar_menu(t);// colocar os escores
 		}
 	}
-
 	void Menu::menu_pausa()
 	{
 		Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
@@ -240,11 +239,11 @@ namespace Jogo
 		}
 
 	}
-
 	void Menu::menu_gameover()
 	{
-
-		set_valores(GAMEOVER_1);
+		if (num_jogadores == 1) { set_valores(GAMEOVER_1); }
+		else { set_valores(GAMEOVER_2); }
+		Gerenciadores::GerenciadorGrafico::get_gerenciador()->centralizar();
 		Gerenciadores::GerenciadorEventos::escrever_nome(true);
 		for (auto t : textos)
 		{
@@ -313,12 +312,10 @@ namespace Jogo
 			}
 		}
 	}
-
 	void Menu::tratar_pontos()
 	{
-		unsigned int ponto = Entidades::Personagens::Jogador::get_pontuacao();
-		unsigned int i;
-		for (i = 0; i < 5; i++)
+		unsigned int ponto = Entidades::Personagens::Mario::get_pontuacao();
+		for (int i = 0; i < 4; i++)
 		{
 			if (pontos[i] < ponto)
 			{
@@ -327,23 +324,21 @@ namespace Jogo
 			}
 		}
 	}
-
 	unsigned int Menu::get_jogadores()
 	{
 		return num_jogadores;
 	}
-
 	void Menu::gravar()
 	{
+
 		ofstream dat_jogadores;
 		dat_jogadores.open("assets/jogadores.dat", ios::out);
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 4; i++)
 		{
-			dat_jogadores << jogadores[i] << " " << pontos[i];
+			dat_jogadores << jogadores[i] << " " << pontos[i] << endl;
 		}
 		dat_jogadores.close();
 	}
-
 	void Menu::recuperar()
 	{
 		ifstream dat_jogadores;

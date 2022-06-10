@@ -21,7 +21,7 @@ namespace Jogo
 				if (vidas >= 1)
 				{
 					atualizar(t);
-					imprimir(caminho, posicao);
+					imprimir_se();
 				}
 				else
 				{

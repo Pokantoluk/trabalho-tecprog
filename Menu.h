@@ -36,7 +36,6 @@ namespace Jogo
     public:
         Menu();
         ~Menu();
-        void iniciar();
 
         /*valores exibidos no menu*/
         void set_valores(unsigned int qual_menu);
@@ -44,7 +43,8 @@ namespace Jogo
         void valores_seletor_fase();
         void valores_placar();
         void valores_qtd_jogadores();
-        void valores_gameover();
+        void valores_gameover_1();
+        void valores_gameover_2();
 
         /*metodos do menu*/
         void menu_principal();

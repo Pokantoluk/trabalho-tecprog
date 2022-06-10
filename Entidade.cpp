@@ -6,11 +6,10 @@ namespace Jogo
 {
 
 	Entidade::Entidade(IDsEntidades::IDsEntidades id, Vector2F pos, Vector2F vel, const char* caminho_textura) :
-		posicao(pos),
+		Ente(pos, caminho_textura, id),
 		v(vel),
-		caminho(caminho_textura),
-		id(id),
-		destruir(false)
+		destruir(false),
+		gosma(false)
 	{
 	}
 

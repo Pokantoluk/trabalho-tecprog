@@ -18,7 +18,6 @@ namespace Jogo
 		jogador_1 = new Entidades::Personagens::Mario(Vector2F(50.0f, 650.0f));
 		jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f));
 		ge.set_janela(gg.get_janela());
-		menu.iniciar();
 		executar();
 	}
 
@@ -85,12 +84,23 @@ namespace Jogo
 				}
 				else
 				{
-					if (jogador_1->get_morto() && jogador_2->get_morto())
+					if (dois_jogadores) {
+						if (jogador_1->get_morto() && jogador_2->get_morto())
+						{
+							menu.menu_gameover();
+						}
+					}
+					else if (jogador_1->get_morto())
 					{
 						menu.menu_gameover();
-					}
-					else
+					}	
+					else {
 						fase_1.executar(t.asSeconds());
+						if (dois_jogadores)
+							gg.centralizar(jogador_1->get_pos(), jogador_2->get_pos());
+						else
+							gg.centralizar(jogador_1->get_pos(), jogador_1->get_pos());
+					}
 				}
 			}
 			else if (menu.get_fase() == 2)
@@ -107,18 +117,27 @@ namespace Jogo
 				}
 				else
 				{
-					if (jogador_1->get_morto() && jogador_2->get_morto())
+					if (dois_jogadores) {
+						if (jogador_1->get_morto() && jogador_2->get_morto())
+						{
+							menu.menu_gameover();
+						}
+					}
+					else if (jogador_1->get_morto())
 					{
 						menu.menu_gameover();
 					}
-					else
-						fase_2.executar(t.asSeconds());
+					else {
+						fase_1.executar(t.asSeconds());
+						if (dois_jogadores)
+							gg.centralizar(jogador_1->get_pos(), jogador_2->get_pos());
+						else
+							gg.centralizar(jogador_1->get_pos(), jogador_1->get_pos());
+					}
 				}
 			}
-			if (dois_jogadores)
-				gg.centralizar(jogador_1->get_pos(), jogador_2->get_pos());
-			else
-				gg.centralizar(jogador_1->get_pos(), jogador_1->get_pos());
+			
+			
 			gg.mostrar();
 		}
 	}

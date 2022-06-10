@@ -12,7 +12,7 @@ namespace Jogo
 		namespace Personagens 
 		{
 
-			int Jogador::pontos = 0;
+			
 
 			Jogador::Jogador(Vector2F pos, const char* caminho, const char* caminho_e) :
 				Personagem(IDsEntidades::Jogador, pos, Vector2F(0,0), caminho, 6),
@@ -31,17 +31,9 @@ namespace Jogo
 			void Jogador::executar(float t)
 			{
 				atualizar(t);
-				if (olhando_esquerda)
-				{
-					imprimir(caminho_e, posicao);
-				}
-				else
-				{
-					imprimir(caminho, posicao);
-				}
-
-
+				imprimir_se();
 			}
+
 			void Jogador::inicializar()
 			{
 				Gerenciadores::GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho_e);
@@ -75,6 +67,13 @@ namespace Jogo
 				else
 					pode_pular = true;
 			}
+			void Jogador::imprimir_se()
+			{
+				if (olhando_esquerda)
+					Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar(caminho_e, posicao);
+				else
+					Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar(caminho, posicao);
+			}
 			void Jogador::tratar_eventos()
 			{
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
@@ -84,7 +83,7 @@ namespace Jogo
 				}
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 				{
-					andar(false);//anda com falso para esquerda
+					andar(false);
 				}
 				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 				{
@@ -182,7 +181,7 @@ namespace Jogo
 			}
 			bool Jogador::get_morto()
 			{
-				if (vidas == 0)
+				if (vidas <= 0)
 				{
 					Gerenciadores::GerenciadorGrafico::get_gerenciador()->centralizar(0.0f, 0.0f);
 					return true;
@@ -190,10 +189,7 @@ namespace Jogo
 				else
 					return false;
 			}
-			unsigned int Jogador::get_pontuacao()
-			{
-				return pontos;
-			}
+			
 		}
 	}
 }

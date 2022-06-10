@@ -17,7 +17,7 @@ namespace Jogo
 			void Obstaculo::executar(float t)
 			{
 				atualizar(t);
-				imprimir(caminho, posicao);
+				imprimir_se();
 			}
 			void Obstaculo::colidir(Entidade* ente, Vector2F intersse)
 			{
