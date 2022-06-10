@@ -9,7 +9,9 @@
 #define QTD_JOG 4
 #define FASE_1 5
 #define FASE_2 6
-#define JogoOVER 7
+#define GAMEOVER_1 7
+#define GAMEOVER_2 8
+
 using namespace std;
 
 namespace Jogo
@@ -57,7 +59,7 @@ namespace Jogo
 			valores_qtd_jogadores();
 			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo);
 			break;
-		case JogoOVER:
+		case GAMEOVER_1:
 			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
 			valores_gameover();
 			break;
@@ -239,10 +241,10 @@ namespace Jogo
 
 	}
 
-	void Menu::menu_JogoOver()
+	void Menu::menu_gameover()
 	{
 
-		set_valores(JogoOVER);
+		set_valores(GAMEOVER_1);
 		Gerenciadores::GerenciadorEventos::escrever_nome(true);
 		for (auto t : textos)
 		{
@@ -354,7 +356,20 @@ namespace Jogo
 			pontos.push_back(p);
 		}
 		dat_jogadores.close();
+		int i;
+		try
+		{
+			for (i = 0; i < 4; i++) 
+			{
+				int a = pontos.at(i);
+				string b = jogadores.at(i);
+			}
+		}
+		catch(const std::exception &e)
+		{
+			cout << "Erro de leitura do placar: " << e.what();
+			pontos.push_back(0);
+			jogadores.push_back("jogador");
+		}
 	}
-
-
 }

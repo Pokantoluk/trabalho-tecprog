@@ -9,6 +9,8 @@ namespace Jogo
 	{
 	protected:
 		IDsEntidades::IDsEntidades id;
+		const char* caminho;
+		Vector2F posicao;
 	public:
 		Ente();
 		~Ente();

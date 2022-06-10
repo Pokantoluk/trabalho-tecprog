@@ -52,7 +52,7 @@ namespace Jogo
         void menu_placar();
         void menu_qtd_jogadores();
         void menu_pausa();
-        void menu_JogoOver();
+        void menu_gameover();
 
 
         void executar(float t);

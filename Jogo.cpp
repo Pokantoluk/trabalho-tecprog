@@ -87,7 +87,7 @@ namespace Jogo
 				{
 					if (jogador_1->get_morto() && jogador_2->get_morto())
 					{
-						menu.menu_JogoOver();
+						menu.menu_gameover();
 					}
 					else
 						fase_1.executar(t.asSeconds());
@@ -109,7 +109,7 @@ namespace Jogo
 				{
 					if (jogador_1->get_morto() && jogador_2->get_morto())
 					{
-						menu.menu_JogoOver();
+						menu.menu_gameover();
 					}
 					else
 						fase_2.executar(t.asSeconds());
