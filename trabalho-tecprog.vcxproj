@@ -148,6 +148,7 @@
     <ClCompile Include="GerenciadorColisoes.cpp" />
     <ClCompile Include="GerenciadorEventos.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
+    <ClCompile Include="GerenciadorMenu.cpp" />
     <ClCompile Include="Goomba.cpp" />
     <ClCompile Include="Gosma.cpp" />
     <ClCompile Include="Inimigo.cpp" />
@@ -157,11 +158,20 @@
     <ClCompile Include="Luigi.cpp" />
     <ClCompile Include="Mario.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuGameover.cpp" />
+    <ClCompile Include="MenuPausa.cpp" />
+    <ClCompile Include="MenuPersonagens.cpp" />
+    <ClCompile Include="MenuPlacar.cpp" />
+    <ClCompile Include="MenuPrincipal.cpp" />
+    <ClCompile Include="MenuSeletor.cpp" />
     <ClCompile Include="NuvemMal.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Entidade.cpp" />
+    <ClCompile Include="Pedra.cpp" />
     <ClCompile Include="Personagem.cpp" />
+    <ClCompile Include="PontuacaoUI.cpp" />
+    <ClCompile Include="Projetil.cpp" />
     <ClCompile Include="VidaUI.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +185,7 @@
     <ClInclude Include="GerenciadorColisoes.h" />
     <ClInclude Include="GerenciadorEventos.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
+    <ClInclude Include="GerenciadorMenu.h" />
     <ClInclude Include="Goomba.h" />
     <ClInclude Include="Gosma.h" />
     <ClInclude Include="IDsEntidades.h" />
@@ -186,10 +197,19 @@
     <ClInclude Include="Luigi.h" />
     <ClInclude Include="Mario.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuGameover.h" />
+    <ClInclude Include="MenuPausa.h" />
+    <ClInclude Include="MenuPersonagens.h" />
+    <ClInclude Include="MenuPlacar.h" />
+    <ClInclude Include="MenuPrincipal.h" />
+    <ClInclude Include="MenuSeletor.h" />
     <ClInclude Include="NuvemMal.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Entidade.h" />
+    <ClInclude Include="Pedra.h" />
     <ClInclude Include="Personagem.h" />
+    <ClInclude Include="PontuacaoUI.h" />
+    <ClInclude Include="Projetil.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="VidaUI.h" />

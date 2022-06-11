@@ -9,7 +9,8 @@ namespace Jogo
 
 		Fase::Fase() :
 			gc(&entidades_moveis, &entidades_estaticas),
-			vidaui(nullptr)
+			vidaui(nullptr),
+			pontuacaoui(new PontuacaoUI())
 		{
 			musica();
 		}
@@ -22,6 +23,12 @@ namespace Jogo
 			{
 				delete vidaui;
 				vidaui = nullptr;
+
+			}
+			if (pontuacaoui)
+			{
+				delete pontuacaoui;
+				pontuacaoui = nullptr;
 			}
 		}
 		void Fase::musica()
@@ -50,6 +57,10 @@ namespace Jogo
 				e->set_lista(entidades_moveis);
 				e = nullptr;
 			}
+			float posX = static_cast<float>(rand() % 2100 + 500);
+			Entidades::Personagens::NuvemMal* n = new Entidades::Personagens::NuvemMal(Vector2F(posX, 65.0f), Vector2F(0.0f, 0.0f), "assets/nuvem_malvada.png", static_cast<Fase*> (this));
+			n->set_lista(entidades_moveis);
+			n = nullptr;
 		}
 
 		void Fase::inserir_jogador(Entidades::Personagens::Jogador* j)
@@ -72,12 +83,6 @@ namespace Jogo
 			inicializar_entidades();
 		}
 
-		void Fase::terminar_fase()
-		{
-			
-			entidades_moveis.destruir();
-			entidades_estaticas.destruir();
-		}
 
 		void Fase::executar(float t)
 		{
@@ -85,11 +90,21 @@ namespace Jogo
 			entidades_estaticas.percorrer_executar(t);
 			gerenciar_colisoes();
 			vidaui->executar();
+			pontuacaoui->executar();
 		}
 
 		void Fase::gerenciar_colisoes()
 		{
 			gc.verificar_colisoes();
+		}
+		void Fase::add_projetil(Entidades::Projetil* proj)
+		{
+			if (proj)
+			{
+
+				proj->set_lista(entidades_moveis);
+				proj->inicializar();
+			}
 		}
 	}
 }

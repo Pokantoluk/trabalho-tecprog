@@ -4,26 +4,35 @@
 #include "ListaEntidades.h"
 
 namespace Jogo
-{
-	class Inimigo;
+{   
 	class Entidade;
-	class Obstaculo;
-	class Jogador;
+	namespace Entidades
+	{
+		namespace Personagens
+		{
+			class Inimigo;
+		    class Jogador;
+		}
+		namespace Obstaculos
+		{
+			class Obstaculo;
+		}
+		
+	}
+	
 	namespace Gerenciadores
 	{
 
 		class GerenciadorColisoes
 		{
 		private:
-			std::list<Obstaculo*> LOs;
-			std::vector<Inimigo*> LIs;
 
 			Listas::ListaEntidades* moveis;
 			Listas::ListaEntidades* estaticos;
 		public:
 			GerenciadorColisoes(Listas::ListaEntidades* m = nullptr, Listas::ListaEntidades* e = nullptr);
 			~GerenciadorColisoes();
-
+			bool tentar_destruir(Entidade* ente, int index, bool estatico);
 			void verificar_colisoes();
 		};
 	}

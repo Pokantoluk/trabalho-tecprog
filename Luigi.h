@@ -17,6 +17,7 @@ namespace Jogo
 				~Luigi();
 				void tratar_eventos();
 				static unsigned int get_pontuacao() { return pontos; }
+				void reiniciar();
 			};
 		}
 	}

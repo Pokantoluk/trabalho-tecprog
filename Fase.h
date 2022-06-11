@@ -9,6 +9,9 @@
 #include "GerenciadorEventos.h"
 #include "GerenciadorColisoes.h"
 #include "VidaUI.h"
+#include "PontuacaoUI.h"
+#include "NuvemMal.h"
+#include "Projetil.h"
 
 
 namespace Jogo
@@ -23,6 +26,7 @@ namespace Jogo
 			Listas::ListaEntidades entidades_moveis;
 			Gerenciadores::GerenciadorColisoes gc;
 			VidaUI* vidaui;
+			PontuacaoUI* pontuacaoui;
 			
 			sf::Music music;
       
@@ -38,11 +42,10 @@ namespace Jogo
 			void inserir_jogador(Entidades::Personagens::Jogador* j);
 			virtual void inicializar_entidades();
 			void reiniciar_entidades(Vector2F pos_jogador);
-			void terminar_fase();
 			void executar(float t);
 			void gerenciar_colisoes();
 			void musica(); 
-
+		    void add_projetil(Entidades::Projetil* proj);
 			static void set_pausa(bool pausa) { pausado = pausa; }
 			bool get_pausa() { return pausado; }
 			

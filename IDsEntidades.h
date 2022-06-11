@@ -8,7 +8,9 @@ namespace Jogo
 		{
 			Jogador,
 			Inimigo,
-			obstaculo
+			obstaculo,
+			Projetil
+
 		};
 	}
 }

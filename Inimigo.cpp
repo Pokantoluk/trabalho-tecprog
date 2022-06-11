@@ -1,4 +1,5 @@
 #include "Inimigo.h"
+#include "Jogador.h"
 
 namespace Jogo
 {
@@ -7,8 +8,10 @@ namespace Jogo
 		namespace Personagens
 		{
 
-			Inimigo::Inimigo(Vector2F pos, Vector2F vel, const char* caminho_textura, int vidas) :
-				Personagem(IDsEntidades::Inimigo, pos, vel, caminho_textura, vidas)
+			Inimigo::Inimigo(Vector2F pos, Vector2F vel, const char* caminho_textura, const int vidas, const int pontuacao) :
+				Personagem(IDsEntidades::Inimigo, pos, vel, caminho_textura, vidas),
+				pontos(pontuacao)
+
 			{
 			}
 
@@ -22,9 +25,11 @@ namespace Jogo
 				{
 					atualizar(t);
 					imprimir_se();
+					cont_tempo_imune += t;
 				}
 				else
 				{
+					Jogador::incrementar_pontuacao(pontos);
 					this->Destruir();
 				}
 			}
