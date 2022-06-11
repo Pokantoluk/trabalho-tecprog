@@ -15,6 +15,7 @@ namespace Jogo
                 if (ente && ente->get_id() == IDsEntidades::Jogador)
                 {
                     ente->set_gosma(true);
+                    
                 }
             }
         }

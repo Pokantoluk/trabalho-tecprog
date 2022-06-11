@@ -1,5 +1,6 @@
 #include "VidaUI.h"
-#define CHEIO "assets/vida.jpg"
+#define CHEIO "assets/coracaocheio.png"
+#define VAZIO "assets/coracaovazio.png"
 #include "Jogador.h"
 
 
@@ -9,13 +10,8 @@ namespace Jogo
 	VidaUI::VidaUI(Entidades::Personagens::Jogador* jog):
 		ComponenteGrafico(jog)
 	{
-		poss[0] = Vector2F(0.0f, 400.0f);
-		poss[1] = Vector2F(50.0f, 400.0f);
-		poss[2] = Vector2F(100.0f, 0.0f);
-		poss[3] = Vector2F(150.0f, 0.0f);
-		poss[4] = Vector2F(200.0f, 0.0f);
 
-		//GerenciadorGrafico::get_gerenciador()->carregar_textura(VAZIO);
+		Gerenciadores::GerenciadorGrafico::get_gerenciador()->carregar_textura(VAZIO);
 		Gerenciadores::GerenciadorGrafico::get_gerenciador()->carregar_textura(CHEIO);
 	}
 
@@ -26,9 +22,13 @@ namespace Jogo
 	{
 		if(jogador)
 		{ 
-			  for (unsigned int i = 0; i < jogador->get_vida(); i++)
+			  for (int i = 0; i < jogador->get_vida(); i++)
 			  {
-				  Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar(CHEIO, Vector2F(poss[i].x + jogador->get_pos().x, poss[i].y));
+				  Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenharUI(CHEIO, Vector2F(-400 + (50 * i), -400));
+			  }
+			  for (int i = jogador->get_vida(); i < VIDA_MAX; i++)
+			  {
+				  Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenharUI(VAZIO, Vector2F(-400 + (50 * i), -400));
 			  }
         }
 

@@ -3,7 +3,7 @@
 
 #include "GerenciadorEventos.h"
 #include "GerenciadorGrafico.h"
-
+#define VIDA_MAX  5
 
 namespace Jogo
 {
@@ -22,6 +22,7 @@ namespace Jogo
 				bool olhando_esquerda;
 				const char* caminho_e;
 				bool morto;
+				static int pontuacao;
 
 			public:
 				
@@ -39,8 +40,8 @@ namespace Jogo
 				void bordas();
 				void set_pode_pular(bool pode) { pode_pular = pode; }
 				virtual void tratar_eventos();
-
-
+				static void incrementar_pontuacao(int pontos) { pontuacao += pontos; std::cout << pontuacao << std::endl; }
+				static int get_pontuacao() { return pontuacao; }
 				bool get_morto();
 				const unsigned int get_vida() const { return vidas; }
 			};
