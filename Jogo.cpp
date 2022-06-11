@@ -7,8 +7,9 @@ namespace Jogo
 	bool Jogo::na_fase{ false };
 
 	Jogo::Jogo() :
-		ge(),
 		gg(),
+		ge(),
+		gm(),
 		fase_1(),
 		fase_2(),
 		jogador_1(),
@@ -37,19 +38,11 @@ namespace Jogo
 	void Jogo::inicializar_fase_2()
 	{
 		fase_2.inserir_jogador(jogador_1);
-		fase_2.inicializar_entidades();
 		if (dois_jogadores)
 		{
-			fase_1.inserir_jogador(jogador_2);
+			fase_2.inserir_jogador(jogador_2);
 		}
-	}
-	void Jogo::reiniciar_fase()
-	{
-		fase_1.reiniciar_entidades(Vector2F(50.0f, 650.0f));
-	}
-	void Jogo::reiniciar_fase_2()
-	{
-		fase_2.reiniciar_entidades(Vector2F(50.0f, 650.0f));
+		fase_2.inicializar_entidades();
 	}
 	void Jogo::executar()
 	{
@@ -60,7 +53,7 @@ namespace Jogo
 			relogio.restart();
 			gg.limpar();
 			ge.tratar_eventos();
-			if (menu.get_jogadores() == 2)
+			if (gm.get_num_jogadores() == 2)
 			{
 				dois_jogadores = true;
 			}
@@ -68,9 +61,9 @@ namespace Jogo
 			{
 				dois_jogadores = false;
 			}
-			if (menu.get_fase() == 0)
-				menu.executar(t.asSeconds());
-			else if (menu.get_fase() == 1)
+			if (gm.get_fase() == 0)
+				gm.executar();
+			else if (gm.get_fase() == 1)
 			{
 				if (!na_fase)
 				{
@@ -80,20 +73,19 @@ namespace Jogo
 				}
 				if (fase_1.get_pausa())
 				{
-					menu.menu_pausa();
+					gm.set_pausa();
 				}
 				else
 				{
-					if (dois_jogadores) {
-						if (jogador_1->get_morto() && jogador_2->get_morto())
-						{
-							menu.menu_gameover();
-						}
-					}
-					else if (jogador_1->get_morto())
+					if (jogador_1->get_morto() && jogador_2->get_morto() && dois_jogadores)
 					{
-						menu.menu_gameover();
-					}	
+						gm.set_gameover();
+
+					}
+					else if (jogador_1->get_morto() && !dois_jogadores)
+					{						
+						gm.set_gameover();
+					}
 					else {
 						fase_1.executar(t.asSeconds());
 						if (dois_jogadores)
@@ -103,7 +95,7 @@ namespace Jogo
 					}
 				}
 			}
-			else if (menu.get_fase() == 2)
+			else if (gm.get_fase() == 2)
 			{
 				if (!na_fase)
 				{
@@ -113,22 +105,22 @@ namespace Jogo
 				}
 				if (fase_2.get_pausa())
 				{
-					menu.menu_pausa();
+					gm.set_pausa();
 				}
 				else
 				{
-					if (dois_jogadores) {
-						if (jogador_1->get_morto() && jogador_2->get_morto())
-						{
-							menu.menu_gameover();
-						}
+					
+					if (jogador_1->get_morto() && jogador_2->get_morto() && dois_jogadores)
+					{
+						gm.set_gameover();
+							
 					}
 					else if (jogador_1->get_morto())
-					{
-						menu.menu_gameover();
+					{			
+							gm.set_gameover();
 					}
 					else {
-						fase_1.executar(t.asSeconds());
+						fase_2.executar(t.asSeconds());
 						if (dois_jogadores)
 							gg.centralizar(jogador_1->get_pos(), jogador_2->get_pos());
 						else
@@ -136,8 +128,6 @@ namespace Jogo
 					}
 				}
 			}
-			
-			
 			gg.mostrar();
 		}
 	}

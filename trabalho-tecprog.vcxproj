@@ -148,6 +148,7 @@
     <ClCompile Include="GerenciadorColisoes.cpp" />
     <ClCompile Include="GerenciadorEventos.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
+    <ClCompile Include="GerenciadorMenu.cpp" />
     <ClCompile Include="Goomba.cpp" />
     <ClCompile Include="Gosma.cpp" />
     <ClCompile Include="Inimigo.cpp" />
@@ -157,6 +158,12 @@
     <ClCompile Include="Luigi.cpp" />
     <ClCompile Include="Mario.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuGameover.cpp" />
+    <ClCompile Include="MenuPausa.cpp" />
+    <ClCompile Include="MenuPersonagens.cpp" />
+    <ClCompile Include="MenuPlacar.cpp" />
+    <ClCompile Include="MenuPrincipal.cpp" />
+    <ClCompile Include="MenuSeletor.cpp" />
     <ClCompile Include="NuvemMal.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -178,6 +185,7 @@
     <ClInclude Include="GerenciadorColisoes.h" />
     <ClInclude Include="GerenciadorEventos.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
+    <ClInclude Include="GerenciadorMenu.h" />
     <ClInclude Include="Goomba.h" />
     <ClInclude Include="Gosma.h" />
     <ClInclude Include="IDsEntidades.h" />
@@ -189,6 +197,12 @@
     <ClInclude Include="Luigi.h" />
     <ClInclude Include="Mario.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuGameover.h" />
+    <ClInclude Include="MenuPausa.h" />
+    <ClInclude Include="MenuPersonagens.h" />
+    <ClInclude Include="MenuPlacar.h" />
+    <ClInclude Include="MenuPrincipal.h" />
+    <ClInclude Include="MenuSeletor.h" />
     <ClInclude Include="NuvemMal.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Entidade.h" />
