@@ -93,6 +93,9 @@
     <ClCompile Include="Luigi.cpp">
       <Filter>Arquivos de Origem\Fonte de entidades</Filter>
     </ClCompile>
+    <ClCompile Include="PontuacaoUI.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Jogo.h">
@@ -178,6 +181,9 @@
     </ClInclude>
     <ClInclude Include="Luigi.h">
       <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="PontuacaoUI.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

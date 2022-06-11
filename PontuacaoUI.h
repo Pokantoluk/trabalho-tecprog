@@ -6,15 +6,18 @@
 
 namespace Jogo
 {
-    class VidaUI :
+    class PontuacaoUI :
         public ComponenteGrafico
     {
-    
+    private:
+        sf::Text texto_pontuacao;
+        sf::Font* fonte;
+
     public:
-        VidaUI(Entidades::Personagens::Jogador* jog = nullptr);
-        ~VidaUI();
+        PontuacaoUI();
+        ~PontuacaoUI();
         void executar();
-        
+
     };
 
 }

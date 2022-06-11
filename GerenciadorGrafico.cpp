@@ -1,4 +1,4 @@
-#include "GerenciadorGrafico.h"
+ï»¿#include "GerenciadorGrafico.h"
 
 namespace Jogo
 {
@@ -45,7 +45,7 @@ namespace Jogo
 				sf::Texture* text = texturas[caminho];
 				sf::Sprite sprite;
 
-				//TODO: verificar se a textura está completamente fora da camera e não desenhá-la.
+				//TODO: verificar se a textura estÃ¡ completamente fora da camera e nÃ£o desenhÃ¡-la.
 				sprite.setTexture(*text);
 				sf::RectangleShape ret;
 				float x = get_tamanho(caminho).x;
@@ -57,6 +57,28 @@ namespace Jogo
 				//janela->draw(ret);//para verificar o hitbox da textura.
 				janela->draw(sprite);
 			}
+		}
+		void GerenciadorGrafico::desenharUI(const std::string caminho, const Vector2F pos)
+		{
+			if (!texturas.count(caminho))
+			{
+				std::cerr << "textura em " << caminho << " nao carregada no desenhar" << std::endl;
+				exit(1);
+			}
+			else
+			{
+				sf::Texture* text = texturas[caminho];
+				sf::Sprite sprite;
+
+				sprite.setTexture(*text);
+				sprite.setPosition(camera.getCenter().x + pos.x, camera.getCenter().y + pos.y);
+				janela->draw(sprite);
+			}
+		}
+		void GerenciadorGrafico::desenharUI(sf::Text t, Vector2F pos)
+		{
+			t.setPosition(camera.getCenter().x + pos.x, camera.getCenter().y + pos.y);
+			janela->draw(t);
 		}
 		void GerenciadorGrafico::desenhar_menu(sf::Text t)
 		{
@@ -70,7 +92,7 @@ namespace Jogo
 				sf::Texture* text = new sf::Texture();
 				if (!text->loadFromFile(caminho))
 				{
-					std::cerr << "imagem não localizada em " << caminho << std::endl;
+					std::cerr << "imagem nÃ£o localizada em " << caminho << std::endl;
 					exit(1);
 				}
 				texturas.emplace(caminho, text);

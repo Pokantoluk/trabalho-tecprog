@@ -9,7 +9,8 @@ namespace Jogo
 
 		Fase::Fase() :
 			gc(&entidades_moveis, &entidades_estaticas),
-			vidaui(nullptr)
+			vidaui(nullptr),
+			pontuacaoui(new PontuacaoUI())
 		{
 			musica();
 		}
@@ -22,6 +23,12 @@ namespace Jogo
 			{
 				delete vidaui;
 				vidaui = nullptr;
+
+			}
+			if (pontuacaoui)
+			{
+				delete pontuacaoui;
+				pontuacaoui = nullptr;
 			}
 		}
 		void Fase::musica()
@@ -85,6 +92,7 @@ namespace Jogo
 			entidades_estaticas.percorrer_executar(t);
 			gerenciar_colisoes();
 			vidaui->executar();
+			pontuacaoui->executar();
 		}
 
 		void Fase::gerenciar_colisoes()

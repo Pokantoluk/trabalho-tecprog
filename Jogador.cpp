@@ -13,9 +13,9 @@ namespace Jogo
 		{
 
 			
-
+			int Jogador::pontuacao = 0;
 			Jogador::Jogador(Vector2F pos, const char* caminho, const char* caminho_e) :
-				Personagem(IDsEntidades::Jogador, pos, Vector2F(0,0), caminho, 6),
+				Personagem(IDsEntidades::Jogador, pos, Vector2F(0,0), caminho, VIDA_MAX),
 				andando(false),
 				olhando_esquerda(false),
 				pode_pular(false),
@@ -32,6 +32,7 @@ namespace Jogo
 			{
 				atualizar(t);
 				imprimir_se();
+				cont_tempo_imune += t;
 			}
 
 			void Jogador::inicializar()
@@ -44,9 +45,19 @@ namespace Jogo
 			{
 				tratar_eventos();
 				bordas();
+				if (gosma)
+				{
+					mod_vel = 0.3;
+
+				}
+				else if (mod_vel < 1)
+				{
+					mod_vel += (1 - mod_vel) * 0.00099;
+				}
 				if (andando)
 				{
-					v.x = VEL_JOGADOR;//coloca a velocidade do jogador
+					v.x = VEL_JOGADOR*mod_vel;//coloca a velocidade do jogador
+					gosma = false;
 					if (olhando_esquerda)
 					{
 						v.x *= -1;//anda para o outro lado
@@ -119,14 +130,14 @@ namespace Jogo
 					}
 					else if (posicao.x < ente->get_pos().x)
 					{
-						v.x = -1000;
+						v.x = -500;
 
-						posicao.x = ente->get_pos().x - dimensao.x;
+						posicao.x = ente->get_pos().x - dimensao.x - 20;
 					}
 					else if (posicao.x > ente->get_pos().x)
 					{
-						v.x = +1000;
-						posicao.x = ente->get_pos().x + ente->get_dim().x;
+						v.x = +500;
+						posicao.x = ente->get_pos().x + ente->get_dim().x + 20;
 
 					}
 

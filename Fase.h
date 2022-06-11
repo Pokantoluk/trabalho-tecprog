@@ -9,6 +9,7 @@
 #include "GerenciadorEventos.h"
 #include "GerenciadorColisoes.h"
 #include "VidaUI.h"
+#include "PontuacaoUI.h"
 
 
 namespace Jogo
@@ -23,6 +24,7 @@ namespace Jogo
 			Listas::ListaEntidades entidades_moveis;
 			Gerenciadores::GerenciadorColisoes gc;
 			VidaUI* vidaui;
+			PontuacaoUI* pontuacaoui;
 			
 			sf::Music music;
       

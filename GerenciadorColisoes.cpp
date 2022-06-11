@@ -78,6 +78,7 @@ namespace Jogo
                         if (interssec.x < 0.0f && interssec.y < 0.0f)
                         {
                             ent2->colidir(ent1, interssec);
+                            ent1->colidir(ent2, interssec);
                         }
                     }
 
