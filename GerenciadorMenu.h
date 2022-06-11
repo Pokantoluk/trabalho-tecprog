@@ -40,7 +40,7 @@ namespace Jogo
 			void set_pausa();
 			bool set_gameover();
 
-			void tratar_pontos();
+			void tratar_pontos(string nome);
 			void gravar();
 			void recuperar();
 

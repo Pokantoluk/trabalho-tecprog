@@ -9,7 +9,8 @@ namespace Jogo
 			Jogador,
 			Inimigo,
 			obstaculo,
-			Projetil
+			Projetil,
+			bandeira
 
 		};
 	}

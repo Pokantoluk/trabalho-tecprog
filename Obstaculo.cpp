@@ -6,8 +6,8 @@ namespace Jogo
 	{
 		namespace Obstaculos
 		{
-			Obstaculo::Obstaculo(Vector2F pos, const char* caminho_textura) :
-				Entidade(IDsEntidades::obstaculo, pos, Vector2F(0.0f, 0.0f), caminho_textura)
+			Obstaculo::Obstaculo(IDsEntidades::IDsEntidades id, Vector2F pos, const char* caminho_textura) :
+				Entidade(id, pos, Vector2F(0.0f, 0.0f), caminho_textura)
 			{
 
 			}
@@ -18,6 +18,7 @@ namespace Jogo
 			{
 				atualizar(t);
 				imprimir_se();
+				
 			}
 			void Obstaculo::colidir(Entidade* ente, Vector2F intersse)
 			{

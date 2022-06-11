@@ -14,7 +14,8 @@ namespace Jogo
 		fase_2(),
 		jogador_1(),
 		jogador_2(),
-		dois_jogadores(false)
+		dois_jogadores(false),
+		acabou_fase(false)
 	{
 		jogador_1 = new Entidades::Personagens::Mario(Vector2F(50.0f, 650.0f));
 		jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f));
@@ -61,8 +62,11 @@ namespace Jogo
 			{
 				dois_jogadores = false;
 			}
-			if (gm.get_fase() == 0)
+			if (gm.get_fase() == 0) 
+			{
+				na_fase = false;
 				gm.executar();
+			}
 			else if (gm.get_fase() == 1)
 			{
 				if (!na_fase)
@@ -71,16 +75,11 @@ namespace Jogo
 					fase_1.carregar_fundo();
 					na_fase = true;
 				}
-				if (fase_1.get_pausa())
-				{
-					gm.set_pausa();
-				}
 				else
 				{
 					if (jogador_1->get_morto() && jogador_2->get_morto() && dois_jogadores)
 					{
 						gm.set_gameover();
-
 					}
 					else if (jogador_1->get_morto() && !dois_jogadores)
 					{						
@@ -92,6 +91,10 @@ namespace Jogo
 							gg.centralizar(jogador_1->get_pos(), jogador_2->get_pos());
 						else
 							gg.centralizar(jogador_1->get_pos(), jogador_1->get_pos());
+						if (acabou_fase)
+						{
+							gm.set_fase(2);
+						}
 					}
 				}
 			}
@@ -103,10 +106,6 @@ namespace Jogo
 					fase_2.carregar_fundo();
 					na_fase = true;
 				}
-				if (fase_2.get_pausa())
-				{
-					gm.set_pausa();
-				}
 				else
 				{
 					
@@ -117,9 +116,10 @@ namespace Jogo
 					}
 					else if (jogador_1->get_morto())
 					{			
-							gm.set_gameover();
+						gm.set_gameover();
 					}
-					else {
+					else 
+					{
 						fase_2.executar(t.asSeconds());
 						if (dois_jogadores)
 							gg.centralizar(jogador_1->get_pos(), jogador_2->get_pos());

@@ -17,30 +17,40 @@ namespace Jogo
 		void Goomba::colidir(Entidade* ente, Vector2F intersse)
 		{
 			
-			if (ente->get_id() == IDsEntidades::Jogador)
+			if(ente != nullptr)
 			{
-
-				if (ObjetoEmCima(ente))
+				if (ente->get_id() == IDsEntidades::Jogador)
 				{
-					this->machucar(1);
+
+					if (ObjetoEmCima(ente))
+					{
+						this->machucar(1);
+					}
+					else
+					{
+						ente->machucar(1);
+
+					}
+					v.x *= -1;
+
 				}
-				else
+				else if (ente->get_id() == IDsEntidades::Inimigo)
 				{
-					ente->machucar(1);
-
+					v.x *= -1;
 				}
-				v.x *= -1;
-
+				else if (ente->get_id() == IDsEntidades::obstaculo)
+				{
+					if (posicao.y + dimensao.y - 10 <= ente->get_pos().y)
+					{
+						v.y = 0;
+						posicao.y = ente->get_pos().y - dimensao.y;
+					}
+					else 
+					{
+						v.x *= -1;
+					}
+				}
 			}
-			else if (ente->get_id() == IDsEntidades::Inimigo)
-			{
-				v.x *= -1;
-			}
-			else if (ente->get_id() == IDsEntidades::obstaculo)
-			{
-				v.x *= -1;
-			}
-
 
 		}
 		}

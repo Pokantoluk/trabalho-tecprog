@@ -22,6 +22,7 @@ namespace Jogo
 		Gerenciadores::GerenciadorMenu gm;
 		sf::Clock relogio;
 		bool dois_jogadores;
+		bool acabou_fase;
 
 	public:
 		static bool na_fase;

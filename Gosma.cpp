@@ -8,7 +8,7 @@ namespace Jogo
         namespace Obstaculos
         {
             Gosma::Gosma(Vector2F pos, const char* caminho_textura) :
-                Obstaculo(pos, caminho_textura)
+                Obstaculo(IDsEntidades::obstaculo, pos, caminho_textura)
             {}
             void Gosma::colidir(Entidade* ente, Vector2F intersse)
             {

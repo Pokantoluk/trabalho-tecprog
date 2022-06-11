@@ -7,7 +7,7 @@ namespace Jogo
         namespace Obstaculos
         {
             Pedra::Pedra(Vector2F pos, const char* caminho_textura) :
-                Obstaculo(pos, caminho_textura)
+                Obstaculo(IDsEntidades::obstaculo, pos, caminho_textura)
             {
 
             }

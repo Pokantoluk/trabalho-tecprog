@@ -39,7 +39,7 @@ void Jogo::MenuGameover::executar(float t)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 	{
 		Gerenciadores::GerenciadorEventos::escrever_nome(false);
-		gm->tratar_pontos();
+		gm->tratar_pontos(textos[1].getString());
 		gm->gravar();
 		gm->recuperar();
 		gm->set_fase(0);
@@ -62,7 +62,7 @@ void Jogo::MenuGameover::executar_2()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 	{
 		Gerenciadores::GerenciadorEventos::escrever_nome(false);
-		gm->tratar_pontos();
+		gm->tratar_pontos(textos[1].getString());
 		gm->gravar();
 		gm->recuperar();
 		gm->set_fase(0);

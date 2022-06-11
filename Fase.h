@@ -38,7 +38,7 @@ namespace Jogo
 			~Fase();
 
 			virtual void carregar_fundo() const;
-			void randomizar_inimigos();
+			virtual void randomizar_inimigos();
 			void inserir_jogador(Entidades::Personagens::Jogador* j);
 			virtual void inicializar_entidades();
 			void reiniciar_entidades(Vector2F pos_jogador);

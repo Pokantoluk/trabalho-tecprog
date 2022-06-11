@@ -38,10 +38,10 @@ void Jogo::MenuSeletor::executar(float t)
 		{
 
 		case 1:
-			gm->set_fase(1);
+			gm->set_menu(5);
 			break;
 		case 2:
-			gm->set_fase(2);
+			gm->set_menu(6);
 			break;
 		case 3:
 			gm->set_menu(1);

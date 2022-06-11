@@ -5,7 +5,7 @@ Jogo::MenuPausa::MenuPausa(const char* fundo):
 	Menu(fundo)
 {
 	textos.resize(5);
-	opcoes = { "Mario++", "Voltar", "Menu", "\"Salvar e sair\"", "Sair" };
+	opcoes = { "Mario++", "Voltar", "Menu", "Salvar e sair", "Sair" };
 	coords = { {340, 36} , {330, 215}, {350, 315}, {320, 410}, {350, 510} };
 	tamanho = { 18, 22, 18, 12, 22 };
 

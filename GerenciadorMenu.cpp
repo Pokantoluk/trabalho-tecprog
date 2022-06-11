@@ -51,6 +51,7 @@ namespace Jogo
 		}
 		void GerenciadorMenu::executar()
 		{
+			//cout << fase << endl;
 			if (num_menu == MENU_PRINCIPAL)
 				mPr->executar();
 			else if (num_menu == SELETOR)
@@ -80,7 +81,7 @@ namespace Jogo
 			else { return false; }
 		}
 
-		void GerenciadorMenu::tratar_pontos()
+		void GerenciadorMenu::tratar_pontos(string nome)
 		{
 			int ponto = Entidades::Personagens::Mario::get_pontuacao();
 			for (int i = 0; i < 4; i++)
@@ -88,7 +89,7 @@ namespace Jogo
 				if (pontos[i] < ponto)
 				{
 					pontos[i] = ponto;
-					jogadores[i] = GerenciadorEventos::get_nome();
+					jogadores[i] = nome;
 				}
 			}
 		}
