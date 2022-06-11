@@ -1,6 +1,6 @@
 #include "VidaUI.h"
 #define CHEIO "assets/coracaocheio.png"
-#define VAZIO "assets/coracaovazio (1).png"
+#define VAZIO "assets/coracaovazio.png"
 #include "Jogador.h"
 
 

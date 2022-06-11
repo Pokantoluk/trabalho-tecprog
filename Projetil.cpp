@@ -28,12 +28,9 @@ namespace Jogo
             {
                 ente->machucar(1);
                 
-                this->Destruir();
+                
             } 
-            else if (ente && ente->get_id() != IDsEntidades::Inimigo)
-            {
-                this->Destruir();
-            }
+            this->Destruir();
 
         }
      

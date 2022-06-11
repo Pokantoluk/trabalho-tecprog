@@ -11,15 +11,30 @@ namespace Jogo
             moveis(m),
             estaticos(e)
         {
-            LIs.clear();
-            LOs.clear();
+          
         }
         GerenciadorColisoes::~GerenciadorColisoes()
         {
-            LIs.clear();
-            LOs.clear();
+           
             moveis->destruir();
             estaticos->destruir();
+        }
+        bool GerenciadorColisoes::tentar_destruir(Entidade* ente, int index, bool estatico)
+        {
+            if (ente && ente->get_destruir() && ente->get_id() != IDsEntidades::Jogador)
+            {
+                delete ente;
+                ente = nullptr;
+                if(estatico)
+                {
+                    estaticos->remover(index);
+                }
+                else
+                    moveis->remover(index);
+                return true;
+ 
+            }
+            return false;
         }
         void GerenciadorColisoes::verificar_colisoes()
         {
@@ -27,38 +42,9 @@ namespace Jogo
             Entidade* ent2 = nullptr;
             Vector2F interssec;
             Vector2F distancia_centros;
-            unsigned int i, j, tam;
-            tam = moveis->get_tam();
+            unsigned int i, j;
 
-            for (i = 0; i < tam; i++)
-            {
-                ent1 = (*moveis)[i];
-                if (ent1 && ent1->get_destruir() && ent1->get_id() != IDsEntidades::Jogador)
-                {
-                    delete ent1;
-                    ent1 = nullptr;
-                    moveis->remover(i);
-                    tam--;
-                    continue;
-                }
-            }
-
-            tam = estaticos->get_tam();
-
-            for (i = 0; i < tam; i++)
-            {
-                ent1 = (*estaticos)[i];
-                if (ent1 && ent1->get_destruir())
-                {
-                    delete ent1;
-                    ent1 = nullptr;
-                    estaticos->remover(i);
-                    tam--;
-                    continue;
-                }
-            }
-
-
+            
 
             /*colisão entre objetos moveis e estaticos.*/
             for (i = 0; i < estaticos->get_tam(); i++)
@@ -67,21 +53,23 @@ namespace Jogo
                 {
                     ent1 = (*estaticos)[i];
                     ent2 = (*moveis)[j];
-                    if (ent1 && ent2)
-                    {
-                        distancia_centros.x = (ent2->get_pos().x + ent2->get_dim().x / 2.0) - (ent1->get_pos().x + ent1->get_dim().x / 2.0);
-                        distancia_centros.y = (ent2->get_pos().y + ent2->get_dim().y / 2.0) - (ent1->get_pos().y + ent1->get_dim().y / 2.0);
-
-                        interssec.x = fabs(distancia_centros.x) - (ent1->get_dim().x / 2.0f + ent2->get_dim().x / 2.0f);
-                        interssec.y = fabs(distancia_centros.y) - (ent1->get_dim().y / 2.0f + ent2->get_dim().y / 2.0f);
-
-                        if (interssec.x < 0.0f && interssec.y < 0.0f)
+                    if(!tentar_destruir(ent1,i,true) && !tentar_destruir(ent2, j,false))
+                    { 
+                        if (ent1 && ent2)
                         {
-                            ent2->colidir(ent1, interssec);
-                            ent1->colidir(ent2, interssec);
+                            distancia_centros.x = (ent2->get_pos().x + ent2->get_dim().x / 2.0) - (ent1->get_pos().x + ent1->get_dim().x / 2.0);
+                            distancia_centros.y = (ent2->get_pos().y + ent2->get_dim().y / 2.0) - (ent1->get_pos().y + ent1->get_dim().y / 2.0);
+
+                            interssec.x = fabs(distancia_centros.x) - (ent1->get_dim().x / 2.0f + ent2->get_dim().x / 2.0f);
+                            interssec.y = fabs(distancia_centros.y) - (ent1->get_dim().y / 2.0f + ent2->get_dim().y / 2.0f);
+
+                            if (interssec.x < 0.0f && interssec.y < 0.0f)
+                            {
+                                ent2->colidir(ent1, interssec);
+                                ent1->colidir(ent2, interssec);
+                            }
                         }
                     }
-
                 }
 
             }
@@ -93,17 +81,20 @@ namespace Jogo
                 {
                     ent1 = (*moveis)[i];
                     ent2 = (*moveis)[j];
-                    if (ent1 && ent2)
+                    if (!tentar_destruir(ent1, i, false) && !tentar_destruir(ent2, j, false))
                     {
-                        distancia_centros.x = ent2->get_pos().x - ent1->get_pos().x;
-                        distancia_centros.y = ent2->get_pos().y - ent1->get_pos().y;
-
-                        interssec.x = fabs(distancia_centros.x) - (ent1->get_dim().x / 2.0f + ent2->get_dim().x / 2.0f);
-                        interssec.y = fabs(distancia_centros.y) - (ent1->get_dim().y / 2.0f + ent2->get_dim().y / 2.0f);
-                        if (interssec.x < 0.0f && interssec.y < 0.0f)
+                        if (ent1 && ent2)
                         {
-                            ent2->colidir(ent1, interssec);
-                            ent1->colidir(ent2, interssec);
+                            distancia_centros.x = ent2->get_pos().x - ent1->get_pos().x;
+                            distancia_centros.y = ent2->get_pos().y - ent1->get_pos().y;
+
+                            interssec.x = fabs(distancia_centros.x) - (ent1->get_dim().x / 2.0f + ent2->get_dim().x / 2.0f);
+                            interssec.y = fabs(distancia_centros.y) - (ent1->get_dim().y / 2.0f + ent2->get_dim().y / 2.0f);
+                            if (interssec.x < 0.0f && interssec.y < 0.0f)
+                            {
+                                ent2->colidir(ent1, interssec);
+                                ent1->colidir(ent2, interssec);
+                            }
                         }
                     }
 

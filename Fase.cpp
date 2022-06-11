@@ -58,7 +58,7 @@ namespace Jogo
 				e = nullptr;
 			}
 			float posX = static_cast<float>(rand() % 2100 + 500);
-			Entidades::Personagens::NuvemMal* n = new Entidades::Personagens::NuvemMal(Vector2F(posX, 300.0f), Vector2F(0.0f, 0.0f), "assets/nuvem_malvada (1).png", static_cast<Fase*> (this));
+			Entidades::Personagens::NuvemMal* n = new Entidades::Personagens::NuvemMal(Vector2F(posX, 65.0f), Vector2F(0.0f, 0.0f), "assets/nuvem_malvada.png", static_cast<Fase*> (this));
 			n->set_lista(entidades_moveis);
 			n = nullptr;
 		}
@@ -105,8 +105,12 @@ namespace Jogo
 		}
 		void Fase::add_projetil(Entidades::Projetil* proj)
 		{
-			if(proj)
+			if (proj)
+			{
+
 				proj->set_lista(entidades_moveis);
+				proj->inicializar();
+			}
 		}
 	}
 }

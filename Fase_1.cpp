@@ -23,10 +23,14 @@ namespace Jogo
 			o13(new Entidades::Obstaculos::Obstaculo(Vector2F(1850.0f, 630.0f), "assets/rectangle6.png")),
 			o14(new Entidades::Obstaculos::Obstaculo(Vector2F(1900.0f, 650.0f), "assets/rectangle6.png")),
 			fogo(new Entidades::Obstaculos::Fogo(Vector2F(2350.0f, 750.0f), "assets/fogo1.png")),
+			fogo1(new Entidades::Obstaculos::Fogo(Vector2F(2400.0f, 750.0f), "assets/fogo1.png")),
+			fogo2(new Entidades::Obstaculos::Fogo(Vector2F(2450.0f, 750.0f), "assets/fogo1.png")),
 			pedra(new Entidades::Obstaculos::Pedra(Vector2F(1000.0f, 750.0f), "assets/rocks1_5.png")),
 			pedra2(new Entidades::Obstaculos::Pedra(Vector2F(1300.0f, 750.0f), "assets/rocks1_5.png")),
-			chefao(new Entidades::Obstaculos::Obstaculo(Vector2F(2600.0f, 600.0f), "assets/bomba.png")),
-			gosma1( new Entidades::Obstaculos::Gosma(Vector2F(2000.0f,700.0f), "assets/gosma.png"))
+			chefao(new Entidades::Obstaculos::Obstaculo(Vector2F(2600.0f, 600.0f), "assets/chefao.png")),
+			gosma1( new Entidades::Obstaculos::Gosma(Vector2F(2000.0f,790.0f), "assets/gosma.png")),
+			bandeira(new Entidades::Obstaculos::Gosma(Vector2F(2600.0f, 500.0f), "assets/bandeira_mario.png"))
+
 		{
 			
 		}
@@ -56,7 +60,10 @@ namespace Jogo
 			pedra2->set_lista(entidades_estaticas);
 			chefao->set_lista(entidades_estaticas);
 			fogo->set_lista(entidades_estaticas);
+			fogo1->set_lista(entidades_estaticas);
+			fogo2->set_lista(entidades_estaticas);
 			gosma1->set_lista(entidades_estaticas);
+			bandeira->set_lista(entidades_estaticas);
 
 			entidades_moveis.inicializar_entidades();
 			entidades_estaticas.inicializar_entidades();

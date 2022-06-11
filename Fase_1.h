@@ -26,10 +26,13 @@ namespace Jogo
 			Entidades::Obstaculos::Obstaculo* o13;
 			Entidades::Obstaculos::Obstaculo* o14;
 			Entidades::Obstaculos::Fogo* fogo;
+			Entidades::Obstaculos::Fogo* fogo1;
+			Entidades::Obstaculos::Fogo* fogo2;
 			Entidades::Obstaculos::Pedra* pedra;
 			Entidades::Obstaculos::Pedra* pedra2;
 			Entidades::Obstaculos::Obstaculo* chefao;
 			Entidades::Obstaculos::Gosma* gosma1;
+			Entidades::Obstaculos::Obstaculo* bandeira;
 
 			const char* fundo_fase_1;
 		public:
