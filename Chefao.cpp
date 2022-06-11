@@ -28,7 +28,7 @@ namespace Jogo
 					}
 					else
 					{
-						ente->machucar(1);
+						ente->machucar(2);
 
 					}
 					v.x *= -1;

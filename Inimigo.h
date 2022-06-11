@@ -19,7 +19,7 @@ namespace Jogo
 				virtual ~Inimigo();
 				void executar(float t);
 				void inicializar();
-				void atualizar(float t);
+				virtual void atualizar(float t);
 				virtual void colidir(Entidade* ente, Vector2F intersse) {}
 				void bordas();
 				bool ObjetoEmCima(Entidade* ente);

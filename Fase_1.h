@@ -2,6 +2,7 @@
 #include "Fase.h"
 #include "Fogo.h"
 #include "Gosma.h"
+#include "Pedra.h"
 namespace Jogo
 {
 	namespace Fases
@@ -25,8 +26,8 @@ namespace Jogo
 			Entidades::Obstaculos::Obstaculo* o13;
 			Entidades::Obstaculos::Obstaculo* o14;
 			Entidades::Obstaculos::Fogo* fogo;
-			Entidades::Obstaculos::Obstaculo* pedra;
-			Entidades::Obstaculos::Obstaculo* pedra2;
+			Entidades::Obstaculos::Pedra* pedra;
+			Entidades::Obstaculos::Pedra* pedra2;
 			Entidades::Obstaculos::Obstaculo* chefao;
 			Entidades::Obstaculos::Gosma* gosma1;
 

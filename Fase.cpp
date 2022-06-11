@@ -57,6 +57,10 @@ namespace Jogo
 				e->set_lista(entidades_moveis);
 				e = nullptr;
 			}
+			float posX = static_cast<float>(rand() % 2100 + 500);
+			Entidades::Personagens::NuvemMal* n = new Entidades::Personagens::NuvemMal(Vector2F(posX, 300.0f), Vector2F(0.0f, 0.0f), "assets/nuvem_malvada (1).png", static_cast<Fase*> (this));
+			n->set_lista(entidades_moveis);
+			n = nullptr;
 		}
 
 		void Fase::inserir_jogador(Entidades::Personagens::Jogador* j)
@@ -98,6 +102,11 @@ namespace Jogo
 		void Fase::gerenciar_colisoes()
 		{
 			gc.verificar_colisoes();
+		}
+		void Fase::add_projetil(Entidades::Projetil* proj)
+		{
+			if(proj)
+				proj->set_lista(entidades_moveis);
 		}
 	}
 }
