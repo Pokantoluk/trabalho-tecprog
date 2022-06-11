@@ -38,7 +38,6 @@ namespace Jogo
 			void inserir_jogador(Entidades::Personagens::Jogador* j);
 			virtual void inicializar_entidades();
 			void reiniciar_entidades(Vector2F pos_jogador);
-			void terminar_fase();
 			void executar(float t);
 			void gerenciar_colisoes();
 			void musica(); 

@@ -5,7 +5,7 @@
 #include "Fase_2.h"
 #include "Mario.h"
 #include "Luigi.h"
-#include "Menu.h"
+#include "GerenciadorMenu.h"
 
 
 namespace Jogo 
@@ -13,13 +13,13 @@ namespace Jogo
 	class Jogo
 	{
 	private:
-		Menu menu;
 		Entidades::Personagens::Mario* jogador_1;
 		Entidades::Personagens::Luigi* jogador_2;
 		Fases::Fase_1 fase_1;
 		Fases::Fase_2 fase_2;
 		Gerenciadores::GerenciadorGrafico gg;
 		Gerenciadores::GerenciadorEventos ge;
+		Gerenciadores::GerenciadorMenu gm;
 		sf::Clock relogio;
 		bool dois_jogadores;
 
@@ -29,8 +29,6 @@ namespace Jogo
 		~Jogo();
 		void inicializar_fase_1();
 		void inicializar_fase_2();
-		void reiniciar_fase();
-		void reiniciar_fase_2();
 		void executar();
 	};
 }
