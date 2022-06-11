@@ -72,12 +72,6 @@ namespace Jogo
 			inicializar_entidades();
 		}
 
-		void Fase::terminar_fase()
-		{
-			
-			entidades_moveis.destruir();
-			entidades_estaticas.destruir();
-		}
 
 		void Fase::executar(float t)
 		{
