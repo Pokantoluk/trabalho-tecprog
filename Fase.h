@@ -48,6 +48,7 @@ namespace Jogo
 		    void add_projetil(Entidades::Projetil* proj);
 			static void set_pausa(bool pausa) { pausado = pausa; }
 			static bool get_pausa() { return pausado; }
+			virtual void randomizar_obstaculos() {};
 			
 		};
 
