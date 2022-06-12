@@ -20,7 +20,6 @@ namespace Jogo
 		l_vidas(VIDAS)
 	{
 		ge.set_janela(gg.get_janela());
-		executar();
 	}
 
 	Jogo::~Jogo()

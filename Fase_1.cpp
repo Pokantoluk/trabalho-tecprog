@@ -27,12 +27,10 @@ namespace Jogo
 			bandeira(new Entidades::Obstaculos::Bandeira(Vector2F(2900.0f, 500.0f), "assets/bandeira_mario.png"))
 			//manter aqui apenas as plataformas e a bandeira
 		{
-			
 		}
 
 		Fase_1::~Fase_1()
 		{
-			//delete
 		}
 		void Fase_1::inicializar_entidades()
 		{

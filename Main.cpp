@@ -1,6 +1,9 @@
 #include "Jogo.h"
-
-int main()
+namespace Jogo
 {
-	Jogo::Jogo jogo;
+	int main()
+	{
+		Jogo Mario;
+		Mario.executar();
+	}
 }
