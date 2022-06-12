@@ -70,7 +70,7 @@ namespace Jogo
 			GetSystemTime(&st);
 			srand(st.wSecond);
 			int aux = 0;
-			int qtd = rand() % 3 + 2;
+			int qtd = rand() % 2 + 3;
 			while (aux < 3) {
 				inimigos.clear();
 				aux = 0;
@@ -83,15 +83,16 @@ namespace Jogo
 					aux += inimigos[i];
 				}
 			}
+			
 			if (inimigos[0])
 			{
-				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(600, 300.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
+				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(650, 500.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
 				e->set_lista(entidades_moveis);
 				e = nullptr;
 			}
 			if (inimigos[1])
 			{
-				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(900, 300.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
+				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(900, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
 				e->set_lista(entidades_moveis);
 				e = nullptr;
 			}
@@ -112,7 +113,7 @@ namespace Jogo
 			}
 			if (inimigos[0])
 			{
-				Entidades::Personagens::NuvemMal* n = new Entidades::Personagens::NuvemMal(Vector2F(600, 65.0f), Vector2F(0.0f, 0.0f), "assets/nuvem_malvada.png", static_cast<Fase*> (this));
+				Entidades::Personagens::NuvemMal* n = new Entidades::Personagens::NuvemMal(Vector2F(500, 65.0f), Vector2F(0.0f, 0.0f), "assets/nuvem_malvada.png", static_cast<Fase*> (this));
 				n->set_lista(entidades_moveis);
 				n = nullptr;
 			}

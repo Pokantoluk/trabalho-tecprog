@@ -16,9 +16,6 @@ namespace Jogo
 		private:
 			Entidades::Obstaculos::Plataforma* o1;
 			Entidades::Obstaculos::Plataforma* o2;
-			Entidades::Obstaculos::Plataforma* o3;
-			Entidades::Obstaculos::Plataforma* o4;
-			Entidades::Obstaculos::Plataforma* o5;
 			Entidades::Obstaculos::Plataforma* o6;
 			Entidades::Obstaculos::Plataforma* o7;
 			Entidades::Obstaculos::Plataforma* o8;

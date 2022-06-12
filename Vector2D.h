@@ -21,10 +21,6 @@ namespace Jogo
 		T operator * (Vector2D v);
 		T modulo();
 		Vector2D<T> versor();
-
-		/*este vetor na direção de v*/
-		Vector2D<T> projOrtogonal(Vector2D v){/*a fazer*/ }
-
 	};
 
 	template<typename T>

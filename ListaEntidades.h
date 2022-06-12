@@ -22,9 +22,9 @@ namespace Jogo
 			~ListaEntidades();
 			void inserir(Entidade* info);
 			Entidade* operator[](int i);
-			void remover(int i);
 			void inicializar_entidades();
 			void percorrer_executar(float t);
+			void remover(int i);
 			void destruir();
 			int get_tam() { return tam; }
 			

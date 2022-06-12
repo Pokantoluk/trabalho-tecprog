@@ -30,7 +30,7 @@ namespace Jogo {
 			GetSystemTime(&st);
 			srand(st.wSecond);
 			int aux = 0;
-			int qtd = rand() % 3 + 2;
+			int qtd = rand() % 2 + 3;
 			while (aux < 3) {
 				inimigos.clear();
 				aux = 0;
@@ -51,7 +51,7 @@ namespace Jogo {
 			}
 			if (inimigos[1])
 			{
-				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(900, 300.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
+				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(900, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
 				e->set_lista(entidades_moveis);
 				e = nullptr;
 			}
@@ -72,19 +72,19 @@ namespace Jogo {
 			}
 			if (inimigos[0])
 			{
-				Entidades::Personagens::Chefao* n = new Entidades::Personagens::Chefao(Vector2F(2800, 65.0f), Vector2F(0.0f, 0.0f), "assets/chefao.png");
+				Entidades::Personagens::Chefao* n = new Entidades::Personagens::Chefao(Vector2F(2800, 600.0f), Vector2F(0.0f, 0.0f), "assets/chefao.png");
 				n->set_lista(entidades_moveis);
 				n = nullptr;
 			}
 			if (inimigos[1])
 			{
-				Entidades::Personagens::Chefao* n = new Entidades::Personagens::Chefao(Vector2F(2300, 65.0f), Vector2F(0.0f, 0.0f), "assets/chefao.png");
+				Entidades::Personagens::Chefao* n = new Entidades::Personagens::Chefao(Vector2F(2300, 600.0f), Vector2F(0.0f, 0.0f), "assets/chefao.png");
 				n->set_lista(entidades_moveis);
 				n = nullptr;
 			}
 			if (inimigos[2])
 			{
-				Entidades::Personagens::Chefao* n = new Entidades::Personagens::Chefao(Vector2F(2000, 65.0f), Vector2F(0.0f, 0.0f), "assets/chefao.png");
+				Entidades::Personagens::Chefao* n = new Entidades::Personagens::Chefao(Vector2F(2000, 600.0f), Vector2F(0.0f, 0.0f), "assets/chefao.png");
 				n->set_lista(entidades_moveis);
 				n = nullptr;
 			}
@@ -92,7 +92,7 @@ namespace Jogo {
 			{
 				if (inimigos[3])
 				{
-					Entidades::Personagens::Chefao* n = new Entidades::Personagens::Chefao(Vector2F(1500, 65.0f), Vector2F(0.0f, 0.0f), "assets/chefao.png");
+					Entidades::Personagens::Chefao* n = new Entidades::Personagens::Chefao(Vector2F(1500, 600.0f), Vector2F(0.0f, 0.0f), "assets/chefao.png");
 					n->set_lista(entidades_moveis);
 					n = nullptr;
 				}

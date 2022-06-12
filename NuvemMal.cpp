@@ -14,8 +14,9 @@ namespace Jogo
 			{
 				cont_lancar = 0;
 				temp_lancar = 2;
-				temp_mover = 8;
+				temp_mover = 5;
 				cont_mover = 0;
+				
 			
 			}
 			NuvemMal::~NuvemMal()
@@ -33,7 +34,7 @@ namespace Jogo
 				}
 				if (cont_mover >= temp_mover)
 				{
-					mover(); 
+					mover();
 					cont_mover = 0;
 				}
 				
@@ -43,7 +44,8 @@ namespace Jogo
 			}
 			void NuvemMal::colidir(Entidade* ente, Vector2F intersse)
 			{
-
+				if (ente->get_id() == IDsEntidades::Inimigo)
+					v.x *= -1;
 			}
 			void NuvemMal::lancar()
 			{
@@ -61,7 +63,7 @@ namespace Jogo
 			
 			void NuvemMal::mover()
 			{
-				posicao.x = static_cast<float>(rand() % 2100 + 500);
+				v.x = static_cast<float>(rand() % 100 - 50);
 
 			}
 		} 

@@ -29,12 +29,11 @@ namespace Jogo
 	void Jogo::inicializar_fase_1()
 	{
 		jogador_1 = new Entidades::Personagens::Mario(Vector2F(50.0f, 650.0f), m_vidas);
-		jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f), l_vidas);
 		fase_1 = new Fases::Fase_1();
 		fase_1->inserir_jogador(jogador_1);
-		
 		if (dois_jogadores)
 		{
+			jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f), l_vidas);
 			fase_1->inserir_jogador(jogador_2);
 		}
 		fase_1->inicializar_entidades();
@@ -42,11 +41,11 @@ namespace Jogo
 	void Jogo::inicializar_fase_2()
 	{
 		jogador_1 = new Entidades::Personagens::Mario(Vector2F(50.0f, 650.0f), m_vidas);
-		jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f), l_vidas);
 		fase_2 = new Fases::Fase_2();
 		fase_2->inserir_jogador(jogador_1);
 		if (dois_jogadores)
 		{
+			jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f), l_vidas);
 			fase_2->inserir_jogador(jogador_2);
 		}
 		fase_2->inicializar_entidades();
