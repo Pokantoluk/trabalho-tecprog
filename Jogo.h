@@ -15,21 +15,26 @@ namespace Jogo
 	private:
 		Entidades::Personagens::Mario* jogador_1;
 		Entidades::Personagens::Luigi* jogador_2;
-		Fases::Fase_1 fase_1;
-		Fases::Fase_2 fase_2;
+		Fases::Fase_1* fase_1;
+		Fases::Fase_2* fase_2;
 		Gerenciadores::GerenciadorGrafico gg;
 		Gerenciadores::GerenciadorEventos ge;
 		Gerenciadores::GerenciadorMenu gm;
 		sf::Clock relogio;
 		bool dois_jogadores;
-		bool acabou_fase;
+		int num_fase;
+		bool na_fase;
 
 	public:
-		static bool na_fase;
 		Jogo();
 		~Jogo();
+
 		void inicializar_fase_1();
 		void inicializar_fase_2();
+		void terminar_fase_1();
+		void terminar_fase_2();
+		
+
 		void executar();
 	};
 }

@@ -22,24 +22,6 @@ namespace Jogo
 	{
 		delete fonte;
 	}
-
-	void Menu::menu_pausa()
-	{
-		//Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_pausa);
-
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-		{
-			sf::sleep(sf::milliseconds(300));
-			Jogo::na_fase = false;
-			Fases::Fase::set_pausa(false);
-		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab))
-		{
-			sf::sleep(sf::milliseconds(300));
-
-		}
-
-	}
 	
 	void Menu::ler_teclado()
 	{

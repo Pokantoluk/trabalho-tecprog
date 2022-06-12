@@ -26,6 +26,7 @@ Jogo::MenuPausa::~MenuPausa()
 
 void Jogo::MenuPausa::executar(float t)
 {
+	enter = false;
 	imprimir_se();
 	for (auto t : textos)
 	{

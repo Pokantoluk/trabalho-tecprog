@@ -44,8 +44,6 @@ namespace Jogo
             Vector2F distancia_centros;
             unsigned int i, j;
 
-            
-
             /*colisão entre objetos moveis e estaticos.*/
             for (i = 0; i < estaticos->get_tam(); i++)
             {

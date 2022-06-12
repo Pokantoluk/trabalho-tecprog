@@ -28,9 +28,6 @@ namespace Jogo
         ~Menu();
         void set_gm(Gerenciadores::GerenciadorMenu* gm = nullptr){ this->gm = gm; }
 
-        /*metodos do menu*/
-        void menu_pausa();
-
         virtual void executar(float t = 0) = 0;
         void ler_teclado();     
     };

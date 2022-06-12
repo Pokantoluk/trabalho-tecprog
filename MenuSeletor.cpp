@@ -1,4 +1,6 @@
 #include "MenuSeletor.h"
+#define FASE_1 5
+#define FASE_2 6
 
 Jogo::MenuSeletor::MenuSeletor(const char* fundo) :
 	Menu(fundo)
@@ -38,10 +40,10 @@ void Jogo::MenuSeletor::executar(float t)
 		{
 
 		case 1:
-			gm->set_menu(5);
+			gm->set_menu(FASE_1);
 			break;
 		case 2:
-			gm->set_menu(6);
+			gm->set_menu(FASE_2);
 			break;
 		case 3:
 			gm->set_menu(1);

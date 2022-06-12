@@ -31,10 +31,7 @@ namespace Jogo
                 
             } 
             this->Destruir();
-
         }
-     
-
     }
 
 }

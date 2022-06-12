@@ -3,6 +3,8 @@
 #include "Fogo.h"
 #include "Gosma.h"
 #include "Pedra.h"
+#include "Bandeira.h"
+
 namespace Jogo
 {
 	namespace Fases
@@ -32,7 +34,7 @@ namespace Jogo
 			Entidades::Obstaculos::Pedra* pedra2;
 			Entidades::Obstaculos::Obstaculo* chefao;
 			Entidades::Obstaculos::Gosma* gosma1;
-			Entidades::Obstaculos::Obstaculo* bandeira;
+			Entidades::Obstaculos::Bandeira* bandeira;
 
 			const char* fundo_fase_1;
 		public:
@@ -41,6 +43,7 @@ namespace Jogo
 
 			void inicializar_entidades();
 			void carregar_fundo() const;
+			bool get_fim();
 		};
 	}
 }

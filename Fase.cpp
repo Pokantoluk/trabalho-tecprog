@@ -18,6 +18,21 @@ namespace Jogo
 
 		Fase::~Fase()
 		{
+			destruir_fase();
+		}
+		void Fase::musica()
+		{
+			
+			if (!music.openFromFile("assets/SuperMarioBros.ogg"))
+				return;// error
+			music.play();
+			music.setVolume(4);
+			
+		}
+
+		void Fase::destruir_fase()
+		{
+			pausado = false;
 			entidades_moveis.destruir();
 			entidades_estaticas.destruir();
 			if (vidaui)
@@ -31,14 +46,6 @@ namespace Jogo
 				delete pontuacaoui;
 				pontuacaoui = nullptr;
 			}
-		}
-		void Fase::musica()
-		{
-			
-			if (!music.openFromFile("assets/SuperMarioBros.ogg"))
-				return;// error
-			music.play();
-			music.setVolume(4);
 		}
 
 		void Fase::carregar_fundo() const
@@ -120,12 +127,6 @@ namespace Jogo
 			entidades_estaticas.inicializar_entidades();
 		}
 
-		void Fase::reiniciar_entidades(Vector2F pos_jogador)
-		{
-			entidades_moveis.destruir();
-			entidades_estaticas.destruir();
-			inicializar_entidades();
-		}
 
 
 		void Fase::executar(float t)
@@ -135,6 +136,7 @@ namespace Jogo
 			gerenciar_colisoes();
 			vidaui->executar();
 			pontuacaoui->executar();
+
 		}
 
 		void Fase::gerenciar_colisoes()

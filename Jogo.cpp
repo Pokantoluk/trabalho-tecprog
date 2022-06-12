@@ -4,21 +4,19 @@ using namespace std;
 
 namespace Jogo
 {
-	bool Jogo::na_fase{ false };
 
 	Jogo::Jogo() :
 		gg(),
 		ge(),
 		gm(),
-		fase_1(),
-		fase_2(),
-		jogador_1(),
-		jogador_2(),
+		fase_1(nullptr),
+		fase_2(nullptr),
+		jogador_1(nullptr),
+		jogador_2(nullptr),
 		dois_jogadores(false),
-		acabou_fase(false)
+		num_fase(0),
+		na_fase(false)
 	{
-		jogador_1 = new Entidades::Personagens::Mario(Vector2F(50.0f, 650.0f));
-		jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f));
 		ge.set_janela(gg.get_janela());
 		executar();
 	}
@@ -28,22 +26,49 @@ namespace Jogo
 	}
 	void Jogo::inicializar_fase_1()
 	{
-		fase_1.inserir_jogador(jogador_1);
+		jogador_1 = new Entidades::Personagens::Mario(Vector2F(50.0f, 650.0f));
+		jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f));
+		fase_1 = new Fases::Fase_1();
+		fase_1->carregar_fundo();
+		fase_1->inserir_jogador(jogador_1);
 		
 		if (dois_jogadores)
 		{
-			fase_1.inserir_jogador(jogador_2);
+			fase_1->inserir_jogador(jogador_2);
 		}
-		fase_1.inicializar_entidades();
+		fase_1->inicializar_entidades();
 	}
 	void Jogo::inicializar_fase_2()
 	{
-		fase_2.inserir_jogador(jogador_1);
+		jogador_1 = new Entidades::Personagens::Mario(Vector2F(50.0f, 650.0f));
+		jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f));
+		fase_2 = new Fases::Fase_2();
+		fase_2->carregar_fundo();
+		fase_2->inserir_jogador(jogador_1);
 		if (dois_jogadores)
 		{
-			fase_2.inserir_jogador(jogador_2);
+			fase_2->inserir_jogador(jogador_2);
 		}
-		fase_2.inicializar_entidades();
+		fase_2->inicializar_entidades();
+	}
+	void Jogo::terminar_fase_1()
+	{
+		if (fase_1) 
+		{
+			fase_1->destruir_fase();
+			delete fase_1;
+			fase_1 = nullptr;
+			jogador_1 = nullptr;
+		}
+	}
+	void Jogo::terminar_fase_2()
+	{
+		if (fase_2)
+		{
+			fase_2->destruir_fase();
+			delete fase_2;
+			fase_2 = nullptr;
+		}
 	}
 	void Jogo::executar()
 	{
@@ -54,6 +79,7 @@ namespace Jogo
 			relogio.restart();
 			gg.limpar();
 			ge.tratar_eventos();
+			num_fase = gm.get_fase();
 			if (gm.get_num_jogadores() == 2)
 			{
 				dois_jogadores = true;
@@ -62,17 +88,18 @@ namespace Jogo
 			{
 				dois_jogadores = false;
 			}
-			if (gm.get_fase() == 0) 
+			if (num_fase == 0) 
 			{
+				terminar_fase_1();
+				terminar_fase_2();
 				na_fase = false;
 				gm.executar();
 			}
-			else if (gm.get_fase() == 1)
+			else if (num_fase == 1)
 			{
 				if (!na_fase)
 				{
 					inicializar_fase_1();
-					fase_1.carregar_fundo();
 					na_fase = true;
 				}
 				else
@@ -85,25 +112,29 @@ namespace Jogo
 					{						
 						gm.set_gameover();
 					}
+					else if (fase_1->get_pausa())
+					{
+						gm.set_pausa();
+					}
 					else {
-						fase_1.executar(t.asSeconds());
+						fase_1->executar(t.asSeconds());
 						if (dois_jogadores)
 							gg.centralizar(jogador_1->get_pos(), jogador_2->get_pos());
 						else
 							gg.centralizar(jogador_1->get_pos(), jogador_1->get_pos());
-						if (acabou_fase)
+						if (fase_1->get_fim())
 						{
 							gm.set_fase(2);
+							na_fase = false;
 						}
 					}
 				}
 			}
-			else if (gm.get_fase() == 2)
+			else if (num_fase == 2)
 			{
 				if (!na_fase)
 				{
 					inicializar_fase_2();
-					fase_2.carregar_fundo();
 					na_fase = true;
 				}
 				else
@@ -118,15 +149,27 @@ namespace Jogo
 					{			
 						gm.set_gameover();
 					}
+					else if (fase_2->get_pausa())
+					{
+						gm.set_pausa();
+					}
 					else 
 					{
-						fase_2.executar(t.asSeconds());
+						fase_2->executar(t.asSeconds());
 						if (dois_jogadores)
 							gg.centralizar(jogador_1->get_pos(), jogador_2->get_pos());
 						else
 							gg.centralizar(jogador_1->get_pos(), jogador_1->get_pos());
+						if (fase_2->get_fim())
+						{
+							gm.set_fase(3);
+						}
 					}
 				}
+			}
+			else
+			{
+				gm.set_gameover();
 			}
 			gg.mostrar();
 		}
