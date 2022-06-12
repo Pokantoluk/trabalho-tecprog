@@ -5,7 +5,7 @@ namespace Jogo {
 
 		Fase_2::Fase_2() :
 			Fase(),
-			fundo_fase_2("assets/fundo_2_atual.png")
+			fundo_fase_2("assets/fundo_2.png")
 		{
 
 		}
