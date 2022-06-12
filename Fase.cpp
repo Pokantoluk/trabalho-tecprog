@@ -64,6 +64,7 @@ namespace Jogo
 
 		void Fase::inicializar_entidades()
 		{
+			randomizar_obstaculos();
 			randomizar_inimigos();
 			entidades_moveis.inicializar_entidades();
 			entidades_estaticas.inicializar_entidades();
@@ -75,16 +76,16 @@ namespace Jogo
 		{
 			imprimir_se();
 			entidades_moveis.percorrer_executar(t);
-			//std::cout << "banana" << std::endl;
+			
 			entidades_estaticas.percorrer_executar(t);
-			//std::cout << "morango" << std::endl;
+			
 			gerenciar_colisoes();
-			//std::cout << "abacate" << std::endl;
+			
 			vidaui->executar();
-			//std::cout << "tangerina" << std::endl;
+			
 			pontuacaoui->executar();
 
-			//std::cout << "melancia" << std::endl;
+			
 
 
 

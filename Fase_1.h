@@ -25,12 +25,6 @@ namespace Jogo
 			Entidades::Obstaculos::Plataforma* o12;
 			Entidades::Obstaculos::Plataforma* o13;
 			Entidades::Obstaculos::Plataforma* o14;
-			Entidades::Obstaculos::Fogo* fogo;
-			Entidades::Obstaculos::Fogo* fogo1;
-			Entidades::Obstaculos::Fogo* fogo2;
-			Entidades::Obstaculos::Pedra* pedra;
-			Entidades::Obstaculos::Pedra* pedra2;
-			Entidades::Obstaculos::Gosma* gosma1;
 			Entidades::Obstaculos::Bandeira* bandeira;
 		public:
 			Fase_1();
