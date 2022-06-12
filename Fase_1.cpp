@@ -25,7 +25,7 @@ namespace Jogo
 			pedra2(new Entidades::Obstaculos::Pedra(Vector2F(1300.0f, 750.0f), "assets/rocks1_5.png")),
 			gosma1( new Entidades::Obstaculos::Gosma(Vector2F(2000.0f,790.0f), "assets/gosma.png")),
 			bandeira(new Entidades::Obstaculos::Bandeira(Vector2F(2900.0f, 500.0f), "assets/bandeira_mario.png"))
-
+			//manter aqui apenas as plataformas e a bandeira
 		{
 			
 		}
@@ -61,7 +61,7 @@ namespace Jogo
 		}
 		void Fase_1::randomizar_obstaculos()
 		{
-
+			//utilizar o codigo da randomizar_inimigos para fazer o msm com os obstaculos
 		}
 		void Fase_1::randomizar_inimigos()
 		{

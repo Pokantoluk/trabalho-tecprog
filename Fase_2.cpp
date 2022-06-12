@@ -9,7 +9,7 @@ namespace Jogo {
 			bandeira(new Entidades::Obstaculos::Bandeira(Vector2F(2900.0f, 500.0f), "assets/bandeira_mario.png"))
 		{
 			bandeira->set_lista(entidades_estaticas);
-			
+			// criar aqui as plataformas
 		}
 
 		Fase_2::~Fase_2()
@@ -98,6 +98,11 @@ namespace Jogo {
 				}
 			}
 			
+		}
+
+		void Fase_2::randomizar_obstaculos()
+		{
+			//utilizar o codigo da randomizar_inimigos para fazer o msm com os obstaculos
 		}
 
 		bool Fase_2::get_fim()

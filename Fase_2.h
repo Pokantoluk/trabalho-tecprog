@@ -19,6 +19,7 @@ namespace Jogo {
 
             void inicializar_entidades();
             void randomizar_inimigos();
+            void randomizar_obstaculos();
             bool get_fim();
         };
 
