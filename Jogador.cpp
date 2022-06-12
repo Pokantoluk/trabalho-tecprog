@@ -31,6 +31,7 @@ namespace Jogo
 			}
 			void Jogador::executar(float t)
 			{
+				cout << posicao.x<<endl;
 				atualizar(t);
 				imprimir_se();
 				cont_tempo_imune += t;

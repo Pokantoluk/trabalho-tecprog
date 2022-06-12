@@ -4,10 +4,10 @@ namespace Jogo {
 	namespace Fases {
 
 		Fase_2::Fase_2() :
-			Fase("assets / fundo_2.png"),
+			Fase("assets/fundo_2.png"),
 			bandeira(new Entidades::Obstaculos::Bandeira(Vector2F(2600.0f, 500.0f), "assets/bandeira_mario.png"))
 		{
-
+			bandeira->set_lista(entidades_estaticas);
 		}
 
 		Fase_2::~Fase_2()

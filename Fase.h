@@ -42,7 +42,7 @@ namespace Jogo
 			virtual void randomizar_inimigos();
 			void inserir_jogador(Entidades::Personagens::Jogador* j);
 			virtual void inicializar_entidades();
-			void executar(float t);
+			virtual void executar(float t = 0);
 			void gerenciar_colisoes();
 			void musica(); 
 		    void add_projetil(Entidades::Projetil* proj);
