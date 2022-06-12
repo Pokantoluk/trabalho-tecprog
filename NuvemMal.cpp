@@ -1,5 +1,6 @@
 #include "NuvemMal.h"
 #include "Fase.h"
+#define FORCA_DA_NUVEM  GRAVIDADE*100000000
 
 namespace Jogo
 {
@@ -36,6 +37,9 @@ namespace Jogo
 					cont_mover = 0;
 				}
 				
+				v.y += (GRAVIDADE * t) / (FORCA_DA_NUVEM* t);
+				posicao += v * t;
+				
 			}
 			void NuvemMal::colidir(Entidade* ente, Vector2F intersse)
 			{
@@ -46,7 +50,7 @@ namespace Jogo
 				int i = rand() % 2 == 1 ? -1 : 1;
 				Vector2F vel(i * rand() % 80, 0);
 				Projetil* proj;
-				proj = new Projetil(Vector2F(posicao.x, posicao.y + dimensao.y + 40), vel, PROJETIL,this);
+				proj = new Projetil(Vector2F(posicao.x, posicao.y + dimensao.y + 40), vel, PROJETIL);
 				if (proj)
 				{
 					fase->add_projetil(proj);

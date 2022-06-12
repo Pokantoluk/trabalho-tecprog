@@ -41,14 +41,12 @@ namespace Jogo
 		{
 			Entidade* p = lista.voltar_inicio();
 			while (p)
-			{
+			{ 
 				p->executar(t);
 				p = lista.proximo();
 			}
 		}
-
 		
-
 		void ListaEntidades::destruir()
 		{
 			Entidade* p = lista.voltar_inicio();

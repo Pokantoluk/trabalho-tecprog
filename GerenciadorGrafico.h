@@ -16,12 +16,10 @@ namespace Jogo
 			sf::RenderWindow* janela;
 			sf::View camera;
 			std::map<const std::string, sf::Texture*> texturas;
-
 			static GerenciadorGrafico* instancia;
 
 		public:
-			static GerenciadorGrafico* get_gerenciador();
-
+			
 			GerenciadorGrafico();
 			~GerenciadorGrafico();
 			void mostrar() const;
@@ -34,6 +32,8 @@ namespace Jogo
 			void centralizar(Vector2F centro_1 = Vector2F(0.f,0.f), Vector2F centro_2 = Vector2F(0.f, 0.f));
 			sf::RenderWindow* get_janela() const { return janela; }
 			const Vector2F get_tamanho(const std::string& caminho);
+			static GerenciadorGrafico* get_gerenciador();
+
 
 
 		};

@@ -25,12 +25,17 @@ namespace Jogo
             {
                 delete ente;
                 ente = nullptr;
-                if(estatico)
+                if (estatico)
                 {
                     estaticos->remover(index);
                 }
                 else
+                { 
+                    
                     moveis->remover(index);
+                    
+                }
+                std::cout << "detruido" << std::endl;
                 return true;
  
             }
@@ -43,62 +48,88 @@ namespace Jogo
             Vector2F interssec;
             Vector2F distancia_centros;
             unsigned int i, j;
+           
+ 
 
-            /*colisão entre objetos moveis e estaticos.*/
+  
+            for(i=0; i< estaticos->get_tam(); i++)
+            { 
+                ent1 = (*estaticos)[i];
+                if (tentar_destruir(ent1, i, true))
+                {
+                    if(i<0)
+                     i--;
+   
+                }
+            }
+               
+            for (i = 0; i < moveis->get_tam(); i++)
+            {
+                ent1 = (*moveis)[i];
+                if (tentar_destruir(ent1, i, false))
+                {    
+                    if(i<0)
+                      i--;
+             
+                }
+            }
+            
+
+            /*colisÃ£o entre objetos moveis e estaticos.*/
             for (i = 0; i < estaticos->get_tam(); i++)
             {
                 for (j = 0; j < moveis->get_tam(); j++)
                 {
                     ent1 = (*estaticos)[i];
                     ent2 = (*moveis)[j];
-                    if(!tentar_destruir(ent1,i,true) && !tentar_destruir(ent2, j,false))
-                    { 
-                        if (ent1 && ent2)
+                    
+                    
+                    if (ent1 && ent2)
+                    {
+                        distancia_centros.x = (ent2->get_pos().x + ent2->get_dim().x / 2.0) - (ent1->get_pos().x + ent1->get_dim().x / 2.0);
+                        distancia_centros.y = (ent2->get_pos().y + ent2->get_dim().y / 2.0) - (ent1->get_pos().y + ent1->get_dim().y / 2.0);
+
+                        interssec.x = fabs(distancia_centros.x) - (ent1->get_dim().x / 2.0f + ent2->get_dim().x / 2.0f);
+                        interssec.y = fabs(distancia_centros.y) - (ent1->get_dim().y / 2.0f + ent2->get_dim().y / 2.0f);
+
+                        if (interssec.x < 0.0f && interssec.y < 0.0f)
                         {
-                            distancia_centros.x = (ent2->get_pos().x + ent2->get_dim().x / 2.0) - (ent1->get_pos().x + ent1->get_dim().x / 2.0);
-                            distancia_centros.y = (ent2->get_pos().y + ent2->get_dim().y / 2.0) - (ent1->get_pos().y + ent1->get_dim().y / 2.0);
-
-                            interssec.x = fabs(distancia_centros.x) - (ent1->get_dim().x / 2.0f + ent2->get_dim().x / 2.0f);
-                            interssec.y = fabs(distancia_centros.y) - (ent1->get_dim().y / 2.0f + ent2->get_dim().y / 2.0f);
-
-                            if (interssec.x < 0.0f && interssec.y < 0.0f)
-                            {
-                                ent2->colidir(ent1, interssec);
-                                ent1->colidir(ent2, interssec);
-                            }
+                            ent2->colidir(ent1, interssec);
+                            ent1->colidir(ent2, interssec);
                         }
                     }
+                    
                 }
 
             }
-
-            /*colisão entre objetos moveis*/
+            
+            /*colisÃ£o entre objetos moveis*/
             for (i = 0; i < moveis->get_tam(); i++)
             {
                 for (j = i + 1; j < moveis->get_tam(); j++)
                 {
                     ent1 = (*moveis)[i];
                     ent2 = (*moveis)[j];
-                    if (!tentar_destruir(ent1, i, false) && !tentar_destruir(ent2, j, false))
+                    
+                    
+                    if (ent1 && ent2)
                     {
-                        if (ent1 && ent2)
-                        {
-                            distancia_centros.x = ent2->get_pos().x - ent1->get_pos().x;
-                            distancia_centros.y = ent2->get_pos().y - ent1->get_pos().y;
+                        distancia_centros.x = ent2->get_pos().x - ent1->get_pos().x;
+                        distancia_centros.y = ent2->get_pos().y - ent1->get_pos().y;
 
-                            interssec.x = fabs(distancia_centros.x) - (ent1->get_dim().x / 2.0f + ent2->get_dim().x / 2.0f);
-                            interssec.y = fabs(distancia_centros.y) - (ent1->get_dim().y / 2.0f + ent2->get_dim().y / 2.0f);
-                            if (interssec.x < 0.0f && interssec.y < 0.0f)
-                            {
-                                ent2->colidir(ent1, interssec);
-                                ent1->colidir(ent2, interssec);
-                            }
+                        interssec.x = fabs(distancia_centros.x) - (ent1->get_dim().x / 2.0f + ent2->get_dim().x / 2.0f);
+                        interssec.y = fabs(distancia_centros.y) - (ent1->get_dim().y / 2.0f + ent2->get_dim().y / 2.0f);
+                        if (interssec.x < 0.0f && interssec.y < 0.0f)
+                        {
+                            ent2->colidir(ent1, interssec);
+                            ent1->colidir(ent2, interssec);
                         }
                     }
+                    
 
                 }
             }
-
+           
         }
     }
 }

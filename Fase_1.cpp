@@ -8,6 +8,7 @@ namespace Jogo
 		Fase_1::Fase_1() :
 			Fase("assets/fundo_1.png"),
 			o1(new Entidades::Obstaculos::Obstaculo(IDsEntidades::obstaculo, Vector2F(600.0f, 670.0f), "assets/plataforma.jpg")),
+			o2(new Entidades::Obstaculos::Obstaculo(IDsEntidades::obstaculo, Vector2F(700.0f, 670.0f), "assets/plataforma.jpg")),
 			//o2(new Entidades::Obstaculos::Obstaculo(Vector2F(650.0f, 670.0f), "assets/rectangle6.png")),
 			//o3(new Entidades::Obstaculos::Obstaculo(Vector2F(700.0f, 670.0f), "assets/rectangle6.png")),
 			//o4(new Entidades::Obstaculos::Obstaculo(Vector2F(750.0f, 670.0f), "assets/rectangle6.png")),
@@ -40,7 +41,7 @@ namespace Jogo
 		}
 		void Fase_1::inicializar_entidades()
 		{
-			//randomizar_inimigos();
+			randomizar_inimigos();
 			o1->set_lista(entidades_estaticas);
 			//o2->set_lista(entidades_estaticas);
 			//o3->set_lista(entidades_estaticas);
@@ -63,6 +64,7 @@ namespace Jogo
 			fogo2->set_lista(entidades_estaticas);
 			gosma1->set_lista(entidades_estaticas);
 			bandeira->set_lista(entidades_estaticas);
+			o2->set_lista(entidades_estaticas);
 
 			entidades_moveis.inicializar_entidades();
 			entidades_estaticas.inicializar_entidades();
