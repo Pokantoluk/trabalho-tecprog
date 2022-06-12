@@ -15,7 +15,9 @@ namespace Jogo
 		jogador_2(nullptr),
 		dois_jogadores(false),
 		num_fase(0),
-		na_fase(false)
+		na_fase(false),
+		m_vidas(VIDAS),
+		l_vidas(VIDAS)
 	{
 		ge.set_janela(gg.get_janela());
 		executar();
@@ -26,25 +28,24 @@ namespace Jogo
 	}
 	void Jogo::inicializar_fase_1()
 	{
-		jogador_1 = new Entidades::Personagens::Mario(Vector2F(50.0f, 650.0f));
-		jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f));
+		jogador_1 = new Entidades::Personagens::Mario(Vector2F(50.0f, 650.0f), m_vidas);
 		fase_1 = new Fases::Fase_1();
 		fase_1->inserir_jogador(jogador_1);
-		
 		if (dois_jogadores)
 		{
+			jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f), l_vidas);
 			fase_1->inserir_jogador(jogador_2);
 		}
 		fase_1->inicializar_entidades();
 	}
 	void Jogo::inicializar_fase_2()
 	{
-		jogador_1 = new Entidades::Personagens::Mario(Vector2F(50.0f, 650.0f));
-		jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f));
+		jogador_1 = new Entidades::Personagens::Mario(Vector2F(50.0f, 650.0f), m_vidas);
 		fase_2 = new Fases::Fase_2();
 		fase_2->inserir_jogador(jogador_1);
 		if (dois_jogadores)
 		{
+			jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f), l_vidas);
 			fase_2->inserir_jogador(jogador_2);
 		}
 		fase_2->inicializar_entidades();
@@ -102,11 +103,11 @@ namespace Jogo
 				}
 				else
 				{
-					if (jogador_1->get_morto() && jogador_2->get_morto() && dois_jogadores)
+					if (!jogador_1->get_vida() && !jogador_2->get_vida() && dois_jogadores)
 					{
 						gm.set_gameover();
 					}
-					else if (jogador_1->get_morto() && !dois_jogadores)
+					else if (!jogador_1->get_vida() && !dois_jogadores)
 					{						
 						gm.set_gameover();
 					}
@@ -117,11 +118,26 @@ namespace Jogo
 					else {
 						fase_1->executar(t.asSeconds());
 						if (dois_jogadores)
-							gg.centralizar(jogador_1->get_pos(), jogador_2->get_pos());
+						{
+							if (!jogador_1->get_vida())
+							{
+								gg.centralizar(jogador_2->get_pos(), jogador_2->get_pos());
+							}
+							else if (!jogador_2->get_vida())
+							{
+								gg.centralizar(jogador_1->get_pos(), jogador_1->get_pos());
+							}
+							else
+							{
+								gg.centralizar(jogador_1->get_pos(), jogador_2->get_pos());
+							}
+						}
 						else
 							gg.centralizar(jogador_1->get_pos(), jogador_1->get_pos());
 						if (fase_1->get_fim())
 						{
+							m_vidas = jogador_1->get_vida();
+							l_vidas = jogador_2->get_vida();
 							gm.set_fase(2);
 							na_fase = false;
 						}
@@ -138,12 +154,12 @@ namespace Jogo
 				else
 				{
 					
-					if (jogador_1->get_morto() && jogador_2->get_morto() && dois_jogadores)
+					if (!jogador_1->get_vida() && !jogador_2->get_vida() && dois_jogadores)
 					{
 						gm.set_gameover();
 							
 					}
-					else if (jogador_1->get_morto())
+					else if (!jogador_1->get_vida())
 					{			
 						gm.set_gameover();
 					}
@@ -155,7 +171,20 @@ namespace Jogo
 					{
 						fase_2->executar(t.asSeconds());
 						if (dois_jogadores)
-							gg.centralizar(jogador_1->get_pos(), jogador_2->get_pos());
+						{
+							if (!jogador_1->get_vida())
+							{
+								gg.centralizar(jogador_2->get_pos(), jogador_2->get_pos());
+							}
+							else if (!jogador_2->get_vida())
+							{
+								gg.centralizar(jogador_1->get_pos(), jogador_1->get_pos());
+							}
+							else
+							{
+								gg.centralizar(jogador_1->get_pos(), jogador_2->get_pos());
+							}
+						}
 						else
 							gg.centralizar(jogador_1->get_pos(), jogador_1->get_pos());
 						if (fase_2->get_fim())

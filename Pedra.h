@@ -12,7 +12,7 @@ namespace Jogo
             {
             public:
                 Pedra(Vector2F pos, const char* caminho_textura);
-
+                ~Pedra();
                 void colidir(Entidade* ente, Vector2F intersse);
 
             };

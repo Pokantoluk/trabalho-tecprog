@@ -6,7 +6,7 @@
 #include "Mario.h"
 #include "Luigi.h"
 #include "GerenciadorMenu.h"
-
+#define VIDAS 5
 
 namespace Jogo 
 {
@@ -21,6 +21,8 @@ namespace Jogo
 		Gerenciadores::GerenciadorEventos ge;
 		Gerenciadores::GerenciadorMenu gm;
 		sf::Clock relogio;
+		unsigned int m_vidas;
+		unsigned int l_vidas;
 		bool dois_jogadores;
 		int num_fase;
 		bool na_fase;

@@ -10,13 +10,12 @@ namespace Jogo
 				public Jogador
 			{
 			private:
-				static int pontos;
 			public:
 
-				Luigi(Vector2F pos = Vector2F(0.0f, 0.0f));
+				Luigi(Vector2F pos = Vector2F(0.0f, 0.0f), unsigned int vidas = 5);
 				~Luigi();
 				void tratar_eventos();
-				static unsigned int get_pontuacao() { return pontos; }
+				
 				void reiniciar();
 			};
 		}

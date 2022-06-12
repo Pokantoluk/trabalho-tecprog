@@ -105,7 +105,7 @@ namespace Jogo
 			float centro = (centro_1.x + centro_2.x) / 2.0;
 			//std::cout << centro<<std::endl;
 			if (centro < 400.f) { centro = 400.f; }
-			else if (centro > 2300.f) { centro = 2300.f; }
+			else if (centro > 2600.f) { centro = 2600.f; }
 			camera.setCenter(centro, 400.f);
 			janela->setView(camera);
 		}

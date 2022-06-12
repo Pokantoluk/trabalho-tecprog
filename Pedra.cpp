@@ -11,6 +11,9 @@ namespace Jogo
             {
 
             }
+            Pedra::~Pedra()
+            {
+            }
             void Pedra::colidir(Entidade * ente, Vector2F intersse)
             {
 

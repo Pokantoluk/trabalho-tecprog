@@ -7,10 +7,9 @@ namespace Jogo
 	{
 		namespace Personagens
 		{
-			int Mario::pontos = 0;
 
-			Mario::Mario(Vector2F pos):
-				Jogador(pos,"assets/mario.png", "assets/mario_e.png")
+			Mario::Mario(Vector2F pos,unsigned int vidas):
+				Jogador(pos,"assets/mario.png", "assets/mario_e.png", "assets/mario_cinza.png", "assets/mario_cinza_e.png", vidas)
 			{
 
 			}

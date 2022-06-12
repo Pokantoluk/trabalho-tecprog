@@ -7,10 +7,10 @@ namespace Jogo
 	{
 		namespace Personagens
 		{
-			int Luigi::pontos = 0;
+			
 
-			Luigi::Luigi(Vector2F pos ):
-				Jogador(pos, "assets/luigi.png", "assets/luigi_e.png")
+			Luigi::Luigi(Vector2F pos, unsigned int vidas):
+				Jogador(pos, "assets/luigi.png", "assets/luigi_e.png", "assets/luigi_cinza.png", "assets luigi_cinza_e.png", vidas)
 			{
 
 			}

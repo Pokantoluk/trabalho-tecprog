@@ -25,9 +25,6 @@ Jogo::MenuGameover::~MenuGameover()
 
 void Jogo::MenuGameover::executar(float t)
 {
-
-	if (gm->get_num_jogadores() == 1) { executar_2(); }
-	else {
 	Gerenciadores::GerenciadorGrafico::get_gerenciador()->centralizar();
 	imprimir_se();
 	Gerenciadores::GerenciadorEventos::escrever_nome(true);
@@ -45,7 +42,6 @@ void Jogo::MenuGameover::executar(float t)
 		gm->set_fase(0);
 		gm->set_menu(1);
 		sf::sleep(sf::milliseconds(200));
-	}
 	}
 }
 

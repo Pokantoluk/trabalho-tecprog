@@ -1,4 +1,5 @@
 #include "Chefao.h"
+#include "Jogador.h"
 
 namespace Jogo
 {
@@ -8,7 +9,7 @@ namespace Jogo
 		{
 
 			Chefao::Chefao(Vector2F pos, Vector2F vel, const char* caminho_textura) :
-				Inimigo(pos, vel, caminho_textura, 6)
+				Inimigo(pos, vel, caminho_textura, 3)
 			{
 
 			}
