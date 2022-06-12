@@ -105,6 +105,7 @@ namespace Jogo
 			if (atual) { return atual->get_data(); }
 			else { return nullptr; }
 		}
+		
 		template<typename TL>
 		inline TL* Lista<TL>::proximo()
 		{
@@ -119,7 +120,12 @@ namespace Jogo
 			Elemento<TL>* aux = inicio;
 			for (int i = 0; i < index; i++)
 			{
-				aux = aux->get_prox();
+				if (aux)
+				{
+					aux = aux->get_prox();
+				}
+				else
+					break;
 			}
 			if (aux)
 			{
@@ -133,7 +139,11 @@ namespace Jogo
 			Elemento<TL>* aux = inicio;
 			for (int i = 0; i < index; i++)
 			{
+				if(aux)
+				{
 				aux = aux->get_prox();
+				}
+				
 			}
 			if (aux == inicio)
 			{
@@ -150,6 +160,7 @@ namespace Jogo
 				aux->get_ante()->set_prox(aux->get_prox());
 				aux->get_prox()->set_ante(aux->get_ante());
 			}
+			delete aux;
 		}
 	}
 }

@@ -46,7 +46,7 @@ namespace Jogo
 				int i = rand() % 2 == 1 ? -1 : 1;
 				Vector2F vel(i * rand() % 80, 0);
 				Projetil* proj;
-				proj = new Projetil(Vector2F(posicao.x, posicao.y + dimensao.y + 40), vel, PROJETIL,this);
+				proj = new Projetil(Vector2F(posicao.x, posicao.y + dimensao.y + 40), vel, PROJETIL);
 				if (proj)
 				{
 					fase->add_projetil(proj);

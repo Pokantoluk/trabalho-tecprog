@@ -41,12 +41,32 @@ namespace Jogo
 		{
 			Entidade* p = lista.voltar_inicio();
 			while (p)
-			{
+			{ 
 				p->executar(t);
 				p = lista.proximo();
 			}
 		}
+		bool ListaEntidades::tentar_destruir(Entidade* ente, int index)
+		{
+			if (ente && ente->get_destruir() && ente->get_id() != IDsEntidades::Jogador)
+			{
+				delete ente;
+				ente = nullptr;
+				{
+					estaticos->remover(index);
+				}
+				else
+				{
 
+					moveis->remover(index);
+
+				}
+				std::cout << "detruido" << std::endl;
+				return true;
+
+			}
+			return false;
+		}
 		
 
 		void ListaEntidades::destruir()

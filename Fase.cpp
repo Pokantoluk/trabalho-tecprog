@@ -145,9 +145,9 @@ namespace Jogo
 		{
 			if (proj)
 			{
-
-				proj->set_lista(entidades_moveis);
 				proj->inicializar();
+				proj->set_lista(entidades_moveis);
+				
 			}
 		}
 	}
