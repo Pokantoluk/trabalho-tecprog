@@ -1,5 +1,6 @@
 #include "Fase.h"
-#include <Windows.h>
+#include "stdafx.h"
+using namespace std;
 
 namespace Jogo
 {
@@ -46,19 +47,62 @@ namespace Jogo
 
 		void Fase::randomizar_inimigos()
 		{
+			vector<int> inimigos;
 			SYSTEMTIME st;
 			GetSystemTime(&st);
 			srand(st.wSecond);
+			int aux = 0;
 			int qtd = rand() % 3 + 3;
-			for (int i = 0; i < qtd; i++)
+			while (aux < 3) {
+				inimigos.clear();
+				aux = 0;
+				for (int i = 0; i < qtd; i++)
+				{
+					inimigos.push_back(rand() % 2 == 1 ? 0 : 1);
+				}
+				for (int i = 0; i < qtd; i++)
+				{
+					aux += inimigos[i];
+				}
+			}
+			if (inimigos[0])
 			{
-				float posX = static_cast<float>(rand() % 2100 + 500);
-				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(posX, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
+				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(500, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
 				e->set_lista(entidades_moveis);
 				e = nullptr;
 			}
-			float posX = static_cast<float>(rand() % 2100 + 500);
-			Entidades::Personagens::NuvemMal* n = new Entidades::Personagens::NuvemMal(Vector2F(posX, 65.0f), Vector2F(0.0f, 0.0f), "assets/nuvem_malvada.png", static_cast<Fase*> (this));
+			if (inimigos[1])
+			{
+				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(700, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
+				e->set_lista(entidades_moveis);
+				e = nullptr;
+			}
+			if (inimigos[2])
+			{
+				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(900, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
+				e->set_lista(entidades_moveis);
+				e = nullptr;
+			}
+			if (qtd == 4)
+			{
+				if (inimigos[3])
+				{
+					Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(1200, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
+					e->set_lista(entidades_moveis);
+					e = nullptr;
+				}
+			}
+			if (qtd == 5)
+			{
+				if (inimigos[4])
+				{
+					Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(1500, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
+					e->set_lista(entidades_moveis);
+					e = nullptr;
+				}
+			}
+
+			Entidades::Personagens::NuvemMal* n = new Entidades::Personagens::NuvemMal(Vector2F(1000, 65.0f), Vector2F(0.0f, 0.0f), "assets/nuvem_malvada.png", static_cast<Fase*> (this));
 			n->set_lista(entidades_moveis);
 			n = nullptr;
 		}
@@ -83,12 +127,6 @@ namespace Jogo
 			inicializar_entidades();
 		}
 
-		void Fase::terminar_fase()
-		{
-			
-			entidades_moveis.destruir();
-			entidades_estaticas.destruir();
-		}
 
 		void Fase::executar(float t)
 		{

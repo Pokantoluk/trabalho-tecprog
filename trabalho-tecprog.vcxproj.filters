@@ -1,202 +1,82 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Arquivos de Origem">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Arquivos de Cabeçalho">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Arquivos de Recurso">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Arquivos de Cabeçalho\Cabeçalhos de entidades">
-      <UniqueIdentifier>{5b357d56-339e-4a94-84c7-4a1361d0351f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Arquivos de Origem\Fonte de entidades">
-      <UniqueIdentifier>{c57a1913-731a-48cc-93bc-e4cf6a432570}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="Chefao.cpp" />
+    <ClCompile Include="Ente.cpp" />
+    <ClCompile Include="Fase.cpp" />
+    <ClCompile Include="Fase_1.cpp" />
+    <ClCompile Include="Fase_2.cpp" />
+    <ClCompile Include="Fogo.cpp" />
+    <ClCompile Include="GerenciadorColisoes.cpp" />
+    <ClCompile Include="GerenciadorEventos.cpp" />
+    <ClCompile Include="GerenciadorGrafico.cpp" />
+    <ClCompile Include="GerenciadorMenu.cpp" />
+    <ClCompile Include="Goomba.cpp" />
+    <ClCompile Include="Gosma.cpp" />
+    <ClCompile Include="Inimigo.cpp" />
+    <ClCompile Include="Jogador.cpp" />
+    <ClCompile Include="Jogo.cpp" />
+    <ClCompile Include="ListaEntidades.cpp" />
+    <ClCompile Include="Luigi.cpp" />
+    <ClCompile Include="Mario.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuGameover.cpp" />
+    <ClCompile Include="MenuPausa.cpp" />
+    <ClCompile Include="MenuPersonagens.cpp" />
+    <ClCompile Include="MenuPlacar.cpp" />
+    <ClCompile Include="MenuPrincipal.cpp" />
+    <ClCompile Include="MenuSeletor.cpp" />
+    <ClCompile Include="NuvemMal.cpp" />
+    <ClCompile Include="Obstaculo.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Entidade.cpp" />
+    <ClCompile Include="Pedra.cpp" />
+    <ClCompile Include="Personagem.cpp" />
+    <ClCompile Include="PontuacaoUI.cpp" />
+    <ClCompile Include="Projetil.cpp" />
+    <ClCompile Include="VidaUI.cpp" />
+    <ClCompile Include="Bandeira.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Jogo.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="ListaEntidades.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="GerenciadorEventos.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="GerenciadorGrafico.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="GerenciadorColisoes.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Fase.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Fase_1.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Fase_2.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Chefao.cpp">
-      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Ente.cpp">
-      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Entidade.cpp">
-      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Fogo.cpp">
-      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Goomba.cpp">
-      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Gosma.cpp">
-      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Inimigo.cpp">
-      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Jogador.cpp">
-      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Obstaculo.cpp">
-      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="NuvemMal.cpp">
-      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Personagem.cpp">
-      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="VidaUI.cpp">
-      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Mario.cpp">
-      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="Luigi.cpp">
-      <Filter>Arquivos de Origem\Fonte de entidades</Filter>
-    </ClCompile>
-    <ClCompile Include="PontuacaoUI.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Projetil.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Pedra.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Jogo.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="ListaEntidades.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="GerenciadorEventos.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2D.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="GerenciadorGrafico.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Lista.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="GerenciadorColisoes.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Fase.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Fase_1.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Fase_2.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Chefao.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Entidade.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Fogo.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Goomba.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Gosma.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Inimigo.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Jogador.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Obstaculo.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Personagem.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="NuvemMal.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="IDsEntidades.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Ente.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="ComponenteGrafico.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="VidaUI.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Mario.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="Luigi.h">
-      <Filter>Arquivos de Cabeçalho\Cabeçalhos de entidades</Filter>
-    </ClInclude>
-    <ClInclude Include="PontuacaoUI.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Projetil.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Pedra.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
+    <ClInclude Include="Chefao.h" />
+    <ClInclude Include="ComponenteGrafico.h" />
+    <ClInclude Include="Ente.h" />
+    <ClInclude Include="Fase.h" />
+    <ClInclude Include="Fase_1.h" />
+    <ClInclude Include="Fase_2.h" />
+    <ClInclude Include="Fogo.h" />
+    <ClInclude Include="GerenciadorColisoes.h" />
+    <ClInclude Include="GerenciadorEventos.h" />
+    <ClInclude Include="GerenciadorGrafico.h" />
+    <ClInclude Include="GerenciadorMenu.h" />
+    <ClInclude Include="Goomba.h" />
+    <ClInclude Include="Gosma.h" />
+    <ClInclude Include="IDsEntidades.h" />
+    <ClInclude Include="Inimigo.h" />
+    <ClInclude Include="Jogador.h" />
+    <ClInclude Include="Jogo.h" />
+    <ClInclude Include="Lista.h" />
+    <ClInclude Include="ListaEntidades.h" />
+    <ClInclude Include="Luigi.h" />
+    <ClInclude Include="Mario.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuGameover.h" />
+    <ClInclude Include="MenuPausa.h" />
+    <ClInclude Include="MenuPersonagens.h" />
+    <ClInclude Include="MenuPlacar.h" />
+    <ClInclude Include="MenuPrincipal.h" />
+    <ClInclude Include="MenuSeletor.h" />
+    <ClInclude Include="NuvemMal.h" />
+    <ClInclude Include="Obstaculo.h" />
+    <ClInclude Include="Entidade.h" />
+    <ClInclude Include="Pedra.h" />
+    <ClInclude Include="Personagem.h" />
+    <ClInclude Include="PontuacaoUI.h" />
+    <ClInclude Include="Projetil.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="VidaUI.h" />
+    <ClInclude Include="Bandeira.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

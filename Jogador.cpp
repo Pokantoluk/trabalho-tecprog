@@ -89,8 +89,8 @@ namespace Jogo
 			{
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 				{
-					Fases::Fase::set_pausa(true);
-					sf::sleep(sf::milliseconds(300));
+					//Fases::Fase::set_pausa(true);
+					//sf::sleep(sf::milliseconds(300));
 				}
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 				{
@@ -119,51 +119,58 @@ namespace Jogo
 			}
 			void Jogador::colidir(Entidade* ente, Vector2F intersse)
 			{
-				if (ente->get_id() == IDsEntidades::Inimigo)
+				if (ente != nullptr)
 				{
-					if (posicao.y + dimensao.y - 30 <= ente->get_pos().y)
+					if (ente->get_id() == IDsEntidades::Inimigo)
+					{
+						if (posicao.y + dimensao.y - 30 <= ente->get_pos().y)
+						{
+
+							posicao.y = ente->get_pos().y - dimensao.y;
+							v.y = -sqrtf(2.0f * GRAVIDADE * PULO);
+							pode_pular = true;
+						}
+						else if (posicao.x < ente->get_pos().x)
+						{
+							v.x = -500;
+
+							posicao.x = ente->get_pos().x - dimensao.x - 20;
+						}
+						else if (posicao.x > ente->get_pos().x)
+						{
+							v.x = +500;
+							posicao.x = ente->get_pos().x + ente->get_dim().x + 20;
+
+						}
+
+					}
+					else if (ente->get_id() == IDsEntidades::obstaculo)
 					{
 
-						posicao.y = ente->get_pos().y - dimensao.y;
-						v.y = -sqrtf(2.0f * GRAVIDADE * PULO);
-						pode_pular = true;
+						if (posicao.y + dimensao.y - 10 <= ente->get_pos().y)
+						{
+							v.y = 0;
+							posicao.y = ente->get_pos().y - dimensao.y;
+							pode_pular = true;
+						}
+						else if (posicao.x < ente->get_pos().x)
+						{
+							v.x = 0;
+							posicao.x = ente->get_pos().x - dimensao.x;
+						}
+						else if (posicao.x > ente->get_pos().x)
+						{
+							v.x = 0;
+							posicao.x = ente->get_pos().x + ente->get_dim().x;
+						}
 					}
-					else if (posicao.x < ente->get_pos().x)
+					else if(ente->get_id() == IDsEntidades::bandeira)
 					{
-						v.x = -500;
-
-						posicao.x = ente->get_pos().x - dimensao.x - 20;
-					}
-					else if (posicao.x > ente->get_pos().x)
-					{
-						v.x = +500;
-						posicao.x = ente->get_pos().x + ente->get_dim().x + 20;
-
-					}
-
-				}
-				else if (ente->get_id() == IDsEntidades::obstaculo)
-				{
-
-					if (posicao.y + dimensao.y - 10 <= ente->get_pos().y)
-					{
-						v.y = 0;
-						posicao.y = ente->get_pos().y - dimensao.y;
-						pode_pular = true;
-					}
-					else if (posicao.x < ente->get_pos().x)
-					{
-						v.x = 0;
-						posicao.x = ente->get_pos().x - dimensao.x;
-					}
-					else if (posicao.x > ente->get_pos().x)
-					{
-						v.x = 0;
-						posicao.x = ente->get_pos().x + ente->get_dim().x;
+						
 					}
 				}
 			}
-			void Jogador::pular() //para fazer o personagem pular
+			void Jogador::pular()
 			{
 				if (pode_pular)
 				{
@@ -176,25 +183,21 @@ namespace Jogo
 				andando = true;
 				olhando_esquerda = esquerda;
 			}
-			void Jogador::bordas()//para não sair da tela
+			void Jogador::bordas()
 			{
 				if (posicao.x < 0) { posicao.x = 0; }
 				if (posicao.y + dimensao.y >= 800)
 				{
 					posicao.y = 800 - dimensao.y;
-					//pode_pular = true;
+				
 					no_chao = true;
 				}
-				else
-				{
-					//pode_pular = false;
-				}
+				
 			}
 			bool Jogador::get_morto()
 			{
 				if (vidas <= 0)
 				{
-					Gerenciadores::GerenciadorGrafico::get_gerenciador()->centralizar(0.0f, 0.0f);
 					return true;
 				}
 				else

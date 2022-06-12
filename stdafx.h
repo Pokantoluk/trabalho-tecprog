@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 //std 
 #include <string>
 #include<typeindex>
@@ -24,5 +23,6 @@
 #include<SFML/Network.hpp>
 //outros
 #include <sstream>
+#include <Windows.h>
 
 

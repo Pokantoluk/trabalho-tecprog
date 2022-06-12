@@ -23,7 +23,7 @@ namespace Jogo
 		bool destruir;
 
 	public:
-		Entidade(IDsEntidades::IDsEntidades id, Vector2F pos = Vector2F(0.0f, 0.0f), Vector2F vel = Vector2F(0.0f, 0.0f), const char* caminho_textura = nullptr);
+		Entidade(IDsEntidades::IDsEntidades id = IDsEntidades::Inimigo, Vector2F pos = Vector2F(0.0f, 0.0f), Vector2F vel = Vector2F(0.0f, 0.0f), const char* caminho_textura = nullptr);
 		virtual ~Entidade();
 		virtual void executar(float t) = 0;
 		virtual void colidir(Entidade* ente, Vector2F interssec) = 0;
