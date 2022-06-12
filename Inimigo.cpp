@@ -13,6 +13,7 @@ namespace Jogo
 				pontos(pontuacao)
 
 			{
+				cont_tempo_imune = 2;
 			}
 
 			Inimigo::~Inimigo()

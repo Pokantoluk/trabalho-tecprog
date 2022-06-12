@@ -16,7 +16,7 @@ namespace Jogo
 
 		private:
 			Lista<Entidade> lista;
-			unsigned int tam;
+		    int tam;
 		public:
 			ListaEntidades();
 			~ListaEntidades();
@@ -26,7 +26,8 @@ namespace Jogo
 			void inicializar_entidades();
 			void percorrer_executar(float t);
 			void destruir();
-			unsigned int get_tam() { return tam; }
+			int get_tam() { return tam; }
+			
 
 		};
 	}
