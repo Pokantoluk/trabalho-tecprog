@@ -103,18 +103,11 @@ namespace Jogo
 		void GerenciadorGrafico::centralizar(Vector2F centro_1, Vector2F centro_2)//centraliza a camera no personagem
 		{
 			float centro = (centro_1.x + centro_2.x) / 2.0;
-			std::cout << centro<<std::endl;
+			//std::cout << centro<<std::endl;
 			if (centro < 400.f) { centro = 400.f; }
 			else if (centro > 2300.f) { centro = 2300.f; }
 			camera.setCenter(centro, 400.f);
 			janela->setView(camera);
-		}
-		void GerenciadorGrafico::set_textura_fundo(const char* caminho)
-		{
-
-			textura_fundo.loadFromFile(caminho);
-			fundo.setTexture(textura_fundo, true);
-			fundo.setOrigin(0.f, 0.f);
 		}
 		const Vector2F GerenciadorGrafico::get_tamanho(const std::string& caminho)
 		{

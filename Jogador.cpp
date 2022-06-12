@@ -20,7 +20,8 @@ namespace Jogo
 				olhando_esquerda(false),
 				pode_pular(false),
 				morto(false),
-				caminho_e(caminho_e)
+				caminho_e(caminho_e),
+				terminou_fase(false)
 			{
 
 			}
@@ -89,8 +90,8 @@ namespace Jogo
 			{
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 				{
-					//Fases::Fase::set_pausa(true);
-					//sf::sleep(sf::milliseconds(300));
+					Fases::Fase::set_pausa(true);
+					sf::sleep(sf::milliseconds(300));
 				}
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 				{
@@ -99,14 +100,6 @@ namespace Jogo
 				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 				{
 					andar(true);
-				}
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-				{
-					//posicao.y -= 0.1;
-				}
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-				{
-					//posicao.y += 0.1;
 				}
 				else
 				{
@@ -119,9 +112,7 @@ namespace Jogo
 			}
 			void Jogador::colidir(Entidade* ente, Vector2F intersse)
 			{
-				if (ente != nullptr)
-				{
-					if (ente->get_id() == IDsEntidades::Inimigo)
+					if (ente && ente->get_id() == IDsEntidades::Inimigo)
 					{
 						if (posicao.y + dimensao.y - 30 <= ente->get_pos().y)
 						{
@@ -144,7 +135,7 @@ namespace Jogo
 						}
 
 					}
-					else if (ente->get_id() == IDsEntidades::obstaculo)
+					else if (ente && ente->get_id() == IDsEntidades::obstaculo)
 					{
 
 						if (posicao.y + dimensao.y - 10 <= ente->get_pos().y)
@@ -164,11 +155,10 @@ namespace Jogo
 							posicao.x = ente->get_pos().x + ente->get_dim().x;
 						}
 					}
-					else if(ente->get_id() == IDsEntidades::bandeira)
+					else if(ente && ente->get_id() == IDsEntidades::bandeira)
 					{
-						
+						terminou_fase = true;
 					}
-				}
 			}
 			void Jogador::pular()
 			{

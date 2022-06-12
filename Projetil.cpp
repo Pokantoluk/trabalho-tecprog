@@ -1,13 +1,12 @@
 #include "Projetil.h"
-#include "NuvemMal.h"
+
 namespace Jogo
 {
     namespace Entidades
     {
         
-        Projetil::Projetil(Vector2F pos, Vector2F vel, const char* caminho_textura, Personagens::NuvemMal* n) :
-            Entidade(IDsEntidades::Projetil, pos, vel, caminho_textura),
-            nuvem(n)
+        Projetil::Projetil(Vector2F pos, Vector2F vel, const char* caminho_textura):
+            Entidade(IDsEntidades::Projetil, pos, vel, caminho_textura)
         {
            
         }
@@ -26,15 +25,17 @@ namespace Jogo
         {
             if (ente && ente->get_id() == IDsEntidades::Jogador)
             {
-                ente->machucar(1);
-                
+                ente->machucar(1);  
                 
             } 
-            this->Destruir();
+
+            if (ente && ente->get_id() != IDsEntidades::Projetil)
+            {
+                this->Destruir();
+                std::cout << "mandei destruir" << std::endl;
+            }
 
         }
-     
-
     }
 
 }
