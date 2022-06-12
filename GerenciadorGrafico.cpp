@@ -7,9 +7,7 @@ namespace Jogo
 		GerenciadorGrafico* GerenciadorGrafico::instancia = NULL;
 		GerenciadorGrafico::GerenciadorGrafico() :
 			janela(new sf::RenderWindow(sf::VideoMode(800, 800), "Jogo", sf::Style::Default)),
-			camera(),
-			textura_fundo(),
-			fundo()
+			camera()
 		{
 			camera.setSize(800.f, 800.f);
 			camera.setCenter(400.f, 400.f);
@@ -28,10 +26,9 @@ namespace Jogo
 		{
 			janela->display();
 		}
-		void GerenciadorGrafico::limpar(int r, int g, int b)
+		void GerenciadorGrafico::limpar() const
 		{
-			janela->clear(sf::Color(r, g, b));
-			janela->draw(fundo);
+			janela->clear(sf::Color(0, 0, 0));
 		}
 		void GerenciadorGrafico::desenhar(const std::string caminho, const Vector2F pos)
 		{
@@ -44,17 +41,8 @@ namespace Jogo
 			{
 				sf::Texture* text = texturas[caminho];
 				sf::Sprite sprite;
-
-				//TODO: verificar se a textura está completamente fora da camera e não desenhá-la.
-				sprite.setTexture(*text);
-				sf::RectangleShape ret;
-				float x = get_tamanho(caminho).x;
-
-				ret.setSize(sf::Vector2f(get_tamanho(caminho).x, get_tamanho(caminho).y));
-				ret.setFillColor(sf::Color::Black);
-				ret.setPosition(pos.x, pos.y);
+				sprite.setTexture(*text);	
 				sprite.setPosition(pos.x, pos.y);
-				//janela->draw(ret);//para verificar o hitbox da textura.
 				janela->draw(sprite);
 			}
 		}
@@ -80,7 +68,7 @@ namespace Jogo
 			t.setPosition(camera.getCenter().x + pos.x, camera.getCenter().y + pos.y);
 			janela->draw(t);
 		}
-		void GerenciadorGrafico::desenhar_menu(sf::Text t)
+		void GerenciadorGrafico::desenhar_menu(sf::Text t) const
 		{
 			janela->draw(t);
 		}
@@ -100,10 +88,10 @@ namespace Jogo
 				return true;
 			}
 		}
-		void GerenciadorGrafico::centralizar(Vector2F centro_1, Vector2F centro_2)//centraliza a camera no personagem
+		void GerenciadorGrafico::centralizar(Vector2F centro_1, Vector2F centro_2)
 		{
 			float centro = (centro_1.x + centro_2.x) / 2.0;
-			//std::cout << centro<<std::endl;
+			
 			if (centro < 400.f) { centro = 400.f; }
 			else if (centro > 2600.f) { centro = 2600.f; }
 			camera.setCenter(centro, 400.f);

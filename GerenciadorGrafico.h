@@ -11,8 +11,6 @@ namespace Jogo
 		class GerenciadorGrafico
 		{
 		private:
-			sf::Texture textura_fundo;
-			sf::Sprite fundo;
 			sf::RenderWindow* janela;
 			sf::View camera;
 			std::map<const std::string, sf::Texture*> texturas;
@@ -23,9 +21,9 @@ namespace Jogo
 			GerenciadorGrafico();
 			~GerenciadorGrafico();
 			void mostrar() const;
-			void limpar(int r = 0, int g = 0, int b = 0);
+			void limpar() const;
 			void desenhar(const std::string caminho, const Vector2F pos);
-			void desenhar_menu(sf::Text t);
+			void desenhar_menu(sf::Text t) const;
 			void desenharUI(const std::string caminho, const Vector2F pos);
 			void desenharUI(sf::Text t, const Vector2F pos);
 			bool carregar_textura(const std::string caminho);

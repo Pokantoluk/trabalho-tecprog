@@ -37,11 +37,7 @@ namespace Jogo
 					pular();
 				}
 			}
-			void Luigi::reiniciar()
-			{
-				posicao = (50.0f, 650.0f);
-				vidas = 6;
-			}
+			
 		}
 	}
 }

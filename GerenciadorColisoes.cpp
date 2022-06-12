@@ -19,7 +19,7 @@ namespace Jogo
             moveis->destruir();
             estaticos->destruir();
         }
-        bool GerenciadorColisoes::tentar_destruir(Entidade* ente, int index, bool estatico)
+        const bool GerenciadorColisoes::tentar_destruir(Entidade* ente, int index, bool estatico)
         {
             if (ente && ente->get_destruir() && ente->get_id() != IDsEntidades::Jogador)
             {
