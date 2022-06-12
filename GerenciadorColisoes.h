@@ -32,7 +32,7 @@ namespace Jogo
 		public:
 			GerenciadorColisoes(Listas::ListaEntidades* m = nullptr, Listas::ListaEntidades* e = nullptr);
 			~GerenciadorColisoes();
-			bool tentar_destruir(Entidade* ente, int index, bool estatico);
+			const bool tentar_destruir(Entidade* ente, int index, bool estatico);
 			void verificar_colisoes();
 		};
 	}

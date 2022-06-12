@@ -20,12 +20,10 @@ namespace Jogo
 			o11(new Entidades::Obstaculos::Plataforma(Vector2F(1900.0f, 700.0f), "assets/rectangle6.png")),
 			bandeira(new Entidades::Obstaculos::Bandeira(Vector2F(2900.0f, 500.0f), "assets/bandeira_mario.png"))
 		{	
-			
 		}
 
 		Fase_1::~Fase_1()
 		{
-			
 		}
 		void Fase_1::inicializar_entidades()
 		{
