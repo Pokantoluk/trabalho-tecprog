@@ -10,7 +10,13 @@ namespace Jogo
         {
             Fogo::Fogo(Vector2F pos, const char* caminho_textura) :
                 Obstaculo(pos, caminho_textura)
-            {}
+            {
+
+            }
+            Fogo::~Fogo()
+            {
+
+            }
             void Fogo::colidir(Entidade* ente, Vector2F intersse)
             {
                 if (ente && ente->get_id() == IDsEntidades::Jogador)
