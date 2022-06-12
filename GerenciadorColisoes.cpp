@@ -51,7 +51,7 @@ namespace Jogo
            
  
 
-            
+  
             for(i=0; i< estaticos->get_tam(); i++)
             { 
                 ent1 = (*estaticos)[i];
@@ -74,7 +74,8 @@ namespace Jogo
                 }
             }
             
-            /*colis„o entre objetos moveis e estaticos.*/
+
+            /*colis√£o entre objetos moveis e estaticos.*/
             for (i = 0; i < estaticos->get_tam(); i++)
             {
                 for (j = 0; j < moveis->get_tam(); j++)
@@ -102,7 +103,7 @@ namespace Jogo
 
             }
             
-            /*colis„o entre objetos moveis*/
+            /*colis√£o entre objetos moveis*/
             for (i = 0; i < moveis->get_tam(); i++)
             {
                 for (j = i + 1; j < moveis->get_tam(); j++)

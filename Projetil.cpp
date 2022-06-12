@@ -28,14 +28,14 @@ namespace Jogo
                 ente->machucar(1);  
                 
             } 
+
             if (ente && ente->get_id() != IDsEntidades::Projetil)
             {
                 this->Destruir();
                 std::cout << "mandei destruir" << std::endl;
             }
-        }
-     
 
+        }
     }
 
 }

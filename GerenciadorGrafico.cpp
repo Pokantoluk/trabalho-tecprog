@@ -109,13 +109,6 @@ namespace Jogo
 			camera.setCenter(centro, 400.f);
 			janela->setView(camera);
 		}
-		void GerenciadorGrafico::set_textura_fundo(const char* caminho)
-		{
-
-			textura_fundo.loadFromFile(caminho);
-			fundo.setTexture(textura_fundo, true);
-			fundo.setOrigin(0.f, 0.f);
-		}
 		const Vector2F GerenciadorGrafico::get_tamanho(const std::string& caminho)
 		{
 			if (!texturas.count(caminho))

@@ -71,17 +71,13 @@ namespace Jogo
 			mPa->executar();
 		}
 
-		bool GerenciadorMenu::set_gameover()
+		void GerenciadorMenu::set_gameover()
 		{
 			mGo->executar();
-			if (!fase) 
-			{
-				return true; 
-			}
-			else { return false; }
+			
 		}
 
-		void GerenciadorMenu::tratar_pontos(string nome)
+		void GerenciadorMenu::tratar_pontos(const string nome)
 		{
 			int ponto = Entidades::Personagens::Mario::get_pontuacao();
 			for (int i = 0; i < 4; i++)

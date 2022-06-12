@@ -6,8 +6,7 @@ namespace Jogo
 	namespace Fases
 	{
 		Fase_1::Fase_1() :
-			Fase(),
-			fundo_fase_1("assets/fundo_1.png"),
+			Fase("assets/fundo_1.png"),
 			o1(new Entidades::Obstaculos::Obstaculo(IDsEntidades::obstaculo, Vector2F(600.0f, 670.0f), "assets/plataforma.jpg")),
 			o2(new Entidades::Obstaculos::Obstaculo(IDsEntidades::obstaculo, Vector2F(700.0f, 670.0f), "assets/plataforma.jpg")),
 			//o2(new Entidades::Obstaculos::Obstaculo(Vector2F(650.0f, 670.0f), "assets/rectangle6.png")),
@@ -30,7 +29,7 @@ namespace Jogo
 			pedra2(new Entidades::Obstaculos::Pedra(Vector2F(1300.0f, 750.0f), "assets/rocks1_5.png")),
 			//chefao(new Entidades::Obstaculos::Obstaculo(Vector2F(2600.0f, 500.0f), "assets/chefao.png")),
 			gosma1( new Entidades::Obstaculos::Gosma(Vector2F(2000.0f,790.0f), "assets/gosma.png")),
-			bandeira(new Entidades::Obstaculos::Gosma(Vector2F(2600.0f, 500.0f), "assets/bandeira_mario.png"))
+			bandeira(new Entidades::Obstaculos::Bandeira(Vector2F(2600.0f, 500.0f), "assets/bandeira_mario.png"))
 
 		{
 			
@@ -70,9 +69,14 @@ namespace Jogo
 			entidades_moveis.inicializar_entidades();
 			entidades_estaticas.inicializar_entidades();
 		}
-		void Fase_1::carregar_fundo() const
+		bool Fase_1::get_fim()
 		{
-			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_fase_1);
+			if (bandeira->get_fim())
+			{
+				music.stop();
+			}
+
+			return bandeira->get_fim();
 		}
 	}
 }

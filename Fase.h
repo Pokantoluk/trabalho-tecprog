@@ -27,27 +27,27 @@ namespace Jogo
 			Gerenciadores::GerenciadorColisoes gc;
 			VidaUI* vidaui;
 			PontuacaoUI* pontuacaoui;
-			
 			sf::Music music;
       
 			static bool pausado;
 
 
 		public:
-			Fase();
+			Fase(const char* fundo = nullptr);
 			~Fase();
 
-			virtual void carregar_fundo() const;
+			void destruir_fase();
+
+			
 			virtual void randomizar_inimigos();
 			void inserir_jogador(Entidades::Personagens::Jogador* j);
 			virtual void inicializar_entidades();
-			void reiniciar_entidades(Vector2F pos_jogador);
 			void executar(float t);
 			void gerenciar_colisoes();
 			void musica(); 
 		    void add_projetil(Entidades::Projetil* proj);
 			static void set_pausa(bool pausa) { pausado = pausa; }
-			bool get_pausa() { return pausado; }
+			static bool get_pausa() { return pausado; }
 			
 		};
 

@@ -23,6 +23,7 @@ namespace Jogo
 				const char* caminho_e;
 				bool morto;
 				static int pontuacao;
+				bool terminou_fase;
 
 			public:
 				
@@ -44,6 +45,7 @@ namespace Jogo
 				static int get_pontuacao() { return pontuacao; }
 				bool get_morto();
 				const unsigned int get_vida() const { return vidas; }
+				
 			};
 		}
 	}

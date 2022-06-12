@@ -8,16 +8,33 @@ namespace Jogo
 	{
 		bool Fase::pausado{ false };
 
-		Fase::Fase() :
+		Fase::Fase(const char* fundo) :
 			gc(&entidades_moveis, &entidades_estaticas),
 			vidaui(nullptr),
-			pontuacaoui(new PontuacaoUI())
+			pontuacaoui(new PontuacaoUI()),
+			Ente(Vector2F(0,0),fundo, IDsEntidades::Fase)
 		{
 			musica();
+			Gerenciadores::GerenciadorGrafico::get_gerenciador()->carregar_textura(fundo);
 		}
 
 		Fase::~Fase()
 		{
+			destruir_fase();
+		}
+		void Fase::musica()
+		{
+			
+			if (!music.openFromFile("assets/SuperMarioBros.ogg"))
+				return;// error
+			music.play();
+			music.setVolume(4);
+			
+		}
+
+		void Fase::destruir_fase()
+		{
+			pausado = false;
 			entidades_moveis.destruir();
 			entidades_estaticas.destruir();
 			if (vidaui)
@@ -32,18 +49,8 @@ namespace Jogo
 				pontuacaoui = nullptr;
 			}
 		}
-		void Fase::musica()
-		{
-			
-			if (!music.openFromFile("assets/SuperMarioBros.ogg"))
-				return;// error
-			music.play();
-			music.setVolume(4);
-		}
 
-		void Fase::carregar_fundo() const
-		{
-		}
+	
 
 		void Fase::randomizar_inimigos()
 		{
@@ -120,16 +127,11 @@ namespace Jogo
 			entidades_estaticas.inicializar_entidades();
 		}
 
-		void Fase::reiniciar_entidades(Vector2F pos_jogador)
-		{
-			entidades_moveis.destruir();
-			entidades_estaticas.destruir();
-			inicializar_entidades();
-		}
 
 
 		void Fase::executar(float t)
 		{
+			imprimir_se();
 			entidades_moveis.percorrer_executar(t);
 			//std::cout << "banana" << std::endl;
 			entidades_estaticas.percorrer_executar(t);
@@ -139,7 +141,11 @@ namespace Jogo
 			vidaui->executar();
 			//std::cout << "tangerina" << std::endl;
 			pontuacaoui->executar();
+
 			//std::cout << "melancia" << std::endl;
+
+
+
 		}
 
 		void Fase::gerenciar_colisoes()

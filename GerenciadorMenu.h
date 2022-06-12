@@ -27,7 +27,7 @@ namespace Jogo
 			MenuPlacar* mPl;
 			MenuGameover* mGo;
 			MenuPausa* mPa;
-			vector<int> pontos;
+			vector<unsigned int> pontos;
 			vector<string> jogadores;
 
 
@@ -38,9 +38,9 @@ namespace Jogo
 
 			void executar();
 			void set_pausa();
-			bool set_gameover();
+			void set_gameover();
 
-			void tratar_pontos(string nome);
+			void tratar_pontos(const string nome);
 			void gravar();
 			void recuperar();
 
@@ -51,7 +51,7 @@ namespace Jogo
 
 			const unsigned int get_fase() const { return fase; }
 			const unsigned int get_num_jogadores() const { return num_jogadores; }
-			const vector<int> get_pontos() const { return pontos; }
+			const vector<unsigned int> get_pontos() const { return pontos; }
 			const vector<string> get_jogadores() const { return jogadores; }
 		};
 

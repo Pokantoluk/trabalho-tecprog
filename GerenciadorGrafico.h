@@ -30,7 +30,6 @@ namespace Jogo
 			void desenharUI(sf::Text t, const Vector2F pos);
 			bool carregar_textura(const std::string caminho);
 			void centralizar(Vector2F centro_1 = Vector2F(0.f,0.f), Vector2F centro_2 = Vector2F(0.f, 0.f));
-			void set_textura_fundo(const char* caminho);
 			sf::RenderWindow* get_janela() const { return janela; }
 			const Vector2F get_tamanho(const std::string& caminho);
 			static GerenciadorGrafico* get_gerenciador();
