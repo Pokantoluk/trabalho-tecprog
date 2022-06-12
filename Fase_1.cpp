@@ -9,15 +9,15 @@ namespace Jogo
 			Fase("assets/fundo_1.png"),
 			o1(new Entidades::Obstaculos::Plataforma(Vector2F(600.0f, 670.0f), "assets/plataforma.jpg")),
 			o2(new Entidades::Obstaculos::Plataforma(Vector2F(700.0f, 670.0f), "assets/plataforma.jpg")),
-			o6(new Entidades::Obstaculos::Plataforma(Vector2F(1500.0f, 700.0f), "assets/rectangle6.png")),
-			o7(new Entidades::Obstaculos::Plataforma(Vector2F(1550.0f, 680.0f), "assets/rectangle6.png")),
-			o8(new Entidades::Obstaculos::Plataforma(Vector2F(1600.0f, 660.0f), "assets/rectangle6.png")),
-			o9(new Entidades::Obstaculos::Plataforma(Vector2F(1650.0f, 640.0f), "assets/rectangle6.png")),
-			o10(new Entidades::Obstaculos::Plataforma(Vector2F(1700.0f, 620.0f), "assets/rectangle6.png")),
-			o11(new Entidades::Obstaculos::Plataforma(Vector2F(1750.0f, 640.0f), "assets/rectangle6.png")),
-			o12(new Entidades::Obstaculos::Plataforma(Vector2F(1800.0f, 660.0f), "assets/rectangle6.png")),
-			o13(new Entidades::Obstaculos::Plataforma(Vector2F(1850.0f, 680.0f), "assets/rectangle6.png")),
-			o14(new Entidades::Obstaculos::Plataforma(Vector2F(1900.0f, 700.0f), "assets/rectangle6.png")),
+			o3(new Entidades::Obstaculos::Plataforma(Vector2F(1500.0f, 700.0f), "assets/rectangle6.png")),
+			o4(new Entidades::Obstaculos::Plataforma(Vector2F(1550.0f, 680.0f), "assets/rectangle6.png")),
+			o5(new Entidades::Obstaculos::Plataforma(Vector2F(1600.0f, 660.0f), "assets/rectangle6.png")),
+			o6(new Entidades::Obstaculos::Plataforma(Vector2F(1650.0f, 640.0f), "assets/rectangle6.png")),
+			o7(new Entidades::Obstaculos::Plataforma(Vector2F(1700.0f, 620.0f), "assets/rectangle6.png")),
+			o8(new Entidades::Obstaculos::Plataforma(Vector2F(1750.0f, 640.0f), "assets/rectangle6.png")),
+			o9(new Entidades::Obstaculos::Plataforma(Vector2F(1800.0f, 660.0f), "assets/rectangle6.png")),
+			o10(new Entidades::Obstaculos::Plataforma(Vector2F(1850.0f, 680.0f), "assets/rectangle6.png")),
+			o11(new Entidades::Obstaculos::Plataforma(Vector2F(1900.0f, 700.0f), "assets/rectangle6.png")),
 			bandeira(new Entidades::Obstaculos::Bandeira(Vector2F(2900.0f, 500.0f), "assets/bandeira_mario.png"))
 		{	
 			
@@ -32,16 +32,16 @@ namespace Jogo
 			randomizar_inimigos();
 			randomizar_obstaculos();
 			o1->set_lista(entidades_estaticas);
+			o2->set_lista(entidades_estaticas);
+			o3->set_lista(entidades_estaticas);
+			o4->set_lista(entidades_estaticas);
+			o5->set_lista(entidades_estaticas);
 			o6->set_lista(entidades_estaticas);
 			o7->set_lista(entidades_estaticas);
 			o8->set_lista(entidades_estaticas);
 			o9->set_lista(entidades_estaticas);
 			o10->set_lista(entidades_estaticas);
 			o11->set_lista(entidades_estaticas);
-			o12->set_lista(entidades_estaticas);
-			o13->set_lista(entidades_estaticas);
-			o14->set_lista(entidades_estaticas);
-			o2->set_lista(entidades_estaticas);
 			bandeira->set_lista(entidades_estaticas);
 
 			entidades_moveis.inicializar_entidades();

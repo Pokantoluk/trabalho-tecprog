@@ -16,15 +16,15 @@ namespace Jogo
 		private:
 			Entidades::Obstaculos::Plataforma* o1;
 			Entidades::Obstaculos::Plataforma* o2;
+			Entidades::Obstaculos::Plataforma* o3;
+			Entidades::Obstaculos::Plataforma* o4;
+			Entidades::Obstaculos::Plataforma* o5;
 			Entidades::Obstaculos::Plataforma* o6;
 			Entidades::Obstaculos::Plataforma* o7;
 			Entidades::Obstaculos::Plataforma* o8;
 			Entidades::Obstaculos::Plataforma* o9;
 			Entidades::Obstaculos::Plataforma* o10;
 			Entidades::Obstaculos::Plataforma* o11;
-			Entidades::Obstaculos::Plataforma* o12;
-			Entidades::Obstaculos::Plataforma* o13;
-			Entidades::Obstaculos::Plataforma* o14;
 			Entidades::Obstaculos::Bandeira* bandeira;
 		public:
 			Fase_1();
