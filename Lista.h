@@ -147,13 +147,18 @@ namespace Jogo
 			}
 			if (aux == inicio)
 			{
+
 				inicio = aux->get_prox();
 				aux->get_prox()->set_ante(inicio);
+				inicio->set_ante(nullptr);
+
 			}
 			else if (aux == fim)
 			{
 				fim = aux->get_ante();
-				aux->get_ante()->set_prox(fim);
+				fim->get_ante()->set_prox(fim);
+				fim->set_prox(nullptr);
+
 			}
 			else
 			{

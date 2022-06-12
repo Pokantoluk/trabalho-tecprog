@@ -1,5 +1,6 @@
 #include "NuvemMal.h"
 #include "Fase.h"
+#define FORCA_DA_NUVEM  GRAVIDADE*100000000
 
 namespace Jogo
 {
@@ -35,6 +36,9 @@ namespace Jogo
 					mover(); 
 					cont_mover = 0;
 				}
+				
+				v.y += (GRAVIDADE * t) / (FORCA_DA_NUVEM* t);
+				posicao += v * t;
 				
 			}
 			void NuvemMal::colidir(Entidade* ente, Vector2F intersse)

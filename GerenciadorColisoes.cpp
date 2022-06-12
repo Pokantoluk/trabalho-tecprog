@@ -51,14 +51,14 @@ namespace Jogo
            
  
 
-            std::cout << "teste banana" << std::endl;
+            
             for(i=0; i< estaticos->get_tam(); i++)
             { 
                 ent1 = (*estaticos)[i];
                 if (tentar_destruir(ent1, i, true))
                 {
-                       
-                    i--;
+                    if(i<0)
+                     i--;
    
                 }
             }
@@ -68,11 +68,12 @@ namespace Jogo
                 ent1 = (*moveis)[i];
                 if (tentar_destruir(ent1, i, false))
                 {    
-                    i--;
+                    if(i<0)
+                      i--;
              
                 }
             }
-            std::cout << "teste" << std::endl;
+            
             /*colisão entre objetos moveis e estaticos.*/
             for (i = 0; i < estaticos->get_tam(); i++)
             {
@@ -100,7 +101,7 @@ namespace Jogo
                 }
 
             }
-            std::cout << "macaco" << std::endl;
+            
             /*colisão entre objetos moveis*/
             for (i = 0; i < moveis->get_tam(); i++)
             {
@@ -127,7 +128,7 @@ namespace Jogo
 
                 }
             }
-            std::cout << "analuisa" << std::endl;
+           
         }
     }
 }

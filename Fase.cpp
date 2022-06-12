@@ -67,13 +67,13 @@ namespace Jogo
 			}
 			if (inimigos[0])
 			{
-				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(500, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
+				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(600, 300.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
 				e->set_lista(entidades_moveis);
 				e = nullptr;
 			}
 			if (inimigos[1])
 			{
-				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(700, 700.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
+				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(650, 300.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
 				e->set_lista(entidades_moveis);
 				e = nullptr;
 			}
@@ -131,10 +131,15 @@ namespace Jogo
 		void Fase::executar(float t)
 		{
 			entidades_moveis.percorrer_executar(t);
+			//std::cout << "banana" << std::endl;
 			entidades_estaticas.percorrer_executar(t);
+			//std::cout << "morango" << std::endl;
 			gerenciar_colisoes();
+			//std::cout << "abacate" << std::endl;
 			vidaui->executar();
+			//std::cout << "tangerina" << std::endl;
 			pontuacaoui->executar();
+			//std::cout << "melancia" << std::endl;
 		}
 
 		void Fase::gerenciar_colisoes()
