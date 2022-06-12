@@ -171,6 +171,7 @@
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Pedra.cpp" />
     <ClCompile Include="Personagem.cpp" />
+    <ClCompile Include="Plataforma.cpp" />
     <ClCompile Include="PontuacaoUI.cpp" />
     <ClCompile Include="Projetil.cpp" />
     <ClCompile Include="VidaUI.cpp" />
@@ -210,6 +211,7 @@
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Pedra.h" />
     <ClInclude Include="Personagem.h" />
+    <ClInclude Include="Plataforma.h" />
     <ClInclude Include="PontuacaoUI.h" />
     <ClInclude Include="Projetil.h" />
     <ClInclude Include="stdafx.h" />

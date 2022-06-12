@@ -21,6 +21,8 @@ namespace Jogo
 				bool pode_pular;
 				bool olhando_esquerda;
 				const char* caminho_e;
+				const char* caminho_cinza;
+				const char* caminho_cinza_e;
 				bool morto;
 				static int pontuacao;
 				bool terminou_fase;
@@ -28,7 +30,7 @@ namespace Jogo
 			public:
 				
 
-				Jogador(Vector2F pos = Vector2F(0.0f, 0.0f), const char* caminho = nullptr, const char* caminho_e = nullptr);
+				Jogador(Vector2F pos = Vector2F(0.0f, 0.0f), const char* caminho = nullptr, const char* caminho_e = nullptr, const char* caminho_cinza = nullptr, const char* caminho_cinza_e = nullptr, unsigned int vidas = VIDA_MAX);
 				~Jogador();
 				void executar(float t);
 				void inicializar();
@@ -41,9 +43,8 @@ namespace Jogo
 				void bordas();
 				void set_pode_pular(bool pode) { pode_pular = pode; }
 				virtual void tratar_eventos();
-				static void incrementar_pontuacao(int pontos) { pontuacao += pontos; std::cout << pontuacao << std::endl; }
+				static void incrementar_pontuacao(int pontos) { pontuacao += pontos; std::cout << "\t" << pontuacao << std::endl; }
 				static int get_pontuacao() { return pontuacao; }
-				bool get_morto();
 				const unsigned int get_vida() const { return vidas; }
 				
 			};

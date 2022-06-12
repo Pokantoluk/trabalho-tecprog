@@ -1,4 +1,4 @@
-#include "Pedra.h"
+#include "Plataforma.h"
 
 namespace Jogo
 {
@@ -6,15 +6,15 @@ namespace Jogo
     {
         namespace Obstaculos
         {
-            Pedra::Pedra(Vector2F pos, const char* caminho_textura) :
+            Plataforma::Plataforma(Vector2F pos, const char* caminho_textura) :
                 Obstaculo(IDsEntidades::obstaculo, pos, caminho_textura)
             {
 
             }
-            Pedra::~Pedra()
+            Plataforma::~Plataforma()
             {
             }
-            void Pedra::colidir(Entidade * ente, Vector2F intersse)
+            void Plataforma::colidir(Entidade* ente, Vector2F intersse)
             {
 
             }

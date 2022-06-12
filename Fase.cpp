@@ -80,7 +80,7 @@ namespace Jogo
 			}
 			if (inimigos[1])
 			{
-				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(650, 300.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
+				Entidades::Personagens::Goomba* e = new Entidades::Personagens::Goomba(Vector2F(700, 300.0f), Vector2F(0.0f, 0.0f), "assets/goomba.png");
 				e->set_lista(entidades_moveis);
 				e = nullptr;
 			}

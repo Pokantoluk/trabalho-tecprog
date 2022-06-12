@@ -3,6 +3,7 @@
 #include "Fogo.h"
 #include "Gosma.h"
 #include "Pedra.h"
+#include "Plataforma.h"
 #include "Bandeira.h"
 
 namespace Jogo
@@ -13,26 +14,25 @@ namespace Jogo
 			public Fase
 		{
 		private:
-			Entidades::Obstaculos::Obstaculo* o1;
-			Entidades::Obstaculos::Obstaculo* o2;
-			Entidades::Obstaculos::Obstaculo* o3;
-			Entidades::Obstaculos::Obstaculo* o4;
-			Entidades::Obstaculos::Obstaculo* o5;
-			Entidades::Obstaculos::Obstaculo* o6;
-			Entidades::Obstaculos::Obstaculo* o7;
-			Entidades::Obstaculos::Obstaculo* o8;
-			Entidades::Obstaculos::Obstaculo* o9;
-			Entidades::Obstaculos::Obstaculo* o10;
-			Entidades::Obstaculos::Obstaculo* o11;
-			Entidades::Obstaculos::Obstaculo* o12;
-			Entidades::Obstaculos::Obstaculo* o13;
-			Entidades::Obstaculos::Obstaculo* o14;
+			Entidades::Obstaculos::Plataforma* o1;
+			Entidades::Obstaculos::Plataforma* o2;
+			Entidades::Obstaculos::Plataforma* o3;
+			Entidades::Obstaculos::Plataforma* o4;
+			Entidades::Obstaculos::Plataforma* o5;
+			Entidades::Obstaculos::Plataforma* o6;
+			Entidades::Obstaculos::Plataforma* o7;
+			Entidades::Obstaculos::Plataforma* o8;
+			Entidades::Obstaculos::Plataforma* o9;
+			Entidades::Obstaculos::Plataforma* o10;
+			Entidades::Obstaculos::Plataforma* o11;
+			Entidades::Obstaculos::Plataforma* o12;
+			Entidades::Obstaculos::Plataforma* o13;
+			Entidades::Obstaculos::Plataforma* o14;
 			Entidades::Obstaculos::Fogo* fogo;
 			Entidades::Obstaculos::Fogo* fogo1;
 			Entidades::Obstaculos::Fogo* fogo2;
 			Entidades::Obstaculos::Pedra* pedra;
 			Entidades::Obstaculos::Pedra* pedra2;
-			Entidades::Obstaculos::Obstaculo* chefao;
 			Entidades::Obstaculos::Gosma* gosma1;
 			Entidades::Obstaculos::Bandeira* bandeira;
 		public:
@@ -40,6 +40,8 @@ namespace Jogo
 			~Fase_1();
 
 			void inicializar_entidades();
+			void randomizar_obstaculos();
+			void randomizar_inimigos();
 			bool get_fim();
 		};
 	}

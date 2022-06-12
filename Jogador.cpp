@@ -14,13 +14,15 @@ namespace Jogo
 
 			
 			int Jogador::pontuacao = 0;
-			Jogador::Jogador(Vector2F pos, const char* caminho, const char* caminho_e) :
-				Personagem(IDsEntidades::Jogador, pos, Vector2F(0,0), caminho, VIDA_MAX),
+			Jogador::Jogador(Vector2F pos, const char* caminho, const char* caminho_e, const char* caminho_cinza, const char* caminho_cinza_e, unsigned int vidas) :
+				Personagem(IDsEntidades::Jogador, pos, Vector2F(0,0), caminho, vidas),
 				andando(false),
 				olhando_esquerda(false),
 				pode_pular(false),
 				morto(false),
 				caminho_e(caminho_e),
+				caminho_cinza(caminho_cinza),
+				caminho_cinza_e(caminho_cinza_e),
 				terminou_fase(false)
 			{
 
@@ -32,13 +34,23 @@ namespace Jogo
 			void Jogador::executar(float t)
 			{
 				cout << posicao.x<<endl;
-				atualizar(t);
-				imprimir_se();
+				
+				if (vidas > 0) 
+				{
+					atualizar(t);
+					imprimir_se();
+				}
+				else
+				{
+					posicao = (0.0f, -100.0f);
+				}
 				cont_tempo_imune += t;
 			}
 
 			void Jogador::inicializar()
 			{
+				Gerenciadores::GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho_cinza_e);
+				Gerenciadores::GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho_cinza);
 				Gerenciadores::GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho_e);
 				Gerenciadores::GerenciadorGrafico::get_gerenciador()->carregar_textura(caminho);
 				dimensao = Gerenciadores::GerenciadorGrafico::get_gerenciador()->get_tamanho(caminho);
@@ -82,7 +94,11 @@ namespace Jogo
 			}
 			void Jogador::imprimir_se()
 			{
-				if (olhando_esquerda)
+				if (cont_tempo_imune <= tempo_imune && olhando_esquerda)
+					Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar(caminho_cinza_e, posicao);
+				else if (cont_tempo_imune <= tempo_imune)
+					Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar(caminho_cinza, posicao);
+				else if (olhando_esquerda)
 					Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar(caminho_e, posicao);
 				else
 					Gerenciadores::GerenciadorGrafico::get_gerenciador()->desenhar(caminho, posicao);
@@ -118,7 +134,7 @@ namespace Jogo
 						if (posicao.y + dimensao.y - 30 <= ente->get_pos().y)
 						{
 
-							posicao.y = ente->get_pos().y - dimensao.y;
+							posicao.y = ente->get_pos().y - dimensao.y - 30;
 							v.y = -sqrtf(2.0f * GRAVIDADE * PULO);
 							pode_pular = true;
 						}
@@ -126,13 +142,12 @@ namespace Jogo
 						{
 							v.x = -500;
 
-							posicao.x = ente->get_pos().x - dimensao.x - 20;
+							posicao.x = ente->get_pos().x - dimensao.x - 100;
 						}
 						else if (posicao.x > ente->get_pos().x)
 						{
 							v.x = +500;
 							posicao.x = ente->get_pos().x + ente->get_dim().x + 20;
-
 						}
 
 					}
@@ -185,15 +200,7 @@ namespace Jogo
 				}
 				
 			}
-			bool Jogador::get_morto()
-			{
-				if (vidas <= 0)
-				{
-					return true;
-				}
-				else
-					return false;
-			}
+			
 			
 		}
 	}

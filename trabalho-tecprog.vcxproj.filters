@@ -36,6 +36,7 @@
     <ClCompile Include="Projetil.cpp" />
     <ClCompile Include="VidaUI.cpp" />
     <ClCompile Include="Bandeira.cpp" />
+    <ClCompile Include="Plataforma.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chefao.h" />
@@ -77,6 +78,7 @@
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="VidaUI.h" />
     <ClInclude Include="Bandeira.h" />
+    <ClInclude Include="Plataforma.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

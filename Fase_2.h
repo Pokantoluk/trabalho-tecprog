@@ -18,6 +18,7 @@ namespace Jogo {
             ~Fase_2();
 
             void inicializar_entidades();
+            void randomizar_inimigos();
             bool get_fim();
         };
 
