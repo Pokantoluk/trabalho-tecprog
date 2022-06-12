@@ -11,7 +11,6 @@ namespace Jogo {
             public Fase
         {
         private:
-            const char* fundo_fase_2;
             Entidades::Obstaculos::Bandeira* bandeira;
 
         public:
@@ -19,7 +18,6 @@ namespace Jogo {
             ~Fase_2();
 
             void inicializar_entidades();
-            void carregar_fundo() const;
             bool get_fim();
         };
 

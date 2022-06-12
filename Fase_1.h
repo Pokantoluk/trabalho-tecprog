@@ -35,14 +35,11 @@ namespace Jogo
 			Entidades::Obstaculos::Obstaculo* chefao;
 			Entidades::Obstaculos::Gosma* gosma1;
 			Entidades::Obstaculos::Bandeira* bandeira;
-
-			const char* fundo_fase_1;
 		public:
 			Fase_1();
 			~Fase_1();
 
 			void inicializar_entidades();
-			void carregar_fundo() const;
 			bool get_fim();
 		};
 	}

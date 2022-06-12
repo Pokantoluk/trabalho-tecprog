@@ -29,7 +29,6 @@ namespace Jogo
 		jogador_1 = new Entidades::Personagens::Mario(Vector2F(50.0f, 650.0f));
 		jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f));
 		fase_1 = new Fases::Fase_1();
-		fase_1->carregar_fundo();
 		fase_1->inserir_jogador(jogador_1);
 		
 		if (dois_jogadores)
@@ -43,7 +42,6 @@ namespace Jogo
 		jogador_1 = new Entidades::Personagens::Mario(Vector2F(50.0f, 650.0f));
 		jogador_2 = new Entidades::Personagens::Luigi(Vector2F(20.0f, 650.0f));
 		fase_2 = new Fases::Fase_2();
-		fase_2->carregar_fundo();
 		fase_2->inserir_jogador(jogador_1);
 		if (dois_jogadores)
 		{

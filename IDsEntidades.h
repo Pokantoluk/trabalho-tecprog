@@ -10,7 +10,8 @@ namespace Jogo
 			Inimigo,
 			obstaculo,
 			Projetil,
-			bandeira
+			bandeira,
+			Fase
 
 		};
 	}

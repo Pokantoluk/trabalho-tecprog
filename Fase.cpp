@@ -8,12 +8,14 @@ namespace Jogo
 	{
 		bool Fase::pausado{ false };
 
-		Fase::Fase() :
+		Fase::Fase(const char* fundo) :
 			gc(&entidades_moveis, &entidades_estaticas),
 			vidaui(nullptr),
-			pontuacaoui(new PontuacaoUI())
+			pontuacaoui(new PontuacaoUI()),
+			Ente(Vector2F(0,0),fundo, IDsEntidades::Fase)
 		{
 			musica();
+			Gerenciadores::GerenciadorGrafico::get_gerenciador()->carregar_textura(fundo);
 		}
 
 		Fase::~Fase()
@@ -48,9 +50,7 @@ namespace Jogo
 			}
 		}
 
-		void Fase::carregar_fundo() const
-		{
-		}
+	
 
 		void Fase::randomizar_inimigos()
 		{
@@ -131,6 +131,7 @@ namespace Jogo
 
 		void Fase::executar(float t)
 		{
+			imprimir_se();
 			entidades_moveis.percorrer_executar(t);
 			entidades_estaticas.percorrer_executar(t);
 			gerenciar_colisoes();

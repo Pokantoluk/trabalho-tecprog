@@ -6,8 +6,7 @@ namespace Jogo
 	namespace Fases
 	{
 		Fase_1::Fase_1() :
-			Fase(),
-			fundo_fase_1("assets/fundo_1.png"),
+			Fase("assets/fundo_1.png"),
 			o1(new Entidades::Obstaculos::Obstaculo(IDsEntidades::obstaculo, Vector2F(600.0f, 670.0f), "assets/plataforma.jpg")),
 			//o2(new Entidades::Obstaculos::Obstaculo(Vector2F(650.0f, 670.0f), "assets/rectangle6.png")),
 			//o3(new Entidades::Obstaculos::Obstaculo(Vector2F(700.0f, 670.0f), "assets/rectangle6.png")),
@@ -67,10 +66,6 @@ namespace Jogo
 
 			entidades_moveis.inicializar_entidades();
 			entidades_estaticas.inicializar_entidades();
-		}
-		void Fase_1::carregar_fundo() const
-		{
-			Gerenciadores::GerenciadorGrafico::get_gerenciador()->set_textura_fundo(fundo_fase_1);
 		}
 		bool Fase_1::get_fim()
 		{
