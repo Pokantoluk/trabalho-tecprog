@@ -136,7 +136,8 @@ namespace Jogo
 						if (fase_1->get_fim())
 						{
 							m_vidas = jogador_1->get_vida();
-							l_vidas = jogador_2->get_vida();
+							if(dois_jogadores)
+								l_vidas = jogador_2->get_vida();
 							gm.set_fase(2);
 							na_fase = false;
 						}
@@ -188,7 +189,11 @@ namespace Jogo
 							gg.centralizar(jogador_1->get_pos(), jogador_1->get_pos());
 						if (fase_2->get_fim())
 						{
+							m_vidas = jogador_1->get_vida();
+							if (dois_jogadores)
+								l_vidas = jogador_2->get_vida();
 							gm.set_fase(3);
+							na_fase = false;
 						}
 					}
 				}

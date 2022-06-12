@@ -10,7 +10,7 @@ namespace Jogo
 			
 
 			Luigi::Luigi(Vector2F pos, unsigned int vidas):
-				Jogador(pos, "assets/luigi.png", "assets/luigi_e.png", "assets/luigi_cinza.png", "assets luigi_cinza_e.png", vidas)
+				Jogador(pos, "assets/luigi.png", "assets/luigi_e.png", "assets/luigi_cinza.png", "assets/luigi_cinza_e.png", vidas)
 			{
 
 			}
